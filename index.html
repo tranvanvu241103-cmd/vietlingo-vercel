@@ -1,0 +1,5610 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VietLingo Pro - 50 bài học tiếng Việt nâng cấp</title>
+<style>
+:root{--g:#58cc02;--gd:#46a302;--b:#1cb0f6;--p:#8b5cf6;--r:#ff4b4b;--ink:#111827;--m:#6b7280;--line:#e5e7eb;--bg:#f7fafc;--sh:0 18px 48px rgba(15,23,42,.12);--font:"Segoe UI",Arial,system-ui,-apple-system,BlinkMacSystemFont,sans-serif}
+*{box-sizing:border-box}body{margin:0;font-family:var(--font);font-weight:400;color:var(--ink);background:radial-gradient(circle at top left,rgba(88,204,2,.18),transparent 35%),radial-gradient(circle at top right,rgba(28,176,246,.16),transparent 30%),var(--bg)}
+.app{display:grid;grid-template-columns:350px minmax(0,1fr);min-height:100vh}aside{position:sticky;top:0;height:100vh;overflow:auto;padding:22px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-right:1px solid var(--line)}main{padding:28px;max-width:1300px;width:100%;margin:auto}
+.brand{display:flex;gap:12px;align-items:center}.owl{width:58px;height:58px;border-radius:19px;background:linear-gradient(145deg,var(--g),#9bee00);display:grid;place-items:center;font-size:31px;color:white;animation:bob 2.2s infinite ease-in-out;box-shadow:0 12px 24px rgba(88,204,2,.28)}@keyframes bob{50%{transform:translateY(-6px)}}h1{font-size:24px;margin:0}.sub,.mini{color:var(--m);font-size:13px;line-height:1.45}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}.stat b{display:block;font-size:23px}.stat span{font-size:12px;color:var(--m)}.search{width:100%;border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:14px;outline:none;background:white;margin-bottom:12px}.search:focus{border-color:var(--b)}
+.lesson-list{display:flex;flex-direction:column;gap:10px}.lesson-btn{border:1px solid var(--line);background:white;border-radius:18px;padding:12px;display:flex;gap:12px;align-items:center;text-align:left;cursor:pointer;transition:.16s}.lesson-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(15,23,42,.08)}.lesson-btn.active{border-color:var(--g);box-shadow:0 0 0 4px rgba(88,204,2,.14)}.node{min-width:38px;height:38px;border-radius:50%;background:#e9fbdc;color:var(--gd);display:grid;place-items:center;font-weight:750}.done .node{background:var(--g);color:white}.lesson-title{font-weight:750;font-size:14px;line-height:1.25}.lesson-small{font-size:12px;color:var(--m)}.count{font-size:11px;color:var(--b);font-weight:700}
+.hero{background:linear-gradient(135deg,#fff,#efffe7);border:1px solid var(--line);border-radius:34px;padding:26px;box-shadow:var(--sh);display:grid;grid-template-columns:1fr 230px;gap:20px;align-items:center;animation:fade .35s both}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.pill{display:inline-flex;background:#e9fbdc;color:var(--gd);border-radius:99px;padding:8px 12px;font-weight:750;font-size:13px}.hero h2{font-size:42px;line-height:1.08;margin:14px 0 8px;font-weight:750}.hero p{font-size:16px;color:var(--m);line-height:1.55}.big{width:210px;height:210px;border-radius:50%;background:linear-gradient(145deg,var(--g),#9bee00);display:grid;place-items:center;font-size:86px;color:white;box-shadow:0 25px 55px rgba(88,204,2,.28)}
+.bar{height:16px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:16px 0}.bar div{height:100%;background:linear-gradient(90deg,var(--g),var(--b));width:0%;transition:.3s}.actions{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary,.danger,.speaker{font-family:inherit;border-radius:16px;padding:12px 15px;font-weight:750;cursor:pointer;border:none}.primary{background:var(--g);color:white;box-shadow:0 7px 0 var(--gd)}.secondary{background:white;color:var(--ink);border:2px solid var(--line)}.danger{background:#fff0f0;color:var(--r);border:2px solid #ffd0d0}.speaker{background:#e8f7ff;color:#0678b8;padding:9px 11px}.slow{background:#f5edff;color:#6d28d9}.primary:active{transform:translateY(5px);box-shadow:0 2px 0 var(--gd)}
+.card{background:white;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 10px 28px rgba(15,23,42,.06)}.voicebox{margin-top:14px;border-left:6px solid var(--b)}.voice-grid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.select{border:2px solid var(--line);border-radius:14px;padding:10px;background:white;font-weight:650}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 16px}.tab{background:white;color:var(--m);border:1px solid var(--line);border-radius:99px;padding:12px 15px;font-weight:750;cursor:pointer}.tab.active{background:var(--ink);color:white}.panel{display:none;animation:fade .25s both}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.vocab-card{min-height:150px;display:flex;flex-direction:column;justify-content:space-between;transition:.16s;cursor:pointer}.vocab-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(15,23,42,.10)}.vi{font-size:25px;font-weight:750;line-height:1.22}.en{color:var(--m);font-weight:650;margin-top:6px;line-height:1.35}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.quiz{max-width:880px}.option{display:block;width:100%;text-align:left;background:white;border:2px solid var(--line);border-radius:18px;padding:15px;margin:10px 0;font-weight:750;line-height:1.3;cursor:pointer}.option:hover{border-color:var(--b);transform:translateX(4px)}.correct{background:#e9fbdc!important;border-color:var(--g)!important}.wrong{background:#ffe8e8!important;border-color:var(--r)!important}
+input.answer,textarea.answer{width:100%;border:2px solid var(--line);border-radius:16px;padding:14px;font-size:16px;outline:none}input.answer:focus,textarea.answer:focus{border-color:var(--p)}.input-row{display:flex;gap:10px;margin-top:12px}.input-row input{flex:1}
+.flash-stage{display:grid;place-items:center;min-height:360px}.flashcard{width:min(560px,100%);height:300px;perspective:1000px;cursor:pointer}.flash-inner{width:100%;height:100%;position:relative;transition:.55s;transform-style:preserve-3d}.flashcard.flipped .flash-inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);border-radius:30px;background:white;display:grid;place-items:center;text-align:center;padding:28px;box-shadow:var(--sh)}.back{transform:rotateY(180deg);background:linear-gradient(135deg,#fff,#effaff)}.word{font-size:46px;font-weight:750;line-height:1.18}.hint{color:var(--m);font-weight:650;margin-top:10px}.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px}.match-col{display:grid;gap:12px;align-content:start}.match-head{color:var(--m);font-size:12px;font-weight:750;text-transform:uppercase;letter-spacing:0}.match-item{border:2px solid var(--line);background:white;border-radius:18px;padding:15px;font-weight:700;line-height:1.3;cursor:pointer}.match-item[data-type=vi]{font-size:20px;font-weight:750}.match-item[data-type=en]{font-size:17px}.selected{border-color:var(--b)!important;background:#e8f7ff!important}.matched{border-color:var(--g)!important;background:#e9fbdc!important;opacity:.7;pointer-events:none}.example{background:#f9fafb;border:1px dashed #d1d5db;border-radius:16px;padding:14px;margin-top:10px;display:flex;justify-content:space-between;gap:10px;align-items:center}.review-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:white;border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-top:10px}.toast{position:fixed;right:22px;bottom:22px;background:var(--ink);color:white;border-radius:18px;padding:14px 18px;box-shadow:var(--sh);opacity:0;transform:translateY(16px);transition:.25s;z-index:20}.toast.show{opacity:1;transform:none}.chunk-btn{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:90px}.chunk-vi{font-weight:750;line-height:1.25}.chunk-en{display:none;color:var(--m);font-size:12px;font-weight:650;line-height:1.25}.chunk-btn.revealed .chunk-en{display:block}.english-line{margin-top:8px;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--m);font-weight:650}.english-line b{color:var(--ink)}.question-bank{display:grid;gap:14px;max-width:920px}.question-card{background:white;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}.question-card h3{margin:0 0 8px}.model-answer{display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:14px;padding:12px;margin-top:10px}.model-answer.show{display:block}.score-chip{display:inline-flex;align-items:center;gap:6px;border-radius:99px;background:#eef2ff;color:#4338ca;font-weight:700;font-size:12px;padding:6px 9px;margin-top:8px}.footer{text-align:center;color:var(--m);font-size:13px;margin:24px 0}
+@media(max-width:1050px){.app{grid-template-columns:1fr}aside{position:relative;height:auto}.hero{grid-template-columns:1fr}.big{display:none}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}@media(max-width:620px){main{padding:16px}.grid{grid-template-columns:1fr}.hero h2{font-size:31px}.input-row,.voice-grid{grid-template-columns:1fr;display:grid}.match-grid{grid-template-columns:1fr}}
+.level-section{margin-bottom:24px}.level-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin:8px 0 12px}.level-head h2{margin:0;font-size:24px;font-weight:750}.level-desc{color:var(--m);font-weight:650;font-size:13px}.level-badge{border-radius:99px;padding:8px 11px;font-weight:750;font-size:12px}.level-basic{background:#e9fbdc;color:var(--gd)}.level-practical{background:#e8f7ff;color:#0678b8}.level-expanded{background:#f5edff;color:#6d28d9}.vocab-level{font-size:11px;font-weight:700;color:var(--b);margin-top:7px}
+.today-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.today-hero{background:linear-gradient(135deg,#fff,#eef8ff);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 28px rgba(15,23,42,.06)}.today-hero h2{margin:0 0 8px;font-size:30px;font-weight:750;line-height:1.08}.today-hero p{color:var(--m);line-height:1.5;margin:0}.coach-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.coach-stat{background:white;border:1px solid var(--line);border-radius:16px;padding:12px}.coach-stat b{display:block;font-size:22px}.coach-stat span{color:var(--m);font-size:12px}.practice-list{display:grid;gap:10px}.practice-card{background:white;border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.practice-card .vi{font-size:22px}.practice-card .en{font-size:14px}.status-chip{display:inline-flex;border-radius:99px;padding:5px 8px;font-size:11px;font-weight:750;margin-top:7px}.status-new{background:#eef2ff;color:#4338ca}.status-learning{background:#fff7ed;color:#c2410c}.status-weak{background:#ffe8e8;color:#b91c1c}.status-strong{background:#e9fbdc;color:#3f8f12}.usage-note{margin-top:8px;color:var(--m);font-size:13px;line-height:1.4}.mini-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.mini-actions button{padding:9px 10px;border-radius:12px}.section-title{font-size:20px;font-weight:750;margin:0 0 10px}.empty-state{border:1px dashed #cbd5e1;border-radius:18px;padding:18px;color:var(--m);background:#f8fafc}@media(max-width:900px){.today-grid,.coach-row{grid-template-columns:1fr}.practice-card{grid-template-columns:1fr}.mini-actions{justify-content:flex-start}}
+.speaking-card .actions{margin-bottom:18px}.speech-target{font-size:24px;font-weight:750;line-height:1.2;margin:14px 0 10px}.hidden-answer{display:none}.hidden-answer.show{display:block}.listen-card{background:#f8fafc;border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;color:var(--m);font-weight:700}.speech-heard{min-height:54px;background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:16px;color:var(--ink);font-size:20px}.mic-status{display:inline-flex;align-items:center;gap:8px;border-radius:99px;background:#eef2ff;color:#4338ca;font-weight:700;font-size:13px;padding:8px 11px;margin-top:12px}.mic-status.listening{background:#ffe8e8;color:#b91c1c}.mic-status.good{background:#e9fbdc;color:#3f8f12}.mic-status.warn{background:#fff7ed;color:#c2410c}
+
+/* mobile-fix: phone layout for VietLingo */
+@media (max-width: 760px) {
+  html, body { width: 100%; overflow-x: hidden !important; }
+  .app { display: block !important; min-height: 100vh !important; }
+  aside { position: relative !important; top: auto !important; height: auto !important; max-height: 46vh !important; overflow: auto !important; padding: 14px !important; border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+  main { width: 100% !important; max-width: none !important; padding: 14px !important; margin: 0 !important; }
+  .brand { gap: 10px !important; }
+  .owl { width: 42px !important; height: 42px !important; min-width: 42px !important; border-radius: 13px !important; font-size: 22px !important; }
+  h1 { font-size: 20px !important; line-height: 1.2 !important; }
+  .sub, .mini { font-size: 12px !important; }
+  .stats { grid-template-columns: 1fr 1fr !important; gap: 8px !important; margin: 12px 0 !important; }
+  .stat { padding: 10px !important; border-radius: 14px !important; }
+  .lesson-list { gap: 8px !important; }
+  .lesson-btn { padding: 10px !important; border-radius: 14px !important; }
+  .hero { grid-template-columns: 1fr !important; padding: 18px !important; border-radius: 22px !important; gap: 12px !important; }
+  .hero h2 { font-size: 28px !important; line-height: 1.12 !important; overflow-wrap: anywhere; }
+  .hero p { font-size: 14px !important; }
+  .big { display: none !important; }
+  .voice-grid, .input-row, .two, .today-grid, .coach-row, .practice-card { display: grid !important; grid-template-columns: 1fr !important; gap: 10px !important; }
+  .tabs { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; gap: 7px !important; margin: 14px 0 12px !important; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex: 0 0 auto !important; min-height: 42px !important; padding: 10px 12px !important; white-space: nowrap !important; }
+  .grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .card, .today-hero, .question-card { padding: 15px !important; border-radius: 18px !important; }
+  .vocab-card { min-height: 126px !important; }
+  .vi { font-size: 22px !important; overflow-wrap: anywhere; }
+  .en { font-size: 14px !important; overflow-wrap: anywhere; }
+  .actions, .controls, .mini-actions { display: flex !important; gap: 8px !important; overflow-x: auto !important; flex-wrap: nowrap !important; justify-content: flex-start !important; padding-bottom: 3px !important; }
+  .actions button, .controls button, .mini-actions button { flex: 0 0 auto !important; }
+  button, input, select, textarea { max-width: 100% !important; font-size: 15px !important; }
+  button, .primary, .secondary, .danger, .speaker { min-height: 42px !important; white-space: normal !important; }
+  .match-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .match-item { padding: 13px !important; }
+  .flash-stage { min-height: 300px !important; }
+  .flashcard { height: 250px !important; }
+  .word { font-size: 32px !important; overflow-wrap: anywhere; }
+  .toast { left: 14px !important; right: 14px !important; bottom: 14px !important; }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand"><div class="owl">🦉</div><div><h1>VietLingo Pro</h1><div class="sub">50 bài · 2250 từ/cụm từ · 3 levels · voice · listening</div></div></div>
+  <div class="stats"><div class="stat"><b id="xp">0</b><span>XP</span></div><div class="stat"><b id="done">0/50</b><span>Bài hoàn thành</span></div></div>
+  <input class="search" id="search" placeholder="Tìm bài, chủ đề, từ vựng...">
+  <div class="lesson-list" id="lessonList"></div>
+</aside>
+<main>
+  <section class="hero"><div>
+    <span class="pill">🎧 Real learning mode</span>
+    <h2 id="lessonHeading">Loading...</h2><p id="lessonDesc"></p>
+    <div class="bar"><div id="progress"></div></div>
+    <div class="actions"><button class="primary" onclick="markComplete()">Hoàn thành bài +20 XP</button><button class="secondary" onclick="speakLessonList()">Nghe toàn bộ từ vựng</button><button class="secondary" onclick="showTab('review')">Ôn từ sai</button></div>
+  </div><div class="big">🇻🇳</div></section>
+
+  <div class="card voicebox"><div class="voice-grid"><div><b>Voice status:</b> <span id="voiceStatus">Đang kiểm tra...</span><div class="mini">Voice tự nhiên nhất trong HTML tĩnh: tự chấm điểm và ưu tiên voice vi-VN bản ngữ trên máy; nếu chưa có thì dùng online Vietnamese TTS fallback. Muốn giống người Việt hơn, hãy cài Vietnamese voice trong Windows/Chrome.</div></div><div class="actions"><select id="voiceMode" class="select" onchange="setVoiceMode(this.value)"><option value="auto">Auto best</option><option value="online">Online Vietnamese TTS</option><option value="browser">Browser vi-VN</option></select><button class="primary" onclick="testVoice()">Test voice</button></div></div></div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="today">Today</button><button class="tab" data-tab="vocab">Vocabulary</button><button class="tab" data-tab="listening">Listening</button><button class="tab" data-tab="dictation">Dictation</button><button class="tab" data-tab="flash">Flashcards</button><button class="tab" data-tab="quiz">Meaning Quiz</button><button class="tab" data-tab="typing">Typing</button><button class="tab" data-tab="speaking">Speaking</button><button class="tab" data-tab="questions">Real-Life Questions</button><button class="tab" data-tab="match">Matching</button><button class="tab" data-tab="grammar">Usage Notes</button><button class="tab" data-tab="review">Mistake Review</button>
+  </div>
+  <section class="panel active" id="today"></section><section class="panel" id="vocab"></section><section class="panel" id="listening"></section><section class="panel" id="dictation"></section><section class="panel" id="flash"></section><section class="panel" id="quiz"></section><section class="panel" id="typing"></section><section class="panel" id="speaking"></section><section class="panel" id="questions"></section><section class="panel" id="match"></section><section class="panel" id="grammar"></section><section class="panel" id="review"></section>
+  <p class="footer">Use Voice for normal speed and Slow for careful listening. Mistakes are saved automatically in Mistake Review. Real-Life Questions trains useful Vietnamese you can actually say in daily situations.</p>
+</main>
+</div>
+<audio id="ttsAudio" preload="none"></audio><div class="toast" id="toast"></div>
+<script>
+const lessons = [
+  {
+    "id": 1,
+    "titleEn": "Greetings & Introductions",
+    "titleVi": "Chào hỏi & giới thiệu",
+    "grammar": "Vietnamese greetings rely on politeness and relationship. Use “xin chào” safely with anyone; use “tôi là...” for self-introduction.",
+    "vocab": [
+      {
+        "vi": "xin chào",
+        "en": "hello"
+      },
+      {
+        "vi": "chào bạn",
+        "en": "hi / hello to you"
+      },
+      {
+        "vi": "tạm biệt",
+        "en": "goodbye"
+      },
+      {
+        "vi": "hẹn gặp lại",
+        "en": "see you again"
+      },
+      {
+        "vi": "cảm ơn",
+        "en": "thank you"
+      },
+      {
+        "vi": "xin lỗi",
+        "en": "sorry / excuse me"
+      },
+      {
+        "vi": "tôi",
+        "en": "I / me"
+      },
+      {
+        "vi": "bạn",
+        "en": "you"
+      },
+      {
+        "vi": "tên",
+        "en": "name"
+      },
+      {
+        "vi": "tôi tên là",
+        "en": "my name is"
+      },
+      {
+        "vi": "rất vui",
+        "en": "very happy / nice"
+      },
+      {
+        "vi": "gặp",
+        "en": "meet"
+      },
+      {
+        "vi": "người nước ngoài",
+        "en": "foreigner"
+      },
+      {
+        "vi": "người Việt",
+        "en": "Vietnamese person"
+      },
+      {
+        "vi": "đến từ",
+        "en": "come from"
+      },
+      {
+        "vi": "ở đâu",
+        "en": "where"
+      },
+      {
+        "vi": "bao nhiêu tuổi",
+        "en": "how old"
+      },
+      {
+        "vi": "khỏe",
+        "en": "healthy / well"
+      },
+      {
+        "vi": "vâng",
+        "en": "yes / polite yes"
+      },
+      {
+        "vi": "không",
+        "en": "no / not"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Chào hỏi & giới thiệu.",
+      "Làm ơn nói chậm từ “xin chào”.",
+      "“xin chào” có nghĩa là “hello”."
+    ]
+  },
+  {
+    "id": 2,
+    "titleEn": "Numbers",
+    "titleVi": "Số đếm",
+    "grammar": "Numbers come before nouns. Vietnamese nouns do not change form for plural, so “ba quyển sách” means three books.",
+    "vocab": [
+      {
+        "vi": "một",
+        "en": "one"
+      },
+      {
+        "vi": "hai",
+        "en": "two"
+      },
+      {
+        "vi": "ba",
+        "en": "three"
+      },
+      {
+        "vi": "bốn",
+        "en": "four"
+      },
+      {
+        "vi": "năm",
+        "en": "five"
+      },
+      {
+        "vi": "sáu",
+        "en": "six"
+      },
+      {
+        "vi": "bảy",
+        "en": "seven"
+      },
+      {
+        "vi": "tám",
+        "en": "eight"
+      },
+      {
+        "vi": "chín",
+        "en": "nine"
+      },
+      {
+        "vi": "mười",
+        "en": "ten"
+      },
+      {
+        "vi": "mười một",
+        "en": "eleven"
+      },
+      {
+        "vi": "mười hai",
+        "en": "twelve"
+      },
+      {
+        "vi": "hai mươi",
+        "en": "twenty"
+      },
+      {
+        "vi": "ba mươi",
+        "en": "thirty"
+      },
+      {
+        "vi": "một trăm",
+        "en": "one hundred"
+      },
+      {
+        "vi": "một nghìn",
+        "en": "one thousand"
+      },
+      {
+        "vi": "số",
+        "en": "number"
+      },
+      {
+        "vi": "đếm",
+        "en": "count"
+      },
+      {
+        "vi": "bao nhiêu",
+        "en": "how many / how much"
+      },
+      {
+        "vi": "lần",
+        "en": "time / occurrence"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Số đếm.",
+      "Làm ơn nói chậm từ “một”.",
+      "“một” có nghĩa là “one”."
+    ]
+  },
+  {
+    "id": 3,
+    "titleEn": "Family",
+    "titleVi": "Gia đình",
+    "grammar": "Vietnamese family terms are also used as pronouns. Age and relationship matter a lot in natural speech.",
+    "vocab": [
+      {
+        "vi": "gia đình",
+        "en": "family"
+      },
+      {
+        "vi": "bố",
+        "en": "father"
+      },
+      {
+        "vi": "mẹ",
+        "en": "mother"
+      },
+      {
+        "vi": "ba",
+        "en": "father / dad"
+      },
+      {
+        "vi": "cha",
+        "en": "father"
+      },
+      {
+        "vi": "con",
+        "en": "child"
+      },
+      {
+        "vi": "anh",
+        "en": "older brother"
+      },
+      {
+        "vi": "chị",
+        "en": "older sister"
+      },
+      {
+        "vi": "em",
+        "en": "younger sibling"
+      },
+      {
+        "vi": "ông",
+        "en": "grandfather"
+      },
+      {
+        "vi": "bà",
+        "en": "grandmother"
+      },
+      {
+        "vi": "chú",
+        "en": "uncle"
+      },
+      {
+        "vi": "cô",
+        "en": "aunt / Ms."
+      },
+      {
+        "vi": "bác",
+        "en": "older uncle/aunt"
+      },
+      {
+        "vi": "dì",
+        "en": "aunt"
+      },
+      {
+        "vi": "vợ",
+        "en": "wife"
+      },
+      {
+        "vi": "chồng",
+        "en": "husband"
+      },
+      {
+        "vi": "bạn trai",
+        "en": "boyfriend"
+      },
+      {
+        "vi": "bạn gái",
+        "en": "girlfriend"
+      },
+      {
+        "vi": "họ hàng",
+        "en": "relatives"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Gia đình.",
+      "Làm ơn nói chậm từ “gia đình”.",
+      "“gia đình” có nghĩa là “family”."
+    ]
+  },
+  {
+    "id": 4,
+    "titleEn": "Food",
+    "titleVi": "Đồ ăn",
+    "grammar": "Adjectives usually follow nouns: “phở ngon” means delicious pho. Use “Tôi muốn...” to order.",
+    "vocab": [
+      {
+        "vi": "cơm",
+        "en": "rice / meal"
+      },
+      {
+        "vi": "phở",
+        "en": "pho"
+      },
+      {
+        "vi": "bánh mì",
+        "en": "Vietnamese sandwich"
+      },
+      {
+        "vi": "bún",
+        "en": "rice noodles"
+      },
+      {
+        "vi": "mì",
+        "en": "noodles"
+      },
+      {
+        "vi": "cháo",
+        "en": "porridge"
+      },
+      {
+        "vi": "gỏi cuốn",
+        "en": "fresh spring roll"
+      },
+      {
+        "vi": "chả giò",
+        "en": "fried spring roll"
+      },
+      {
+        "vi": "thịt",
+        "en": "meat"
+      },
+      {
+        "vi": "cá",
+        "en": "fish"
+      },
+      {
+        "vi": "gà",
+        "en": "chicken"
+      },
+      {
+        "vi": "heo",
+        "en": "pork"
+      },
+      {
+        "vi": "bò",
+        "en": "beef"
+      },
+      {
+        "vi": "rau",
+        "en": "vegetables"
+      },
+      {
+        "vi": "trái cây",
+        "en": "fruit"
+      },
+      {
+        "vi": "trứng",
+        "en": "egg"
+      },
+      {
+        "vi": "ngon",
+        "en": "delicious"
+      },
+      {
+        "vi": "đói",
+        "en": "hungry"
+      },
+      {
+        "vi": "no",
+        "en": "full"
+      },
+      {
+        "vi": "cay",
+        "en": "spicy"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Đồ ăn.",
+      "Làm ơn nói chậm từ “cơm”.",
+      "“cơm” có nghĩa là “rice / meal”."
+    ]
+  },
+  {
+    "id": 5,
+    "titleEn": "Drinks",
+    "titleVi": "Đồ uống",
+    "grammar": "For ordering drinks, “Cho tôi...” means “Please give me...” or “I would like...”.",
+    "vocab": [
+      {
+        "vi": "nước",
+        "en": "water"
+      },
+      {
+        "vi": "cà phê",
+        "en": "coffee"
+      },
+      {
+        "vi": "cà phê sữa đá",
+        "en": "iced milk coffee"
+      },
+      {
+        "vi": "trà",
+        "en": "tea"
+      },
+      {
+        "vi": "trà đá",
+        "en": "iced tea"
+      },
+      {
+        "vi": "sữa",
+        "en": "milk"
+      },
+      {
+        "vi": "nước cam",
+        "en": "orange juice"
+      },
+      {
+        "vi": "nước dừa",
+        "en": "coconut water"
+      },
+      {
+        "vi": "sinh tố",
+        "en": "smoothie"
+      },
+      {
+        "vi": "bia",
+        "en": "beer"
+      },
+      {
+        "vi": "rượu",
+        "en": "alcohol / wine"
+      },
+      {
+        "vi": "đá",
+        "en": "ice"
+      },
+      {
+        "vi": "nóng",
+        "en": "hot"
+      },
+      {
+        "vi": "lạnh",
+        "en": "cold"
+      },
+      {
+        "vi": "ngọt",
+        "en": "sweet"
+      },
+      {
+        "vi": "đắng",
+        "en": "bitter"
+      },
+      {
+        "vi": "ly",
+        "en": "glass"
+      },
+      {
+        "vi": "chai",
+        "en": "bottle"
+      },
+      {
+        "vi": "uống",
+        "en": "drink"
+      },
+      {
+        "vi": "khát",
+        "en": "thirsty"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Đồ uống.",
+      "Làm ơn nói chậm từ “nước”.",
+      "“nước” có nghĩa là “water”."
+    ]
+  },
+  {
+    "id": 6,
+    "titleEn": "Café",
+    "titleVi": "Quán cà phê",
+    "grammar": "At cafés, polite requests often use “làm ơn” or “cho tôi”.",
+    "vocab": [
+      {
+        "vi": "quán cà phê",
+        "en": "café"
+      },
+      {
+        "vi": "bàn",
+        "en": "table"
+      },
+      {
+        "vi": "ghế",
+        "en": "chair"
+      },
+      {
+        "vi": "thực đơn",
+        "en": "menu"
+      },
+      {
+        "vi": "gọi món",
+        "en": "order"
+      },
+      {
+        "vi": "phục vụ",
+        "en": "server"
+      },
+      {
+        "vi": "hóa đơn",
+        "en": "bill"
+      },
+      {
+        "vi": "tính tiền",
+        "en": "pay the bill"
+      },
+      {
+        "vi": "mang đi",
+        "en": "take away"
+      },
+      {
+        "vi": "uống tại đây",
+        "en": "drink here"
+      },
+      {
+        "vi": "wifi",
+        "en": "Wi‑Fi"
+      },
+      {
+        "vi": "mật khẩu",
+        "en": "password"
+      },
+      {
+        "vi": "ổ cắm",
+        "en": "power outlet"
+      },
+      {
+        "vi": "yên tĩnh",
+        "en": "quiet"
+      },
+      {
+        "vi": "đông",
+        "en": "crowded"
+      },
+      {
+        "vi": "chỗ ngồi",
+        "en": "seat"
+      },
+      {
+        "vi": "đợi",
+        "en": "wait"
+      },
+      {
+        "vi": "đặt bàn",
+        "en": "reserve a table"
+      },
+      {
+        "vi": "thêm",
+        "en": "more / add"
+      },
+      {
+        "vi": "ít đường",
+        "en": "less sugar"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Quán cà phê.",
+      "Làm ơn nói chậm từ “quán cà phê”.",
+      "“quán cà phê” có nghĩa là “café”."
+    ]
+  },
+  {
+    "id": 7,
+    "titleEn": "Daily Routine",
+    "titleVi": "Thói quen hằng ngày",
+    "grammar": "Vietnamese verbs do not conjugate. Time words and particles such as “đang”, “đã”, “sẽ” carry time meaning.",
+    "vocab": [
+      {
+        "vi": "thức dậy",
+        "en": "wake up"
+      },
+      {
+        "vi": "ngủ dậy",
+        "en": "get up"
+      },
+      {
+        "vi": "đánh răng",
+        "en": "brush teeth"
+      },
+      {
+        "vi": "rửa mặt",
+        "en": "wash face"
+      },
+      {
+        "vi": "tắm",
+        "en": "shower"
+      },
+      {
+        "vi": "ăn sáng",
+        "en": "eat breakfast"
+      },
+      {
+        "vi": "đi làm",
+        "en": "go to work"
+      },
+      {
+        "vi": "đi học",
+        "en": "go to school"
+      },
+      {
+        "vi": "nghỉ trưa",
+        "en": "take lunch break"
+      },
+      {
+        "vi": "về nhà",
+        "en": "go home"
+      },
+      {
+        "vi": "nấu ăn",
+        "en": "cook"
+      },
+      {
+        "vi": "dọn dẹp",
+        "en": "clean up"
+      },
+      {
+        "vi": "tập thể dục",
+        "en": "exercise"
+      },
+      {
+        "vi": "đọc sách",
+        "en": "read books"
+      },
+      {
+        "vi": "nghe nhạc",
+        "en": "listen to music"
+      },
+      {
+        "vi": "xem phim",
+        "en": "watch movies"
+      },
+      {
+        "vi": "ngủ",
+        "en": "sleep"
+      },
+      {
+        "vi": "mỗi ngày",
+        "en": "every day"
+      },
+      {
+        "vi": "buổi sáng",
+        "en": "morning"
+      },
+      {
+        "vi": "buổi tối",
+        "en": "evening"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thói quen hằng ngày.",
+      "Làm ơn nói chậm từ “thức dậy”.",
+      "“thức dậy” có nghĩa là “wake up”."
+    ]
+  },
+  {
+    "id": 8,
+    "titleEn": "Time",
+    "titleVi": "Thời gian",
+    "grammar": "Use “lúc” before clock time: “Tôi học lúc tám giờ.”",
+    "vocab": [
+      {
+        "vi": "giờ",
+        "en": "hour / o’clock"
+      },
+      {
+        "vi": "phút",
+        "en": "minute"
+      },
+      {
+        "vi": "giây",
+        "en": "second"
+      },
+      {
+        "vi": "lúc",
+        "en": "at time"
+      },
+      {
+        "vi": "bây giờ",
+        "en": "now"
+      },
+      {
+        "vi": "hôm nay",
+        "en": "today"
+      },
+      {
+        "vi": "ngày mai",
+        "en": "tomorrow"
+      },
+      {
+        "vi": "hôm qua",
+        "en": "yesterday"
+      },
+      {
+        "vi": "sáng",
+        "en": "morning"
+      },
+      {
+        "vi": "trưa",
+        "en": "noon"
+      },
+      {
+        "vi": "chiều",
+        "en": "afternoon"
+      },
+      {
+        "vi": "tối",
+        "en": "evening"
+      },
+      {
+        "vi": "đêm",
+        "en": "night"
+      },
+      {
+        "vi": "sớm",
+        "en": "early"
+      },
+      {
+        "vi": "muộn",
+        "en": "late"
+      },
+      {
+        "vi": "đúng giờ",
+        "en": "on time"
+      },
+      {
+        "vi": "trễ",
+        "en": "late"
+      },
+      {
+        "vi": "trước",
+        "en": "before"
+      },
+      {
+        "vi": "sau",
+        "en": "after"
+      },
+      {
+        "vi": "khi nào",
+        "en": "when"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thời gian.",
+      "Làm ơn nói chậm từ “giờ”.",
+      "“giờ” có nghĩa là “hour / o’clock”."
+    ]
+  },
+  {
+    "id": 9,
+    "titleEn": "Days & Months",
+    "titleVi": "Ngày tháng",
+    "grammar": "Weekdays are numbered in Vietnamese. Monday is “thứ hai”, Tuesday is “thứ ba”.",
+    "vocab": [
+      {
+        "vi": "thứ hai",
+        "en": "Monday"
+      },
+      {
+        "vi": "thứ ba",
+        "en": "Tuesday"
+      },
+      {
+        "vi": "thứ tư",
+        "en": "Wednesday"
+      },
+      {
+        "vi": "thứ năm",
+        "en": "Thursday"
+      },
+      {
+        "vi": "thứ sáu",
+        "en": "Friday"
+      },
+      {
+        "vi": "thứ bảy",
+        "en": "Saturday"
+      },
+      {
+        "vi": "chủ nhật",
+        "en": "Sunday"
+      },
+      {
+        "vi": "tuần",
+        "en": "week"
+      },
+      {
+        "vi": "cuối tuần",
+        "en": "weekend"
+      },
+      {
+        "vi": "tháng",
+        "en": "month"
+      },
+      {
+        "vi": "năm",
+        "en": "year"
+      },
+      {
+        "vi": "ngày",
+        "en": "day"
+      },
+      {
+        "vi": "lịch",
+        "en": "calendar"
+      },
+      {
+        "vi": "sinh nhật",
+        "en": "birthday"
+      },
+      {
+        "vi": "ngày lễ",
+        "en": "holiday"
+      },
+      {
+        "vi": "tháng một",
+        "en": "January"
+      },
+      {
+        "vi": "tháng hai",
+        "en": "February"
+      },
+      {
+        "vi": "tháng ba",
+        "en": "March"
+      },
+      {
+        "vi": "tháng tư",
+        "en": "April"
+      },
+      {
+        "vi": "tháng mười hai",
+        "en": "December"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ngày tháng.",
+      "Làm ơn nói chậm từ “thứ hai”.",
+      "“thứ hai” có nghĩa là “Monday”."
+    ]
+  },
+  {
+    "id": 10,
+    "titleEn": "Weather",
+    "titleVi": "Thời tiết",
+    "grammar": "Weather often uses “trời”: “Trời mưa” means it is raining.",
+    "vocab": [
+      {
+        "vi": "thời tiết",
+        "en": "weather"
+      },
+      {
+        "vi": "trời",
+        "en": "sky / weather"
+      },
+      {
+        "vi": "nắng",
+        "en": "sunny"
+      },
+      {
+        "vi": "mưa",
+        "en": "rain"
+      },
+      {
+        "vi": "gió",
+        "en": "wind"
+      },
+      {
+        "vi": "bão",
+        "en": "storm"
+      },
+      {
+        "vi": "mây",
+        "en": "cloud"
+      },
+      {
+        "vi": "âm u",
+        "en": "cloudy / gloomy"
+      },
+      {
+        "vi": "nóng",
+        "en": "hot"
+      },
+      {
+        "vi": "lạnh",
+        "en": "cold"
+      },
+      {
+        "vi": "mát",
+        "en": "cool"
+      },
+      {
+        "vi": "ẩm",
+        "en": "humid"
+      },
+      {
+        "vi": "khô",
+        "en": "dry"
+      },
+      {
+        "vi": "dự báo",
+        "en": "forecast"
+      },
+      {
+        "vi": "nhiệt độ",
+        "en": "temperature"
+      },
+      {
+        "vi": "độ",
+        "en": "degree"
+      },
+      {
+        "vi": "sấm",
+        "en": "thunder"
+      },
+      {
+        "vi": "chớp",
+        "en": "lightning"
+      },
+      {
+        "vi": "áo mưa",
+        "en": "raincoat"
+      },
+      {
+        "vi": "ô",
+        "en": "umbrella"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thời tiết.",
+      "Làm ơn nói chậm từ “thời tiết”.",
+      "“thời tiết” có nghĩa là “weather”."
+    ]
+  },
+  {
+    "id": 11,
+    "titleEn": "Colors",
+    "titleVi": "Màu sắc",
+    "grammar": "Color words come after nouns: “áo đỏ” means red shirt.",
+    "vocab": [
+      {
+        "vi": "màu",
+        "en": "color"
+      },
+      {
+        "vi": "đỏ",
+        "en": "red"
+      },
+      {
+        "vi": "xanh lá",
+        "en": "green"
+      },
+      {
+        "vi": "xanh dương",
+        "en": "blue"
+      },
+      {
+        "vi": "vàng",
+        "en": "yellow"
+      },
+      {
+        "vi": "đen",
+        "en": "black"
+      },
+      {
+        "vi": "trắng",
+        "en": "white"
+      },
+      {
+        "vi": "hồng",
+        "en": "pink"
+      },
+      {
+        "vi": "tím",
+        "en": "purple"
+      },
+      {
+        "vi": "cam",
+        "en": "orange"
+      },
+      {
+        "vi": "nâu",
+        "en": "brown"
+      },
+      {
+        "vi": "xám",
+        "en": "gray"
+      },
+      {
+        "vi": "bạc",
+        "en": "silver"
+      },
+      {
+        "vi": "vàng kim",
+        "en": "gold"
+      },
+      {
+        "vi": "đậm",
+        "en": "dark / strong"
+      },
+      {
+        "vi": "nhạt",
+        "en": "light / pale"
+      },
+      {
+        "vi": "sáng",
+        "en": "bright"
+      },
+      {
+        "vi": "tối",
+        "en": "dark"
+      },
+      {
+        "vi": "đẹp",
+        "en": "beautiful"
+      },
+      {
+        "vi": "hợp",
+        "en": "suitable"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Màu sắc.",
+      "Làm ơn nói chậm từ “màu”.",
+      "“màu” có nghĩa là “color”."
+    ]
+  },
+  {
+    "id": 12,
+    "titleEn": "Clothes",
+    "titleVi": "Quần áo",
+    "grammar": "Use “mặc” for clothes and “đi” for shoes in natural Vietnamese.",
+    "vocab": [
+      {
+        "vi": "quần áo",
+        "en": "clothes"
+      },
+      {
+        "vi": "áo",
+        "en": "shirt"
+      },
+      {
+        "vi": "áo thun",
+        "en": "T‑shirt"
+      },
+      {
+        "vi": "áo sơ mi",
+        "en": "shirt"
+      },
+      {
+        "vi": "áo khoác",
+        "en": "jacket"
+      },
+      {
+        "vi": "quần",
+        "en": "pants"
+      },
+      {
+        "vi": "quần jean",
+        "en": "jeans"
+      },
+      {
+        "vi": "váy",
+        "en": "dress / skirt"
+      },
+      {
+        "vi": "đầm",
+        "en": "dress"
+      },
+      {
+        "vi": "giày",
+        "en": "shoes"
+      },
+      {
+        "vi": "dép",
+        "en": "sandals"
+      },
+      {
+        "vi": "mũ",
+        "en": "hat"
+      },
+      {
+        "vi": "tất",
+        "en": "socks"
+      },
+      {
+        "vi": "kính",
+        "en": "glasses"
+      },
+      {
+        "vi": "đồng hồ",
+        "en": "watch"
+      },
+      {
+        "vi": "mặc",
+        "en": "wear clothes"
+      },
+      {
+        "vi": "đi giày",
+        "en": "wear shoes"
+      },
+      {
+        "vi": "cỡ",
+        "en": "size"
+      },
+      {
+        "vi": "rộng",
+        "en": "loose"
+      },
+      {
+        "vi": "chật",
+        "en": "tight"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Quần áo.",
+      "Làm ơn nói chậm từ “quần áo”.",
+      "“quần áo” có nghĩa là “clothes”."
+    ]
+  },
+  {
+    "id": 13,
+    "titleEn": "Shopping",
+    "titleVi": "Mua sắm",
+    "grammar": "Ask prices with “Cái này bao nhiêu tiền?” and bargain politely with “Có giảm giá không?”.",
+    "vocab": [
+      {
+        "vi": "mua",
+        "en": "buy"
+      },
+      {
+        "vi": "bán",
+        "en": "sell"
+      },
+      {
+        "vi": "cửa hàng",
+        "en": "store"
+      },
+      {
+        "vi": "siêu thị",
+        "en": "supermarket"
+      },
+      {
+        "vi": "chợ",
+        "en": "market"
+      },
+      {
+        "vi": "giá",
+        "en": "price"
+      },
+      {
+        "vi": "tiền",
+        "en": "money"
+      },
+      {
+        "vi": "rẻ",
+        "en": "cheap"
+      },
+      {
+        "vi": "đắt",
+        "en": "expensive"
+      },
+      {
+        "vi": "giảm giá",
+        "en": "discount"
+      },
+      {
+        "vi": "khuyến mãi",
+        "en": "promotion"
+      },
+      {
+        "vi": "hóa đơn",
+        "en": "receipt / bill"
+      },
+      {
+        "vi": "thanh toán",
+        "en": "payment"
+      },
+      {
+        "vi": "tiền mặt",
+        "en": "cash"
+      },
+      {
+        "vi": "thẻ",
+        "en": "card"
+      },
+      {
+        "vi": "chuyển khoản",
+        "en": "bank transfer"
+      },
+      {
+        "vi": "đổi",
+        "en": "exchange"
+      },
+      {
+        "vi": "trả lại",
+        "en": "return"
+      },
+      {
+        "vi": "kích cỡ",
+        "en": "size"
+      },
+      {
+        "vi": "chất lượng",
+        "en": "quality"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Mua sắm.",
+      "Làm ơn nói chậm từ “mua”.",
+      "“mua” có nghĩa là “buy”."
+    ]
+  },
+  {
+    "id": 14,
+    "titleEn": "Directions",
+    "titleVi": "Chỉ đường",
+    "grammar": "Use “ở đâu?” for where, and direction verbs like “rẽ trái”, “đi thẳng”.",
+    "vocab": [
+      {
+        "vi": "đường",
+        "en": "street / way"
+      },
+      {
+        "vi": "bên trái",
+        "en": "left side"
+      },
+      {
+        "vi": "bên phải",
+        "en": "right side"
+      },
+      {
+        "vi": "đi thẳng",
+        "en": "go straight"
+      },
+      {
+        "vi": "rẽ trái",
+        "en": "turn left"
+      },
+      {
+        "vi": "rẽ phải",
+        "en": "turn right"
+      },
+      {
+        "vi": "quay lại",
+        "en": "turn back"
+      },
+      {
+        "vi": "gần",
+        "en": "near"
+      },
+      {
+        "vi": "xa",
+        "en": "far"
+      },
+      {
+        "vi": "ở đâu",
+        "en": "where"
+      },
+      {
+        "vi": "ngã tư",
+        "en": "intersection"
+      },
+      {
+        "vi": "đèn giao thông",
+        "en": "traffic light"
+      },
+      {
+        "vi": "cầu",
+        "en": "bridge"
+      },
+      {
+        "vi": "góc đường",
+        "en": "corner"
+      },
+      {
+        "vi": "bản đồ",
+        "en": "map"
+      },
+      {
+        "vi": "địa chỉ",
+        "en": "address"
+      },
+      {
+        "vi": "lối vào",
+        "en": "entrance"
+      },
+      {
+        "vi": "lối ra",
+        "en": "exit"
+      },
+      {
+        "vi": "đối diện",
+        "en": "opposite"
+      },
+      {
+        "vi": "bên cạnh",
+        "en": "next to"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Chỉ đường.",
+      "Làm ơn nói chậm từ “đường”.",
+      "“đường” có nghĩa là “street / way”."
+    ]
+  },
+  {
+    "id": 15,
+    "titleEn": "Transportation",
+    "titleVi": "Giao thông",
+    "grammar": "“Đi bằng...” means to go by a mode of transportation.",
+    "vocab": [
+      {
+        "vi": "xe máy",
+        "en": "motorbike"
+      },
+      {
+        "vi": "ô tô",
+        "en": "car"
+      },
+      {
+        "vi": "xe buýt",
+        "en": "bus"
+      },
+      {
+        "vi": "taxi",
+        "en": "taxi"
+      },
+      {
+        "vi": "tàu",
+        "en": "train"
+      },
+      {
+        "vi": "tàu điện",
+        "en": "metro / train"
+      },
+      {
+        "vi": "máy bay",
+        "en": "airplane"
+      },
+      {
+        "vi": "sân bay",
+        "en": "airport"
+      },
+      {
+        "vi": "nhà ga",
+        "en": "station"
+      },
+      {
+        "vi": "bến xe",
+        "en": "bus station"
+      },
+      {
+        "vi": "vé",
+        "en": "ticket"
+      },
+      {
+        "vi": "lái xe",
+        "en": "drive"
+      },
+      {
+        "vi": "đi bộ",
+        "en": "walk"
+      },
+      {
+        "vi": "kẹt xe",
+        "en": "traffic jam"
+      },
+      {
+        "vi": "đường cao tốc",
+        "en": "highway"
+      },
+      {
+        "vi": "đỗ xe",
+        "en": "park"
+      },
+      {
+        "vi": "trạm",
+        "en": "stop / station"
+      },
+      {
+        "vi": "chuyến",
+        "en": "trip / ride"
+      },
+      {
+        "vi": "đến",
+        "en": "arrive"
+      },
+      {
+        "vi": "khởi hành",
+        "en": "depart"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Giao thông.",
+      "Làm ơn nói chậm từ “xe máy”.",
+      "“xe máy” có nghĩa là “motorbike”."
+    ]
+  },
+  {
+    "id": 16,
+    "titleEn": "Hotel",
+    "titleVi": "Khách sạn",
+    "grammar": "Useful hotel phrases often start with “Tôi đã đặt...” meaning “I booked...”.",
+    "vocab": [
+      {
+        "vi": "khách sạn",
+        "en": "hotel"
+      },
+      {
+        "vi": "phòng",
+        "en": "room"
+      },
+      {
+        "vi": "đặt phòng",
+        "en": "book a room"
+      },
+      {
+        "vi": "lễ tân",
+        "en": "reception"
+      },
+      {
+        "vi": "chìa khóa",
+        "en": "key"
+      },
+      {
+        "vi": "thẻ phòng",
+        "en": "room card"
+      },
+      {
+        "vi": "hộ chiếu",
+        "en": "passport"
+      },
+      {
+        "vi": "nhận phòng",
+        "en": "check in"
+      },
+      {
+        "vi": "trả phòng",
+        "en": "check out"
+      },
+      {
+        "vi": "giường đơn",
+        "en": "single bed"
+      },
+      {
+        "vi": "giường đôi",
+        "en": "double bed"
+      },
+      {
+        "vi": "phòng tắm",
+        "en": "bathroom"
+      },
+      {
+        "vi": "khăn",
+        "en": "towel"
+      },
+      {
+        "vi": "máy lạnh",
+        "en": "air conditioner"
+      },
+      {
+        "vi": "nước nóng",
+        "en": "hot water"
+      },
+      {
+        "vi": "yên tĩnh",
+        "en": "quiet"
+      },
+      {
+        "vi": "ồn",
+        "en": "noisy"
+      },
+      {
+        "vi": "dọn phòng",
+        "en": "clean the room"
+      },
+      {
+        "vi": "hành lý",
+        "en": "luggage"
+      },
+      {
+        "vi": "một đêm",
+        "en": "one night"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Khách sạn.",
+      "Làm ơn nói chậm từ “khách sạn”.",
+      "“khách sạn” có nghĩa là “hotel”."
+    ]
+  },
+  {
+    "id": 17,
+    "titleEn": "Restaurant",
+    "titleVi": "Nhà hàng",
+    "grammar": "Use classifiers for objects: “một đôi đũa”, “một cái muỗng”.",
+    "vocab": [
+      {
+        "vi": "nhà hàng",
+        "en": "restaurant"
+      },
+      {
+        "vi": "thực đơn",
+        "en": "menu"
+      },
+      {
+        "vi": "món ăn",
+        "en": "dish"
+      },
+      {
+        "vi": "gọi món",
+        "en": "order food"
+      },
+      {
+        "vi": "đũa",
+        "en": "chopsticks"
+      },
+      {
+        "vi": "muỗng",
+        "en": "spoon"
+      },
+      {
+        "vi": "nĩa",
+        "en": "fork"
+      },
+      {
+        "vi": "dao",
+        "en": "knife"
+      },
+      {
+        "vi": "đĩa",
+        "en": "plate"
+      },
+      {
+        "vi": "chén",
+        "en": "bowl"
+      },
+      {
+        "vi": "cay",
+        "en": "spicy"
+      },
+      {
+        "vi": "mặn",
+        "en": "salty"
+      },
+      {
+        "vi": "ngọt",
+        "en": "sweet"
+      },
+      {
+        "vi": "chua",
+        "en": "sour"
+      },
+      {
+        "vi": "không cay",
+        "en": "not spicy"
+      },
+      {
+        "vi": "ăn chay",
+        "en": "vegetarian"
+      },
+      {
+        "vi": "dị ứng",
+        "en": "allergy"
+      },
+      {
+        "vi": "thanh toán",
+        "en": "pay"
+      },
+      {
+        "vi": "tiền tip",
+        "en": "tip"
+      },
+      {
+        "vi": "ngon miệng",
+        "en": "enjoy your meal"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Nhà hàng.",
+      "Làm ơn nói chậm từ “nhà hàng”.",
+      "“nhà hàng” có nghĩa là “restaurant”."
+    ]
+  },
+  {
+    "id": 18,
+    "titleEn": "Health",
+    "titleVi": "Sức khỏe",
+    "grammar": "Say “Tôi đau...” plus a body part to describe pain.",
+    "vocab": [
+      {
+        "vi": "sức khỏe",
+        "en": "health"
+      },
+      {
+        "vi": "khỏe",
+        "en": "healthy"
+      },
+      {
+        "vi": "ốm",
+        "en": "sick"
+      },
+      {
+        "vi": "bệnh",
+        "en": "illness"
+      },
+      {
+        "vi": "đau",
+        "en": "hurt / pain"
+      },
+      {
+        "vi": "sốt",
+        "en": "fever"
+      },
+      {
+        "vi": "ho",
+        "en": "cough"
+      },
+      {
+        "vi": "cảm lạnh",
+        "en": "cold"
+      },
+      {
+        "vi": "đau đầu",
+        "en": "headache"
+      },
+      {
+        "vi": "đau bụng",
+        "en": "stomachache"
+      },
+      {
+        "vi": "thuốc",
+        "en": "medicine"
+      },
+      {
+        "vi": "bác sĩ",
+        "en": "doctor"
+      },
+      {
+        "vi": "bệnh viện",
+        "en": "hospital"
+      },
+      {
+        "vi": "phòng khám",
+        "en": "clinic"
+      },
+      {
+        "vi": "cấp cứu",
+        "en": "emergency"
+      },
+      {
+        "vi": "nghỉ ngơi",
+        "en": "rest"
+      },
+      {
+        "vi": "uống thuốc",
+        "en": "take medicine"
+      },
+      {
+        "vi": "dị ứng",
+        "en": "allergy"
+      },
+      {
+        "vi": "bảo hiểm",
+        "en": "insurance"
+      },
+      {
+        "vi": "khám bệnh",
+        "en": "medical checkup"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Sức khỏe.",
+      "Làm ơn nói chậm từ “sức khỏe”.",
+      "“sức khỏe” có nghĩa là “health”."
+    ]
+  },
+  {
+    "id": 19,
+    "titleEn": "Body Parts",
+    "titleVi": "Cơ thể",
+    "grammar": "Possession can use “của”: “tay của tôi” means my hand.",
+    "vocab": [
+      {
+        "vi": "đầu",
+        "en": "head"
+      },
+      {
+        "vi": "tóc",
+        "en": "hair"
+      },
+      {
+        "vi": "mặt",
+        "en": "face"
+      },
+      {
+        "vi": "mắt",
+        "en": "eye"
+      },
+      {
+        "vi": "tai",
+        "en": "ear"
+      },
+      {
+        "vi": "mũi",
+        "en": "nose"
+      },
+      {
+        "vi": "miệng",
+        "en": "mouth"
+      },
+      {
+        "vi": "răng",
+        "en": "tooth"
+      },
+      {
+        "vi": "cổ",
+        "en": "neck"
+      },
+      {
+        "vi": "vai",
+        "en": "shoulder"
+      },
+      {
+        "vi": "tay",
+        "en": "hand / arm"
+      },
+      {
+        "vi": "ngón tay",
+        "en": "finger"
+      },
+      {
+        "vi": "bụng",
+        "en": "stomach"
+      },
+      {
+        "vi": "lưng",
+        "en": "back"
+      },
+      {
+        "vi": "chân",
+        "en": "leg / foot"
+      },
+      {
+        "vi": "đầu gối",
+        "en": "knee"
+      },
+      {
+        "vi": "tim",
+        "en": "heart"
+      },
+      {
+        "vi": "da",
+        "en": "skin"
+      },
+      {
+        "vi": "xương",
+        "en": "bone"
+      },
+      {
+        "vi": "máu",
+        "en": "blood"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Cơ thể.",
+      "Làm ơn nói chậm từ “đầu”.",
+      "“đầu” có nghĩa là “head”."
+    ]
+  },
+  {
+    "id": 20,
+    "titleEn": "Feelings",
+    "titleVi": "Cảm xúc",
+    "grammar": "Use “Tôi thấy...” for “I feel...”. Many adjectives work like verbs in Vietnamese.",
+    "vocab": [
+      {
+        "vi": "vui",
+        "en": "happy"
+      },
+      {
+        "vi": "buồn",
+        "en": "sad"
+      },
+      {
+        "vi": "mệt",
+        "en": "tired"
+      },
+      {
+        "vi": "lo",
+        "en": "worried"
+      },
+      {
+        "vi": "giận",
+        "en": "angry"
+      },
+      {
+        "vi": "sợ",
+        "en": "afraid"
+      },
+      {
+        "vi": "bình tĩnh",
+        "en": "calm"
+      },
+      {
+        "vi": "hồi hộp",
+        "en": "nervous"
+      },
+      {
+        "vi": "ngạc nhiên",
+        "en": "surprised"
+      },
+      {
+        "vi": "chán",
+        "en": "bored"
+      },
+      {
+        "vi": "cô đơn",
+        "en": "lonely"
+      },
+      {
+        "vi": "tự hào",
+        "en": "proud"
+      },
+      {
+        "vi": "xấu hổ",
+        "en": "embarrassed"
+      },
+      {
+        "vi": "thoải mái",
+        "en": "comfortable"
+      },
+      {
+        "vi": "căng thẳng",
+        "en": "stressed"
+      },
+      {
+        "vi": "hạnh phúc",
+        "en": "happy / joyful"
+      },
+      {
+        "vi": "thích",
+        "en": "like"
+      },
+      {
+        "vi": "ghét",
+        "en": "hate"
+      },
+      {
+        "vi": "nhớ",
+        "en": "miss"
+      },
+      {
+        "vi": "yêu",
+        "en": "love"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Cảm xúc.",
+      "Làm ơn nói chậm từ “vui”.",
+      "“vui” có nghĩa là “happy”."
+    ]
+  },
+  {
+    "id": 21,
+    "titleEn": "Home",
+    "titleVi": "Nhà cửa",
+    "grammar": "Location uses “ở”: “Tôi ở nhà” means I am at home.",
+    "vocab": [
+      {
+        "vi": "nhà",
+        "en": "home / house"
+      },
+      {
+        "vi": "căn hộ",
+        "en": "apartment"
+      },
+      {
+        "vi": "phòng khách",
+        "en": "living room"
+      },
+      {
+        "vi": "phòng ngủ",
+        "en": "bedroom"
+      },
+      {
+        "vi": "nhà bếp",
+        "en": "kitchen"
+      },
+      {
+        "vi": "phòng tắm",
+        "en": "bathroom"
+      },
+      {
+        "vi": "ban công",
+        "en": "balcony"
+      },
+      {
+        "vi": "cửa",
+        "en": "door"
+      },
+      {
+        "vi": "cửa sổ",
+        "en": "window"
+      },
+      {
+        "vi": "sàn nhà",
+        "en": "floor"
+      },
+      {
+        "vi": "tường",
+        "en": "wall"
+      },
+      {
+        "vi": "trần nhà",
+        "en": "ceiling"
+      },
+      {
+        "vi": "sân",
+        "en": "yard"
+      },
+      {
+        "vi": "vườn",
+        "en": "garden"
+      },
+      {
+        "vi": "hàng xóm",
+        "en": "neighbor"
+      },
+      {
+        "vi": "thuê nhà",
+        "en": "rent a house"
+      },
+      {
+        "vi": "chủ nhà",
+        "en": "landlord"
+      },
+      {
+        "vi": "địa chỉ",
+        "en": "address"
+      },
+      {
+        "vi": "chìa khóa",
+        "en": "key"
+      },
+      {
+        "vi": "an toàn",
+        "en": "safe"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Nhà cửa.",
+      "Làm ơn nói chậm từ “nhà”.",
+      "“nhà” có nghĩa là “home / house”."
+    ]
+  },
+  {
+    "id": 22,
+    "titleEn": "Furniture",
+    "titleVi": "Nội thất",
+    "grammar": "Use “có” for have or there is/there are.",
+    "vocab": [
+      {
+        "vi": "bàn",
+        "en": "table"
+      },
+      {
+        "vi": "ghế",
+        "en": "chair"
+      },
+      {
+        "vi": "sofa",
+        "en": "sofa"
+      },
+      {
+        "vi": "giường",
+        "en": "bed"
+      },
+      {
+        "vi": "tủ",
+        "en": "cabinet / wardrobe"
+      },
+      {
+        "vi": "kệ sách",
+        "en": "bookshelf"
+      },
+      {
+        "vi": "đèn",
+        "en": "lamp"
+      },
+      {
+        "vi": "gương",
+        "en": "mirror"
+      },
+      {
+        "vi": "rèm cửa",
+        "en": "curtain"
+      },
+      {
+        "vi": "thảm",
+        "en": "rug"
+      },
+      {
+        "vi": "quạt",
+        "en": "fan"
+      },
+      {
+        "vi": "máy lạnh",
+        "en": "air conditioner"
+      },
+      {
+        "vi": "tủ lạnh",
+        "en": "refrigerator"
+      },
+      {
+        "vi": "máy giặt",
+        "en": "washing machine"
+      },
+      {
+        "vi": "bếp",
+        "en": "stove"
+      },
+      {
+        "vi": "lò vi sóng",
+        "en": "microwave"
+      },
+      {
+        "vi": "chăn",
+        "en": "blanket"
+      },
+      {
+        "vi": "gối",
+        "en": "pillow"
+      },
+      {
+        "vi": "nệm",
+        "en": "mattress"
+      },
+      {
+        "vi": "ổ cắm",
+        "en": "power outlet"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Nội thất.",
+      "Làm ơn nói chậm từ “bàn”.",
+      "“bàn” có nghĩa là “table”."
+    ]
+  },
+  {
+    "id": 23,
+    "titleEn": "School",
+    "titleVi": "Trường học",
+    "grammar": "“Đang” marks an action happening now: “Tôi đang học.”",
+    "vocab": [
+      {
+        "vi": "trường",
+        "en": "school"
+      },
+      {
+        "vi": "lớp",
+        "en": "class"
+      },
+      {
+        "vi": "giáo viên",
+        "en": "teacher"
+      },
+      {
+        "vi": "học sinh",
+        "en": "student"
+      },
+      {
+        "vi": "sinh viên",
+        "en": "university student"
+      },
+      {
+        "vi": "bài học",
+        "en": "lesson"
+      },
+      {
+        "vi": "bài tập",
+        "en": "homework"
+      },
+      {
+        "vi": "kiểm tra",
+        "en": "test"
+      },
+      {
+        "vi": "thi",
+        "en": "exam"
+      },
+      {
+        "vi": "điểm",
+        "en": "score"
+      },
+      {
+        "vi": "sách",
+        "en": "book"
+      },
+      {
+        "vi": "vở",
+        "en": "notebook"
+      },
+      {
+        "vi": "bút",
+        "en": "pen"
+      },
+      {
+        "vi": "bảng",
+        "en": "board"
+      },
+      {
+        "vi": "học",
+        "en": "study / learn"
+      },
+      {
+        "vi": "dạy",
+        "en": "teach"
+      },
+      {
+        "vi": "đọc",
+        "en": "read"
+      },
+      {
+        "vi": "viết",
+        "en": "write"
+      },
+      {
+        "vi": "nghe",
+        "en": "listen"
+      },
+      {
+        "vi": "nói",
+        "en": "speak"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Trường học.",
+      "Làm ơn nói chậm từ “trường”.",
+      "“trường” có nghĩa là “school”."
+    ]
+  },
+  {
+    "id": 24,
+    "titleEn": "Work",
+    "titleVi": "Công việc",
+    "grammar": "Use “làm việc” for working as an activity. “Công việc” is the job or work itself.",
+    "vocab": [
+      {
+        "vi": "công việc",
+        "en": "job / work"
+      },
+      {
+        "vi": "văn phòng",
+        "en": "office"
+      },
+      {
+        "vi": "công ty",
+        "en": "company"
+      },
+      {
+        "vi": "sếp",
+        "en": "boss"
+      },
+      {
+        "vi": "đồng nghiệp",
+        "en": "colleague"
+      },
+      {
+        "vi": "nhân viên",
+        "en": "employee"
+      },
+      {
+        "vi": "khách hàng",
+        "en": "customer"
+      },
+      {
+        "vi": "cuộc họp",
+        "en": "meeting"
+      },
+      {
+        "vi": "dự án",
+        "en": "project"
+      },
+      {
+        "vi": "hạn chót",
+        "en": "deadline"
+      },
+      {
+        "vi": "lương",
+        "en": "salary"
+      },
+      {
+        "vi": "hợp đồng",
+        "en": "contract"
+      },
+      {
+        "vi": "email",
+        "en": "email"
+      },
+      {
+        "vi": "báo cáo",
+        "en": "report"
+      },
+      {
+        "vi": "lịch làm việc",
+        "en": "work schedule"
+      },
+      {
+        "vi": "nghỉ phép",
+        "en": "take leave"
+      },
+      {
+        "vi": "bận",
+        "en": "busy"
+      },
+      {
+        "vi": "rảnh",
+        "en": "free"
+      },
+      {
+        "vi": "làm thêm",
+        "en": "work overtime"
+      },
+      {
+        "vi": "phỏng vấn",
+        "en": "interview"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Công việc.",
+      "Làm ơn nói chậm từ “công việc”.",
+      "“công việc” có nghĩa là “job / work”."
+    ]
+  },
+  {
+    "id": 25,
+    "titleEn": "Technology",
+    "titleVi": "Công nghệ",
+    "grammar": "Technology vocabulary often includes loanwords, but Vietnamese word order still applies.",
+    "vocab": [
+      {
+        "vi": "điện thoại",
+        "en": "phone"
+      },
+      {
+        "vi": "máy tính",
+        "en": "computer"
+      },
+      {
+        "vi": "máy tính xách tay",
+        "en": "laptop"
+      },
+      {
+        "vi": "màn hình",
+        "en": "screen"
+      },
+      {
+        "vi": "bàn phím",
+        "en": "keyboard"
+      },
+      {
+        "vi": "chuột",
+        "en": "mouse"
+      },
+      {
+        "vi": "sạc",
+        "en": "charger"
+      },
+      {
+        "vi": "pin",
+        "en": "battery"
+      },
+      {
+        "vi": "mạng",
+        "en": "internet / network"
+      },
+      {
+        "vi": "wifi",
+        "en": "Wi‑Fi"
+      },
+      {
+        "vi": "mật khẩu",
+        "en": "password"
+      },
+      {
+        "vi": "ứng dụng",
+        "en": "app"
+      },
+      {
+        "vi": "trang web",
+        "en": "website"
+      },
+      {
+        "vi": "tải xuống",
+        "en": "download"
+      },
+      {
+        "vi": "tải lên",
+        "en": "upload"
+      },
+      {
+        "vi": "đăng nhập",
+        "en": "log in"
+      },
+      {
+        "vi": "đăng xuất",
+        "en": "log out"
+      },
+      {
+        "vi": "tài khoản",
+        "en": "account"
+      },
+      {
+        "vi": "tin nhắn",
+        "en": "message"
+      },
+      {
+        "vi": "cập nhật",
+        "en": "update"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Công nghệ.",
+      "Làm ơn nói chậm từ “điện thoại”.",
+      "“điện thoại” có nghĩa là “phone”."
+    ]
+  },
+  {
+    "id": 26,
+    "titleEn": "Hobbies",
+    "titleVi": "Sở thích",
+    "grammar": "“Thích” means like. Put the activity after it: “Tôi thích nghe nhạc.”",
+    "vocab": [
+      {
+        "vi": "sở thích",
+        "en": "hobby"
+      },
+      {
+        "vi": "đọc sách",
+        "en": "read books"
+      },
+      {
+        "vi": "nghe nhạc",
+        "en": "listen to music"
+      },
+      {
+        "vi": "xem phim",
+        "en": "watch movies"
+      },
+      {
+        "vi": "chơi game",
+        "en": "play games"
+      },
+      {
+        "vi": "vẽ",
+        "en": "draw"
+      },
+      {
+        "vi": "nấu ăn",
+        "en": "cook"
+      },
+      {
+        "vi": "du lịch",
+        "en": "travel"
+      },
+      {
+        "vi": "chụp ảnh",
+        "en": "take photos"
+      },
+      {
+        "vi": "đi dạo",
+        "en": "go for a walk"
+      },
+      {
+        "vi": "mua sắm",
+        "en": "shopping"
+      },
+      {
+        "vi": "nhảy",
+        "en": "dance"
+      },
+      {
+        "vi": "hát",
+        "en": "sing"
+      },
+      {
+        "vi": "chơi đàn",
+        "en": "play instrument"
+      },
+      {
+        "vi": "làm vườn",
+        "en": "garden"
+      },
+      {
+        "vi": "câu cá",
+        "en": "fish"
+      },
+      {
+        "vi": "viết nhật ký",
+        "en": "journal"
+      },
+      {
+        "vi": "tập yoga",
+        "en": "do yoga"
+      },
+      {
+        "vi": "sưu tầm",
+        "en": "collect"
+      },
+      {
+        "vi": "nghỉ ngơi",
+        "en": "rest"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Sở thích.",
+      "Làm ơn nói chậm từ “sở thích”.",
+      "“sở thích” có nghĩa là “hobby”."
+    ]
+  },
+  {
+    "id": 27,
+    "titleEn": "Sports",
+    "titleVi": "Thể thao",
+    "grammar": "Use “chơi” with many sports: “chơi bóng đá”.",
+    "vocab": [
+      {
+        "vi": "thể thao",
+        "en": "sports"
+      },
+      {
+        "vi": "bóng đá",
+        "en": "football / soccer"
+      },
+      {
+        "vi": "bóng rổ",
+        "en": "basketball"
+      },
+      {
+        "vi": "bóng chuyền",
+        "en": "volleyball"
+      },
+      {
+        "vi": "cầu lông",
+        "en": "badminton"
+      },
+      {
+        "vi": "tennis",
+        "en": "tennis"
+      },
+      {
+        "vi": "bơi",
+        "en": "swim"
+      },
+      {
+        "vi": "chạy",
+        "en": "run"
+      },
+      {
+        "vi": "đạp xe",
+        "en": "cycle"
+      },
+      {
+        "vi": "tập gym",
+        "en": "work out"
+      },
+      {
+        "vi": "yoga",
+        "en": "yoga"
+      },
+      {
+        "vi": "đội",
+        "en": "team"
+      },
+      {
+        "vi": "trận đấu",
+        "en": "match"
+      },
+      {
+        "vi": "cầu thủ",
+        "en": "player"
+      },
+      {
+        "vi": "huấn luyện viên",
+        "en": "coach"
+      },
+      {
+        "vi": "thắng",
+        "en": "win"
+      },
+      {
+        "vi": "thua",
+        "en": "lose"
+      },
+      {
+        "vi": "hòa",
+        "en": "draw"
+      },
+      {
+        "vi": "sân vận động",
+        "en": "stadium"
+      },
+      {
+        "vi": "khỏe mạnh",
+        "en": "healthy / strong"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thể thao.",
+      "Làm ơn nói chậm từ “thể thao”.",
+      "“thể thao” có nghĩa là “sports”."
+    ]
+  },
+  {
+    "id": 28,
+    "titleEn": "Travel",
+    "titleVi": "Du lịch",
+    "grammar": "Use “muốn” before a verb to say want to do something.",
+    "vocab": [
+      {
+        "vi": "du lịch",
+        "en": "travel"
+      },
+      {
+        "vi": "chuyến đi",
+        "en": "trip"
+      },
+      {
+        "vi": "vé",
+        "en": "ticket"
+      },
+      {
+        "vi": "hộ chiếu",
+        "en": "passport"
+      },
+      {
+        "vi": "visa",
+        "en": "visa"
+      },
+      {
+        "vi": "vali",
+        "en": "suitcase"
+      },
+      {
+        "vi": "hành lý",
+        "en": "luggage"
+      },
+      {
+        "vi": "bản đồ",
+        "en": "map"
+      },
+      {
+        "vi": "điểm đến",
+        "en": "destination"
+      },
+      {
+        "vi": "chuyến bay",
+        "en": "flight"
+      },
+      {
+        "vi": "sân bay",
+        "en": "airport"
+      },
+      {
+        "vi": "khách sạn",
+        "en": "hotel"
+      },
+      {
+        "vi": "đặt chỗ",
+        "en": "reservation"
+      },
+      {
+        "vi": "hướng dẫn viên",
+        "en": "tour guide"
+      },
+      {
+        "vi": "tham quan",
+        "en": "sightsee"
+      },
+      {
+        "vi": "bãi biển",
+        "en": "beach"
+      },
+      {
+        "vi": "núi",
+        "en": "mountain"
+      },
+      {
+        "vi": "vé khứ hồi",
+        "en": "round-trip ticket"
+      },
+      {
+        "vi": "vé một chiều",
+        "en": "one-way ticket"
+      },
+      {
+        "vi": "kỷ niệm",
+        "en": "souvenir"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Du lịch.",
+      "Làm ơn nói chậm từ “du lịch”.",
+      "“du lịch” có nghĩa là “travel”."
+    ]
+  },
+  {
+    "id": 29,
+    "titleEn": "City",
+    "titleVi": "Thành phố",
+    "grammar": "Ask location with “... ở đâu?”.",
+    "vocab": [
+      {
+        "vi": "thành phố",
+        "en": "city"
+      },
+      {
+        "vi": "đường phố",
+        "en": "street"
+      },
+      {
+        "vi": "công viên",
+        "en": "park"
+      },
+      {
+        "vi": "chợ",
+        "en": "market"
+      },
+      {
+        "vi": "siêu thị",
+        "en": "supermarket"
+      },
+      {
+        "vi": "ngân hàng",
+        "en": "bank"
+      },
+      {
+        "vi": "bưu điện",
+        "en": "post office"
+      },
+      {
+        "vi": "bệnh viện",
+        "en": "hospital"
+      },
+      {
+        "vi": "trường học",
+        "en": "school"
+      },
+      {
+        "vi": "nhà hàng",
+        "en": "restaurant"
+      },
+      {
+        "vi": "quán cà phê",
+        "en": "café"
+      },
+      {
+        "vi": "rạp chiếu phim",
+        "en": "cinema"
+      },
+      {
+        "vi": "bảo tàng",
+        "en": "museum"
+      },
+      {
+        "vi": "thư viện",
+        "en": "library"
+      },
+      {
+        "vi": "trạm xe buýt",
+        "en": "bus stop"
+      },
+      {
+        "vi": "ga tàu",
+        "en": "train station"
+      },
+      {
+        "vi": "cảnh sát",
+        "en": "police"
+      },
+      {
+        "vi": "trung tâm",
+        "en": "center"
+      },
+      {
+        "vi": "ngoại ô",
+        "en": "suburb"
+      },
+      {
+        "vi": "tòa nhà",
+        "en": "building"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thành phố.",
+      "Làm ơn nói chậm từ “thành phố”.",
+      "“thành phố” có nghĩa là “city”."
+    ]
+  },
+  {
+    "id": 30,
+    "titleEn": "Nature",
+    "titleVi": "Thiên nhiên",
+    "grammar": "Vietnamese nouns usually do not need articles like a/an/the.",
+    "vocab": [
+      {
+        "vi": "thiên nhiên",
+        "en": "nature"
+      },
+      {
+        "vi": "biển",
+        "en": "sea"
+      },
+      {
+        "vi": "bãi biển",
+        "en": "beach"
+      },
+      {
+        "vi": "núi",
+        "en": "mountain"
+      },
+      {
+        "vi": "sông",
+        "en": "river"
+      },
+      {
+        "vi": "hồ",
+        "en": "lake"
+      },
+      {
+        "vi": "rừng",
+        "en": "forest"
+      },
+      {
+        "vi": "cây",
+        "en": "tree"
+      },
+      {
+        "vi": "hoa",
+        "en": "flower"
+      },
+      {
+        "vi": "lá",
+        "en": "leaf"
+      },
+      {
+        "vi": "cỏ",
+        "en": "grass"
+      },
+      {
+        "vi": "đất",
+        "en": "earth / soil"
+      },
+      {
+        "vi": "đá",
+        "en": "rock"
+      },
+      {
+        "vi": "mây",
+        "en": "cloud"
+      },
+      {
+        "vi": "mặt trời",
+        "en": "sun"
+      },
+      {
+        "vi": "mặt trăng",
+        "en": "moon"
+      },
+      {
+        "vi": "sao",
+        "en": "star"
+      },
+      {
+        "vi": "gió",
+        "en": "wind"
+      },
+      {
+        "vi": "mưa",
+        "en": "rain"
+      },
+      {
+        "vi": "không khí",
+        "en": "air"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thiên nhiên.",
+      "Làm ơn nói chậm từ “thiên nhiên”.",
+      "“thiên nhiên” có nghĩa là “nature”."
+    ]
+  },
+  {
+    "id": 31,
+    "titleEn": "Animals",
+    "titleVi": "Động vật",
+    "grammar": "“Con” is a common classifier for animals.",
+    "vocab": [
+      {
+        "vi": "động vật",
+        "en": "animal"
+      },
+      {
+        "vi": "con chó",
+        "en": "dog"
+      },
+      {
+        "vi": "con mèo",
+        "en": "cat"
+      },
+      {
+        "vi": "con chim",
+        "en": "bird"
+      },
+      {
+        "vi": "con cá",
+        "en": "fish"
+      },
+      {
+        "vi": "con gà",
+        "en": "chicken"
+      },
+      {
+        "vi": "con vịt",
+        "en": "duck"
+      },
+      {
+        "vi": "con bò",
+        "en": "cow"
+      },
+      {
+        "vi": "con heo",
+        "en": "pig"
+      },
+      {
+        "vi": "con ngựa",
+        "en": "horse"
+      },
+      {
+        "vi": "con voi",
+        "en": "elephant"
+      },
+      {
+        "vi": "con hổ",
+        "en": "tiger"
+      },
+      {
+        "vi": "con sư tử",
+        "en": "lion"
+      },
+      {
+        "vi": "con khỉ",
+        "en": "monkey"
+      },
+      {
+        "vi": "con rắn",
+        "en": "snake"
+      },
+      {
+        "vi": "con chuột",
+        "en": "mouse"
+      },
+      {
+        "vi": "con thỏ",
+        "en": "rabbit"
+      },
+      {
+        "vi": "con ong",
+        "en": "bee"
+      },
+      {
+        "vi": "con bướm",
+        "en": "butterfly"
+      },
+      {
+        "vi": "thú cưng",
+        "en": "pet"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Động vật.",
+      "Làm ơn nói chậm từ “động vật”.",
+      "“động vật” có nghĩa là “animal”."
+    ]
+  },
+  {
+    "id": 32,
+    "titleEn": "Questions",
+    "titleVi": "Câu hỏi",
+    "grammar": "Question words often stay where the answer would appear.",
+    "vocab": [
+      {
+        "vi": "ai",
+        "en": "who"
+      },
+      {
+        "vi": "gì",
+        "en": "what"
+      },
+      {
+        "vi": "ở đâu",
+        "en": "where"
+      },
+      {
+        "vi": "khi nào",
+        "en": "when"
+      },
+      {
+        "vi": "tại sao",
+        "en": "why"
+      },
+      {
+        "vi": "như thế nào",
+        "en": "how"
+      },
+      {
+        "vi": "bao nhiêu",
+        "en": "how much / many"
+      },
+      {
+        "vi": "mấy",
+        "en": "what number / how many"
+      },
+      {
+        "vi": "có không",
+        "en": "yes/no question pattern"
+      },
+      {
+        "vi": "phải không",
+        "en": "is that right"
+      },
+      {
+        "vi": "đúng không",
+        "en": "right?"
+      },
+      {
+        "vi": "cái nào",
+        "en": "which one"
+      },
+      {
+        "vi": "người nào",
+        "en": "which person"
+      },
+      {
+        "vi": "làm gì",
+        "en": "do what"
+      },
+      {
+        "vi": "đi đâu",
+        "en": "go where"
+      },
+      {
+        "vi": "vì sao",
+        "en": "why"
+      },
+      {
+        "vi": "bao lâu",
+        "en": "how long"
+      },
+      {
+        "vi": "mấy giờ",
+        "en": "what time"
+      },
+      {
+        "vi": "của ai",
+        "en": "whose"
+      },
+      {
+        "vi": "để làm gì",
+        "en": "for what"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Câu hỏi.",
+      "Làm ơn nói chậm từ “ai”.",
+      "“ai” có nghĩa là “who”."
+    ]
+  },
+  {
+    "id": 33,
+    "titleEn": "Negation",
+    "titleVi": "Phủ định",
+    "grammar": "Use “không” before verbs or adjectives for negation.",
+    "vocab": [
+      {
+        "vi": "không",
+        "en": "not / no"
+      },
+      {
+        "vi": "chưa",
+        "en": "not yet"
+      },
+      {
+        "vi": "đừng",
+        "en": "don’t"
+      },
+      {
+        "vi": "không phải",
+        "en": "is not"
+      },
+      {
+        "vi": "chẳng",
+        "en": "not"
+      },
+      {
+        "vi": "không bao giờ",
+        "en": "never"
+      },
+      {
+        "vi": "không ai",
+        "en": "no one"
+      },
+      {
+        "vi": "không có gì",
+        "en": "nothing / you’re welcome"
+      },
+      {
+        "vi": "không thích",
+        "en": "dislike"
+      },
+      {
+        "vi": "không biết",
+        "en": "do not know"
+      },
+      {
+        "vi": "không hiểu",
+        "en": "do not understand"
+      },
+      {
+        "vi": "không muốn",
+        "en": "do not want"
+      },
+      {
+        "vi": "không cần",
+        "en": "do not need"
+      },
+      {
+        "vi": "không thể",
+        "en": "cannot"
+      },
+      {
+        "vi": "không nên",
+        "en": "should not"
+      },
+      {
+        "vi": "không được",
+        "en": "not allowed"
+      },
+      {
+        "vi": "chưa từng",
+        "en": "have never"
+      },
+      {
+        "vi": "đâu",
+        "en": "emphasis particle"
+      },
+      {
+        "vi": "vẫn chưa",
+        "en": "still not yet"
+      },
+      {
+        "vi": "hoàn toàn không",
+        "en": "not at all"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Phủ định.",
+      "Làm ơn nói chậm từ “không”.",
+      "“không” có nghĩa là “not / no”."
+    ]
+  },
+  {
+    "id": 34,
+    "titleEn": "Past & Future",
+    "titleVi": "Quá khứ & tương lai",
+    "grammar": "Vietnamese tense is optional when context is clear, but markers like “đã”, “đang”, “sẽ” help learners.",
+    "vocab": [
+      {
+        "vi": "đã",
+        "en": "past marker"
+      },
+      {
+        "vi": "đang",
+        "en": "in-progress marker"
+      },
+      {
+        "vi": "sẽ",
+        "en": "future marker"
+      },
+      {
+        "vi": "vừa",
+        "en": "just"
+      },
+      {
+        "vi": "mới",
+        "en": "recently / just"
+      },
+      {
+        "vi": "sắp",
+        "en": "about to"
+      },
+      {
+        "vi": "rồi",
+        "en": "already"
+      },
+      {
+        "vi": "chưa",
+        "en": "not yet"
+      },
+      {
+        "vi": "hôm qua",
+        "en": "yesterday"
+      },
+      {
+        "vi": "hôm nay",
+        "en": "today"
+      },
+      {
+        "vi": "ngày mai",
+        "en": "tomorrow"
+      },
+      {
+        "vi": "tuần trước",
+        "en": "last week"
+      },
+      {
+        "vi": "tuần sau",
+        "en": "next week"
+      },
+      {
+        "vi": "năm ngoái",
+        "en": "last year"
+      },
+      {
+        "vi": "năm sau",
+        "en": "next year"
+      },
+      {
+        "vi": "trước đây",
+        "en": "before"
+      },
+      {
+        "vi": "sau này",
+        "en": "later"
+      },
+      {
+        "vi": "bây giờ",
+        "en": "now"
+      },
+      {
+        "vi": "lúc đó",
+        "en": "at that time"
+      },
+      {
+        "vi": "từ bây giờ",
+        "en": "from now on"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Quá khứ & tương lai.",
+      "Làm ơn nói chậm từ “đã”.",
+      "“đã” có nghĩa là “past marker”."
+    ]
+  },
+  {
+    "id": 35,
+    "titleEn": "Classifiers",
+    "titleVi": "Lượng từ",
+    "grammar": "Vietnamese often uses classifiers between numbers and nouns: number + classifier + noun.",
+    "vocab": [
+      {
+        "vi": "cái",
+        "en": "general classifier"
+      },
+      {
+        "vi": "con",
+        "en": "animal classifier"
+      },
+      {
+        "vi": "người",
+        "en": "person classifier"
+      },
+      {
+        "vi": "quyển",
+        "en": "book classifier"
+      },
+      {
+        "vi": "cuốn",
+        "en": "book / roll classifier"
+      },
+      {
+        "vi": "ly",
+        "en": "glass / cup"
+      },
+      {
+        "vi": "chai",
+        "en": "bottle"
+      },
+      {
+        "vi": "bát",
+        "en": "bowl"
+      },
+      {
+        "vi": "đĩa",
+        "en": "plate"
+      },
+      {
+        "vi": "chiếc",
+        "en": "object classifier"
+      },
+      {
+        "vi": "tờ",
+        "en": "sheet classifier"
+      },
+      {
+        "vi": "bức",
+        "en": "picture / letter classifier"
+      },
+      {
+        "vi": "cây",
+        "en": "long thin object classifier"
+      },
+      {
+        "vi": "đôi",
+        "en": "pair"
+      },
+      {
+        "vi": "bộ",
+        "en": "set"
+      },
+      {
+        "vi": "miếng",
+        "en": "piece"
+      },
+      {
+        "vi": "lát",
+        "en": "slice"
+      },
+      {
+        "vi": "hộp",
+        "en": "box"
+      },
+      {
+        "vi": "gói",
+        "en": "package"
+      },
+      {
+        "vi": "phần",
+        "en": "portion"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Lượng từ.",
+      "Làm ơn nói chậm từ “cái”.",
+      "“cái” có nghĩa là “general classifier”."
+    ]
+  },
+  {
+    "id": 36,
+    "titleEn": "Politeness",
+    "titleVi": "Lịch sự",
+    "grammar": "Particles like “ạ” make speech more polite, especially with older people.",
+    "vocab": [
+      {
+        "vi": "ạ",
+        "en": "polite particle"
+      },
+      {
+        "vi": "dạ",
+        "en": "polite response"
+      },
+      {
+        "vi": "vâng",
+        "en": "yes / polite"
+      },
+      {
+        "vi": "làm ơn",
+        "en": "please"
+      },
+      {
+        "vi": "xin vui lòng",
+        "en": "please / formal"
+      },
+      {
+        "vi": "cảm ơn",
+        "en": "thank you"
+      },
+      {
+        "vi": "cảm ơn nhiều",
+        "en": "thank you very much"
+      },
+      {
+        "vi": "xin lỗi",
+        "en": "sorry / excuse me"
+      },
+      {
+        "vi": "không sao",
+        "en": "it’s okay"
+      },
+      {
+        "vi": "mời",
+        "en": "invite / please"
+      },
+      {
+        "vi": "cho tôi hỏi",
+        "en": "may I ask"
+      },
+      {
+        "vi": "phiền bạn",
+        "en": "sorry to bother you"
+      },
+      {
+        "vi": "giúp tôi",
+        "en": "help me"
+      },
+      {
+        "vi": "được không",
+        "en": "is it okay?"
+      },
+      {
+        "vi": "có thể",
+        "en": "can / possible"
+      },
+      {
+        "vi": "lịch sự",
+        "en": "polite"
+      },
+      {
+        "vi": "tôn trọng",
+        "en": "respect"
+      },
+      {
+        "vi": "thưa",
+        "en": "respectful address"
+      },
+      {
+        "vi": "vui lòng",
+        "en": "please"
+      },
+      {
+        "vi": "rất cảm ơn",
+        "en": "many thanks"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Lịch sự.",
+      "Làm ơn nói chậm từ “ạ”.",
+      "“ạ” có nghĩa là “polite particle”."
+    ]
+  },
+  {
+    "id": 37,
+    "titleEn": "Pronouns",
+    "titleVi": "Đại từ",
+    "grammar": "Vietnamese pronouns reflect age, relationship, and politeness.",
+    "vocab": [
+      {
+        "vi": "tôi",
+        "en": "I / me"
+      },
+      {
+        "vi": "mình",
+        "en": "I / we / myself"
+      },
+      {
+        "vi": "bạn",
+        "en": "you / friend"
+      },
+      {
+        "vi": "anh",
+        "en": "older male / you"
+      },
+      {
+        "vi": "chị",
+        "en": "older female / you"
+      },
+      {
+        "vi": "em",
+        "en": "younger person / I"
+      },
+      {
+        "vi": "ông",
+        "en": "older man / grandfather"
+      },
+      {
+        "vi": "bà",
+        "en": "older woman / grandmother"
+      },
+      {
+        "vi": "cô",
+        "en": "aunt / Ms."
+      },
+      {
+        "vi": "chú",
+        "en": "uncle"
+      },
+      {
+        "vi": "bác",
+        "en": "older uncle/aunt"
+      },
+      {
+        "vi": "chúng tôi",
+        "en": "we excluding listener"
+      },
+      {
+        "vi": "chúng ta",
+        "en": "we including listener"
+      },
+      {
+        "vi": "họ",
+        "en": "they"
+      },
+      {
+        "vi": "nó",
+        "en": "it / he / she informal"
+      },
+      {
+        "vi": "người ta",
+        "en": "people / someone"
+      },
+      {
+        "vi": "ai đó",
+        "en": "someone"
+      },
+      {
+        "vi": "mọi người",
+        "en": "everyone"
+      },
+      {
+        "vi": "cậu",
+        "en": "you / informal"
+      },
+      {
+        "vi": "tớ",
+        "en": "I / informal"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Đại từ.",
+      "Làm ơn nói chậm từ “tôi”.",
+      "“tôi” có nghĩa là “I / me”."
+    ]
+  },
+  {
+    "id": 38,
+    "titleEn": "Market",
+    "titleVi": "Ở chợ",
+    "grammar": "At markets, “bao nhiêu một ký?” asks the price per kilogram.",
+    "vocab": [
+      {
+        "vi": "chợ",
+        "en": "market"
+      },
+      {
+        "vi": "người bán",
+        "en": "seller"
+      },
+      {
+        "vi": "người mua",
+        "en": "buyer"
+      },
+      {
+        "vi": "rau",
+        "en": "vegetables"
+      },
+      {
+        "vi": "trái cây",
+        "en": "fruit"
+      },
+      {
+        "vi": "thịt",
+        "en": "meat"
+      },
+      {
+        "vi": "cá",
+        "en": "fish"
+      },
+      {
+        "vi": "tôm",
+        "en": "shrimp"
+      },
+      {
+        "vi": "gạo",
+        "en": "rice grain"
+      },
+      {
+        "vi": "trứng",
+        "en": "egg"
+      },
+      {
+        "vi": "ký",
+        "en": "kilogram"
+      },
+      {
+        "vi": "cân",
+        "en": "weigh"
+      },
+      {
+        "vi": "bao nhiêu một ký",
+        "en": "how much per kilo"
+      },
+      {
+        "vi": "mặc cả",
+        "en": "bargain"
+      },
+      {
+        "vi": "giảm giá",
+        "en": "discount"
+      },
+      {
+        "vi": "tươi",
+        "en": "fresh"
+      },
+      {
+        "vi": "chín",
+        "en": "ripe / cooked"
+      },
+      {
+        "vi": "sống",
+        "en": "raw / alive"
+      },
+      {
+        "vi": "túi",
+        "en": "bag"
+      },
+      {
+        "vi": "tiền lẻ",
+        "en": "small change"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ở chợ.",
+      "Làm ơn nói chậm từ “chợ”.",
+      "“chợ” có nghĩa là “market”."
+    ]
+  },
+  {
+    "id": 39,
+    "titleEn": "Banking",
+    "titleVi": "Ngân hàng",
+    "grammar": "For service requests, use “Tôi muốn...” plus the action.",
+    "vocab": [
+      {
+        "vi": "ngân hàng",
+        "en": "bank"
+      },
+      {
+        "vi": "tài khoản",
+        "en": "account"
+      },
+      {
+        "vi": "thẻ",
+        "en": "card"
+      },
+      {
+        "vi": "thẻ tín dụng",
+        "en": "credit card"
+      },
+      {
+        "vi": "thẻ ghi nợ",
+        "en": "debit card"
+      },
+      {
+        "vi": "rút tiền",
+        "en": "withdraw money"
+      },
+      {
+        "vi": "gửi tiền",
+        "en": "deposit money"
+      },
+      {
+        "vi": "chuyển tiền",
+        "en": "transfer money"
+      },
+      {
+        "vi": "máy ATM",
+        "en": "ATM"
+      },
+      {
+        "vi": "mã PIN",
+        "en": "PIN"
+      },
+      {
+        "vi": "phí",
+        "en": "fee"
+      },
+      {
+        "vi": "lãi suất",
+        "en": "interest rate"
+      },
+      {
+        "vi": "khoản vay",
+        "en": "loan"
+      },
+      {
+        "vi": "tiết kiệm",
+        "en": "savings"
+      },
+      {
+        "vi": "số dư",
+        "en": "balance"
+      },
+      {
+        "vi": "biên lai",
+        "en": "receipt"
+      },
+      {
+        "vi": "ký tên",
+        "en": "sign name"
+      },
+      {
+        "vi": "hộ chiếu",
+        "en": "passport"
+      },
+      {
+        "vi": "chứng minh thư",
+        "en": "ID card"
+      },
+      {
+        "vi": "dịch vụ",
+        "en": "service"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ngân hàng.",
+      "Làm ơn nói chậm từ “ngân hàng”.",
+      "“ngân hàng” có nghĩa là “bank”."
+    ]
+  },
+  {
+    "id": 40,
+    "titleEn": "Emergency",
+    "titleVi": "Khẩn cấp",
+    "grammar": "Emergency phrases should be short, direct, and easy to pronounce.",
+    "vocab": [
+      {
+        "vi": "khẩn cấp",
+        "en": "emergency"
+      },
+      {
+        "vi": "cứu tôi",
+        "en": "help me"
+      },
+      {
+        "vi": "giúp với",
+        "en": "please help"
+      },
+      {
+        "vi": "cảnh sát",
+        "en": "police"
+      },
+      {
+        "vi": "cứu thương",
+        "en": "ambulance"
+      },
+      {
+        "vi": "bác sĩ",
+        "en": "doctor"
+      },
+      {
+        "vi": "cháy",
+        "en": "fire"
+      },
+      {
+        "vi": "tai nạn",
+        "en": "accident"
+      },
+      {
+        "vi": "nguy hiểm",
+        "en": "dangerous"
+      },
+      {
+        "vi": "gọi",
+        "en": "call"
+      },
+      {
+        "vi": "địa chỉ",
+        "en": "address"
+      },
+      {
+        "vi": "tôi bị lạc",
+        "en": "I am lost"
+      },
+      {
+        "vi": "tôi bị đau",
+        "en": "I am hurt"
+      },
+      {
+        "vi": "mất hộ chiếu",
+        "en": "lost passport"
+      },
+      {
+        "vi": "mất ví",
+        "en": "lost wallet"
+      },
+      {
+        "vi": "trộm",
+        "en": "thief"
+      },
+      {
+        "vi": "dừng lại",
+        "en": "stop"
+      },
+      {
+        "vi": "đừng",
+        "en": "don’t"
+      },
+      {
+        "vi": "nhanh lên",
+        "en": "hurry up"
+      },
+      {
+        "vi": "ở đây",
+        "en": "here"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Khẩn cấp.",
+      "Làm ơn nói chậm từ “khẩn cấp”.",
+      "“khẩn cấp” có nghĩa là “emergency”."
+    ]
+  },
+  {
+    "id": 41,
+    "titleEn": "Invitations",
+    "titleVi": "Lời mời",
+    "grammar": "Use “Bạn có muốn... không?” to invite someone.",
+    "vocab": [
+      {
+        "vi": "mời",
+        "en": "invite"
+      },
+      {
+        "vi": "đi chơi",
+        "en": "go out"
+      },
+      {
+        "vi": "rảnh",
+        "en": "free / available"
+      },
+      {
+        "vi": "bận",
+        "en": "busy"
+      },
+      {
+        "vi": "cuối tuần",
+        "en": "weekend"
+      },
+      {
+        "vi": "tham gia",
+        "en": "join"
+      },
+      {
+        "vi": "gặp nhau",
+        "en": "meet each other"
+      },
+      {
+        "vi": "ăn tối",
+        "en": "have dinner"
+      },
+      {
+        "vi": "uống cà phê",
+        "en": "drink coffee"
+      },
+      {
+        "vi": "xem phim",
+        "en": "watch a movie"
+      },
+      {
+        "vi": "đi dạo",
+        "en": "go for a walk"
+      },
+      {
+        "vi": "tiệc",
+        "en": "party"
+      },
+      {
+        "vi": "sinh nhật",
+        "en": "birthday"
+      },
+      {
+        "vi": "đồng ý",
+        "en": "agree"
+      },
+      {
+        "vi": "từ chối",
+        "en": "decline"
+      },
+      {
+        "vi": "có thể",
+        "en": "can / possible"
+      },
+      {
+        "vi": "hẹn",
+        "en": "appointment / date"
+      },
+      {
+        "vi": "lúc nào",
+        "en": "what time"
+      },
+      {
+        "vi": "ở đâu",
+        "en": "where"
+      },
+      {
+        "vi": "vui",
+        "en": "fun"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Lời mời.",
+      "Làm ơn nói chậm từ “mời”.",
+      "“mời” có nghĩa là “invite”."
+    ]
+  },
+  {
+    "id": 42,
+    "titleEn": "Opinions",
+    "titleVi": "Ý kiến",
+    "grammar": "Use “Tôi nghĩ là...” for “I think that...”.",
+    "vocab": [
+      {
+        "vi": "ý kiến",
+        "en": "opinion"
+      },
+      {
+        "vi": "nghĩ",
+        "en": "think"
+      },
+      {
+        "vi": "cho rằng",
+        "en": "believe / consider"
+      },
+      {
+        "vi": "thích",
+        "en": "like"
+      },
+      {
+        "vi": "không thích",
+        "en": "dislike"
+      },
+      {
+        "vi": "ghét",
+        "en": "hate"
+      },
+      {
+        "vi": "đồng ý",
+        "en": "agree"
+      },
+      {
+        "vi": "không đồng ý",
+        "en": "disagree"
+      },
+      {
+        "vi": "đúng",
+        "en": "correct"
+      },
+      {
+        "vi": "sai",
+        "en": "wrong"
+      },
+      {
+        "vi": "hay",
+        "en": "interesting / good"
+      },
+      {
+        "vi": "tệ",
+        "en": "bad"
+      },
+      {
+        "vi": "tốt",
+        "en": "good"
+      },
+      {
+        "vi": "xấu",
+        "en": "bad / ugly"
+      },
+      {
+        "vi": "quan trọng",
+        "en": "important"
+      },
+      {
+        "vi": "dễ",
+        "en": "easy"
+      },
+      {
+        "vi": "khó",
+        "en": "difficult"
+      },
+      {
+        "vi": "cần thiết",
+        "en": "necessary"
+      },
+      {
+        "vi": "có lẽ",
+        "en": "maybe"
+      },
+      {
+        "vi": "theo tôi",
+        "en": "in my opinion"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ý kiến.",
+      "Làm ơn nói chậm từ “ý kiến”.",
+      "“ý kiến” có nghĩa là “opinion”."
+    ]
+  },
+  {
+    "id": 43,
+    "titleEn": "Plans",
+    "titleVi": "Lên kế hoạch",
+    "grammar": "Use “lúc” before time and “ở” before place.",
+    "vocab": [
+      {
+        "vi": "kế hoạch",
+        "en": "plan"
+      },
+      {
+        "vi": "dự định",
+        "en": "intention"
+      },
+      {
+        "vi": "gặp",
+        "en": "meet"
+      },
+      {
+        "vi": "hẹn",
+        "en": "appointment"
+      },
+      {
+        "vi": "lúc",
+        "en": "at time"
+      },
+      {
+        "vi": "địa điểm",
+        "en": "place"
+      },
+      {
+        "vi": "ngày",
+        "en": "day"
+      },
+      {
+        "vi": "giờ",
+        "en": "hour / time"
+      },
+      {
+        "vi": "chuẩn bị",
+        "en": "prepare"
+      },
+      {
+        "vi": "bắt đầu",
+        "en": "start"
+      },
+      {
+        "vi": "kết thúc",
+        "en": "finish"
+      },
+      {
+        "vi": "hủy",
+        "en": "cancel"
+      },
+      {
+        "vi": "đổi",
+        "en": "change"
+      },
+      {
+        "vi": "trễ",
+        "en": "late"
+      },
+      {
+        "vi": "sớm",
+        "en": "early"
+      },
+      {
+        "vi": "xác nhận",
+        "en": "confirm"
+      },
+      {
+        "vi": "nhắc nhở",
+        "en": "remind"
+      },
+      {
+        "vi": "danh sách",
+        "en": "list"
+      },
+      {
+        "vi": "mục tiêu",
+        "en": "goal"
+      },
+      {
+        "vi": "hoàn thành",
+        "en": "complete"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Lên kế hoạch.",
+      "Làm ơn nói chậm từ “kế hoạch”.",
+      "“kế hoạch” có nghĩa là “plan”."
+    ]
+  },
+  {
+    "id": 44,
+    "titleEn": "House Rules",
+    "titleVi": "Quy tắc trong nhà",
+    "grammar": "Modal verbs like “phải”, “nên”, “được” come before the main verb.",
+    "vocab": [
+      {
+        "vi": "quy tắc",
+        "en": "rule"
+      },
+      {
+        "vi": "được",
+        "en": "allowed"
+      },
+      {
+        "vi": "không được",
+        "en": "not allowed"
+      },
+      {
+        "vi": "phải",
+        "en": "must"
+      },
+      {
+        "vi": "nên",
+        "en": "should"
+      },
+      {
+        "vi": "không nên",
+        "en": "should not"
+      },
+      {
+        "vi": "dọn dẹp",
+        "en": "clean up"
+      },
+      {
+        "vi": "rửa chén",
+        "en": "wash dishes"
+      },
+      {
+        "vi": "giữ yên lặng",
+        "en": "keep quiet"
+      },
+      {
+        "vi": "khóa cửa",
+        "en": "lock the door"
+      },
+      {
+        "vi": "tắt đèn",
+        "en": "turn off lights"
+      },
+      {
+        "vi": "hút thuốc",
+        "en": "smoke"
+      },
+      {
+        "vi": "vứt rác",
+        "en": "throw trash"
+      },
+      {
+        "vi": "đúng giờ",
+        "en": "on time"
+      },
+      {
+        "vi": "chia sẻ",
+        "en": "share"
+      },
+      {
+        "vi": "tôn trọng",
+        "en": "respect"
+      },
+      {
+        "vi": "khách",
+        "en": "guest"
+      },
+      {
+        "vi": "nuôi thú cưng",
+        "en": "keep pets"
+      },
+      {
+        "vi": "tiền thuê",
+        "en": "rent money"
+      },
+      {
+        "vi": "hóa đơn điện",
+        "en": "electric bill"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Quy tắc trong nhà.",
+      "Làm ơn nói chậm từ “quy tắc”.",
+      "“quy tắc” có nghĩa là “rule”."
+    ]
+  },
+  {
+    "id": 45,
+    "titleEn": "Vietnamese Culture",
+    "titleVi": "Văn hóa Việt Nam",
+    "grammar": "Culture vocabulary helps learners understand real-life conversations in Vietnam.",
+    "vocab": [
+      {
+        "vi": "văn hóa",
+        "en": "culture"
+      },
+      {
+        "vi": "Việt Nam",
+        "en": "Vietnam"
+      },
+      {
+        "vi": "Tết",
+        "en": "Lunar New Year"
+      },
+      {
+        "vi": "áo dài",
+        "en": "traditional dress"
+      },
+      {
+        "vi": "lì xì",
+        "en": "lucky money"
+      },
+      {
+        "vi": "chợ đêm",
+        "en": "night market"
+      },
+      {
+        "vi": "lễ hội",
+        "en": "festival"
+      },
+      {
+        "vi": "gia đình",
+        "en": "family"
+      },
+      {
+        "vi": "bàn thờ",
+        "en": "altar"
+      },
+      {
+        "vi": "cúng",
+        "en": "make offerings"
+      },
+      {
+        "vi": "đình",
+        "en": "communal house"
+      },
+      {
+        "vi": "chùa",
+        "en": "pagoda"
+      },
+      {
+        "vi": "nón lá",
+        "en": "conical hat"
+      },
+      {
+        "vi": "múa lân",
+        "en": "lion dance"
+      },
+      {
+        "vi": "bánh chưng",
+        "en": "square sticky rice cake"
+      },
+      {
+        "vi": "bánh tét",
+        "en": "cylindrical sticky rice cake"
+      },
+      {
+        "vi": "trà đá",
+        "en": "iced tea"
+      },
+      {
+        "vi": "xe máy",
+        "en": "motorbike"
+      },
+      {
+        "vi": "ẩm thực",
+        "en": "cuisine"
+      },
+      {
+        "vi": "khách sáo",
+        "en": "overly formal / polite"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Văn hóa Việt Nam.",
+      "Làm ơn nói chậm từ “văn hóa”.",
+      "“văn hóa” có nghĩa là “culture”."
+    ]
+  },
+  {
+    "id": 46,
+    "titleEn": "Common Verbs",
+    "titleVi": "Động từ thường dùng",
+    "grammar": "Vietnamese verbs do not change form. Word order and time words give meaning.",
+    "vocab": [
+      {
+        "vi": "làm",
+        "en": "do / make"
+      },
+      {
+        "vi": "đi",
+        "en": "go"
+      },
+      {
+        "vi": "đến",
+        "en": "come / arrive"
+      },
+      {
+        "vi": "ăn",
+        "en": "eat"
+      },
+      {
+        "vi": "uống",
+        "en": "drink"
+      },
+      {
+        "vi": "nói",
+        "en": "speak"
+      },
+      {
+        "vi": "nghe",
+        "en": "listen"
+      },
+      {
+        "vi": "nhìn",
+        "en": "look"
+      },
+      {
+        "vi": "xem",
+        "en": "watch"
+      },
+      {
+        "vi": "đọc",
+        "en": "read"
+      },
+      {
+        "vi": "viết",
+        "en": "write"
+      },
+      {
+        "vi": "biết",
+        "en": "know"
+      },
+      {
+        "vi": "hiểu",
+        "en": "understand"
+      },
+      {
+        "vi": "muốn",
+        "en": "want"
+      },
+      {
+        "vi": "cần",
+        "en": "need"
+      },
+      {
+        "vi": "thích",
+        "en": "like"
+      },
+      {
+        "vi": "mua",
+        "en": "buy"
+      },
+      {
+        "vi": "bán",
+        "en": "sell"
+      },
+      {
+        "vi": "mở",
+        "en": "open"
+      },
+      {
+        "vi": "đóng",
+        "en": "close"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Động từ thường dùng.",
+      "Làm ơn nói chậm từ “làm”.",
+      "“làm” có nghĩa là “do / make”."
+    ]
+  },
+  {
+    "id": 47,
+    "titleEn": "Adjectives",
+    "titleVi": "Tính từ",
+    "grammar": "Adjectives can act like verbs: “Tôi mệt” literally means “I tired”.",
+    "vocab": [
+      {
+        "vi": "đẹp",
+        "en": "beautiful"
+      },
+      {
+        "vi": "xấu",
+        "en": "ugly / bad"
+      },
+      {
+        "vi": "tốt",
+        "en": "good"
+      },
+      {
+        "vi": "tệ",
+        "en": "bad"
+      },
+      {
+        "vi": "mới",
+        "en": "new"
+      },
+      {
+        "vi": "cũ",
+        "en": "old"
+      },
+      {
+        "vi": "lớn",
+        "en": "big"
+      },
+      {
+        "vi": "nhỏ",
+        "en": "small"
+      },
+      {
+        "vi": "cao",
+        "en": "tall / high"
+      },
+      {
+        "vi": "thấp",
+        "en": "short / low"
+      },
+      {
+        "vi": "dài",
+        "en": "long"
+      },
+      {
+        "vi": "ngắn",
+        "en": "short"
+      },
+      {
+        "vi": "nhanh",
+        "en": "fast"
+      },
+      {
+        "vi": "chậm",
+        "en": "slow"
+      },
+      {
+        "vi": "dễ",
+        "en": "easy"
+      },
+      {
+        "vi": "khó",
+        "en": "difficult"
+      },
+      {
+        "vi": "nóng",
+        "en": "hot"
+      },
+      {
+        "vi": "lạnh",
+        "en": "cold"
+      },
+      {
+        "vi": "sạch",
+        "en": "clean"
+      },
+      {
+        "vi": "bẩn",
+        "en": "dirty"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Tính từ.",
+      "Làm ơn nói chậm từ “đẹp”.",
+      "“đẹp” có nghĩa là “beautiful”."
+    ]
+  },
+  {
+    "id": 48,
+    "titleEn": "Listening Review",
+    "titleVi": "Ôn nghe",
+    "grammar": "Listening is essential. Replay slowly, type what you hear, then compare with the Vietnamese text.",
+    "vocab": [
+      {
+        "vi": "nghe",
+        "en": "listen"
+      },
+      {
+        "vi": "lặp lại",
+        "en": "repeat"
+      },
+      {
+        "vi": "phát âm",
+        "en": "pronunciation"
+      },
+      {
+        "vi": "âm thanh",
+        "en": "sound"
+      },
+      {
+        "vi": "giọng nói",
+        "en": "voice"
+      },
+      {
+        "vi": "tốc độ",
+        "en": "speed"
+      },
+      {
+        "vi": "chậm",
+        "en": "slow"
+      },
+      {
+        "vi": "nhanh",
+        "en": "fast"
+      },
+      {
+        "vi": "rõ",
+        "en": "clear"
+      },
+      {
+        "vi": "không rõ",
+        "en": "unclear"
+      },
+      {
+        "vi": "viết lại",
+        "en": "write down"
+      },
+      {
+        "vi": "chọn đáp án",
+        "en": "choose the answer"
+      },
+      {
+        "vi": "nghe kỹ",
+        "en": "listen carefully"
+      },
+      {
+        "vi": "nghe lại",
+        "en": "listen again"
+      },
+      {
+        "vi": "bài nghe",
+        "en": "listening exercise"
+      },
+      {
+        "vi": "từ vựng",
+        "en": "vocabulary"
+      },
+      {
+        "vi": "câu",
+        "en": "sentence"
+      },
+      {
+        "vi": "ngữ điệu",
+        "en": "intonation"
+      },
+      {
+        "vi": "dấu",
+        "en": "tone mark"
+      },
+      {
+        "vi": "thực hành",
+        "en": "practice"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ôn nghe.",
+      "Làm ơn nói chậm từ “nghe”.",
+      "“nghe” có nghĩa là “listen”."
+    ]
+  },
+  {
+    "id": 49,
+    "titleEn": "Review Challenge",
+    "titleVi": "Ôn tập tổng hợp",
+    "grammar": "This final lesson mixes vocabulary and grammar from previous lessons for real review.",
+    "vocab": [
+      {
+        "vi": "xin chào",
+        "en": "hello"
+      },
+      {
+        "vi": "cảm ơn",
+        "en": "thank you"
+      },
+      {
+        "vi": "bao nhiêu",
+        "en": "how much"
+      },
+      {
+        "vi": "ở đâu",
+        "en": "where"
+      },
+      {
+        "vi": "tôi muốn",
+        "en": "I want"
+      },
+      {
+        "vi": "không",
+        "en": "not / no"
+      },
+      {
+        "vi": "đã",
+        "en": "past marker"
+      },
+      {
+        "vi": "sẽ",
+        "en": "future marker"
+      },
+      {
+        "vi": "đang",
+        "en": "in progress"
+      },
+      {
+        "vi": "làm ơn",
+        "en": "please"
+      },
+      {
+        "vi": "ngon",
+        "en": "delicious"
+      },
+      {
+        "vi": "đắt",
+        "en": "expensive"
+      },
+      {
+        "vi": "rẻ",
+        "en": "cheap"
+      },
+      {
+        "vi": "đi thẳng",
+        "en": "go straight"
+      },
+      {
+        "vi": "rẽ trái",
+        "en": "turn left"
+      },
+      {
+        "vi": "rẽ phải",
+        "en": "turn right"
+      },
+      {
+        "vi": "khẩn cấp",
+        "en": "emergency"
+      },
+      {
+        "vi": "giúp tôi",
+        "en": "help me"
+      },
+      {
+        "vi": "tôi không hiểu",
+        "en": "I don’t understand"
+      },
+      {
+        "vi": "nói chậm thôi",
+        "en": "please speak slowly"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Ôn tập tổng hợp.",
+      "Làm ơn nói chậm từ “xin chào”.",
+      "“xin chào” có nghĩa là “hello”."
+    ]
+  },
+  {
+    "id": 50,
+    "titleEn": "Vietnamese Tones",
+    "titleVi": "Thanh điệu tiếng Việt",
+    "grammar": "Vietnamese is tonal. The tone mark changes the meaning of a word, so listening and repeating slowly is very important.",
+    "vocab": [
+      {
+        "vi": "ma",
+        "en": "ghost / neutral tone"
+      },
+      {
+        "vi": "má",
+        "en": "mother / rising tone"
+      },
+      {
+        "vi": "mà",
+        "en": "but / falling tone"
+      },
+      {
+        "vi": "mả",
+        "en": "tomb / hỏi tone"
+      },
+      {
+        "vi": "mã",
+        "en": "code / ngã tone"
+      },
+      {
+        "vi": "mạ",
+        "en": "rice seedling / nặng tone"
+      },
+      {
+        "vi": "dấu ngang",
+        "en": "level tone"
+      },
+      {
+        "vi": "dấu sắc",
+        "en": "rising tone mark"
+      },
+      {
+        "vi": "dấu huyền",
+        "en": "falling tone mark"
+      },
+      {
+        "vi": "dấu hỏi",
+        "en": "dipping tone mark"
+      },
+      {
+        "vi": "dấu ngã",
+        "en": "broken rising tone mark"
+      },
+      {
+        "vi": "dấu nặng",
+        "en": "heavy tone mark"
+      },
+      {
+        "vi": "âm",
+        "en": "sound"
+      },
+      {
+        "vi": "thanh",
+        "en": "tone"
+      },
+      {
+        "vi": "nguyên âm",
+        "en": "vowel"
+      },
+      {
+        "vi": "phụ âm",
+        "en": "consonant"
+      },
+      {
+        "vi": "phát âm",
+        "en": "pronunciation"
+      },
+      {
+        "vi": "nghe kỹ",
+        "en": "listen carefully"
+      },
+      {
+        "vi": "lặp lại",
+        "en": "repeat"
+      },
+      {
+        "vi": "nói chậm",
+        "en": "speak slowly"
+      }
+    ],
+    "examples": [
+      "Tôi đang học chủ đề Thanh điệu tiếng Việt.",
+      "Làm ơn nói chậm từ “ma”.",
+      "“ma” có nghĩa là “ghost / neutral tone”."
+    ]
+  }
+];
+
+function enhanceVietnameseContent(){
+  const naturalExamples = {"1":["Xin chào, tôi tên là Nam. Rất vui được gặp bạn.","Bạn đến từ đâu? Tôi đến từ Đà Nẵng.","Chào chị, hôm nay chị khỏe không ạ?"],"2":["Tôi cần hai vé đi Hà Nội.","Một tô phở giá năm mươi nghìn đồng.","Bạn cho tôi số điện thoại được không?"],"3":["Gia đình tôi có bốn người.","Mẹ tôi làm giáo viên, còn bố tôi làm kỹ sư.","Cuối tuần tôi thường về thăm ông bà."],"4":["Cho tôi một tô phở bò ít hành.","Món này hơi cay nhưng rất ngon.","Tôi không ăn được hải sản."],"5":["Cho tôi một ly nước đá, cảm ơn.","Bạn muốn uống trà đá hay nước cam?","Cà phê sữa đá ở quán này rất đậm."]};
+  const extraVocabulary = {"1":[["dạ","polite yes / respectful particle"],["ạ","polite ending particle"],["cho tôi hỏi","may I ask"],["bạn tên là gì","what is your name"],["rất vui được gặp bạn","nice to meet you"]],"2":[["linh","zero in phone numbers"],["rưỡi","half past / half"],["chục","ten / group of ten"],["trăm nghìn","one hundred thousand"],["số điện thoại","phone number"]],"3":[["anh trai","older brother"],["chị gái","older sister"],["em gái","younger sister"],["vợ chồng","married couple / spouse"],["họ hàng","relatives"]],"4":[["ít hành","less scallion"],["không cay","not spicy"],["nước mắm","fish sauce"],["ăn chay","eat vegetarian"],["mang về","take away / takeaway"]],"5":[["trà đá","iced tea"],["ít đường","less sugar"],["không đá","no ice"],["nước lọc","plain water"],["sinh tố","smoothie"]],"6":[["ổ cắm","power outlet"],["ngồi ngoài trời","sit outside"],["tính tiền","pay the bill"],["đặt bàn","reserve a table"],["mang đi","to go / takeaway"]],"7":[["đánh răng","brush teeth"],["tắm","take a shower"],["đi làm","go to work"],["nấu cơm","cook a meal"],["đi ngủ","go to sleep"]],"8":[["đúng giờ","on time"],["trễ","late"],["nửa tiếng","half an hour"],["mười lăm phút","fifteen minutes"],["hôm nay","today"]],"9":[["cuối tuần","weekend"],["ngày mai","tomorrow"],["hôm qua","yesterday"],["sinh nhật","birthday"],["ngày lễ","holiday"]],"10":[["nắng gắt","harsh sun"],["mưa rào","shower / sudden rain"],["se lạnh","slightly chilly"],["ẩm","humid"],["dự báo thời tiết","weather forecast"]],"11":[["xanh lá","green"],["xanh dương","blue"],["vàng","yellow"],["hồng","pink"],["màu be","beige"]],"12":[["áo khoác","jacket"],["áo mưa","raincoat"],["đội mũ","wear a hat/helmet"],["cởi giày","take off shoes"],["thử đồ","try on clothes"]],"13":[["chuyển khoản","bank transfer"],["quét mã","scan a QR code"],["hàng mới","new item"],["đổi hàng","exchange goods"],["hết hàng","out of stock"]],"14":[["ngã tư","intersection"],["đèn đỏ","traffic light"],["bên phải","on the right"],["bên trái","on the left"],["đi bộ","walk"]],"15":[["xe công nghệ","ride-hailing car/bike"],["kẹt xe","traffic jam"],["bến xe","bus station"],["vé khứ hồi","round-trip ticket"],["xuống xe","get off a vehicle"]],"16":[["máy lạnh","air conditioner"],["lễ tân","reception"],["chìa khóa phòng","room key"],["phòng đôi","double room"],["dọn phòng","clean the room"]],"17":[["gọi món","order food"],["đặc sản","specialty dish"],["khẩu phần","portion"],["hơi mặn","a bit salty"],["hóa đơn","bill / receipt"]],"18":[["đau họng","sore throat"],["sốt","fever"],["dị ứng","allergy"],["toa thuốc","prescription"],["uống sau khi ăn","take after eating"]],"19":[["đau lưng","back pain"],["đau vai","shoulder pain"],["mắt","eye"],["tai","ear"],["cổ họng","throat"],["đau cổ","neck pain"]],"20":[["bình thường","normal / okay"],["căng thẳng","stressed"],["ngại","shy / hesitant"],["tự tin","confident"],["nhớ nhà","homesick"]],"21":[["phòng khách","living room"],["nhà bếp","kitchen"],["ban công","balcony"],["cửa ra vào","front door"],["sân thượng","rooftop terrace"]],"22":[["tủ lạnh","refrigerator"],["máy giặt","washing machine"],["quạt máy","electric fan"],["nệm","mattress"],["kệ sách","bookshelf"]],"23":[["điểm danh","take attendance"],["bài kiểm tra","test"],["nộp bài","submit homework"],["giờ ra chơi","break time"],["giáo viên chủ nhiệm","homeroom teacher"]],"24":[["tăng ca","work overtime"],["nghỉ phép","take leave"],["hạn chót","deadline"],["lương","salary"],["phỏng vấn","interview"]],"25":[["mã xác nhận","verification code"],["cập nhật","update"],["mất mạng","lose internet connection"],["đăng xuất","log out"],["sao lưu","back up"]],"26":[["đi dạo","go for a walk"],["chụp ảnh","take photos"],["đọc sách","read books"],["nghe nhạc","listen to music"],["trồng cây","grow plants"]],"27":[["chạy bộ","jog"],["tập gym","work out at the gym"],["trận đấu","match / game"],["cổ vũ","cheer"],["đội tuyển","national team"]],"28":[["lịch trình","itinerary"],["đặt vé","book tickets"],["hành lý","luggage"],["hộ chiếu","passport"],["điểm tham quan","tourist attraction"]],"29":[["quận","district"],["hẻm","alley"],["chung cư","apartment building"],["trung tâm thương mại","shopping mall"],["vỉa hè","sidewalk"]],"30":[["bãi biển","beach"],["thác nước","waterfall"],["rừng","forest"],["leo núi","go hiking"],["bảo vệ môi trường","protect the environment"]],"31":[["con mèo","cat"],["con chó","dog"],["thú cưng","pet"],["sở thú","zoo"],["chim","bird"]],"32":[["khi nào","when"],["ở đâu","where"],["tại sao","why"],["như thế nào","how"],["bao lâu","how long"]],"33":[["chưa","not yet"],["không phải","not / is not"],["đừng","do not"],["không cần","do not need"],["không được","must not / not allowed"]],"34":[["đã từng","have ever"],["sắp","about to"],["vừa mới","just recently"],["lúc trước","before"],["sau này","later / in the future"]],"35":[["cái","general classifier"],["con","classifier for animals/vehicles"],["ly","glass / cup classifier"],["ký","kilogram"],["bó","bunch classifier"],["tờ","classifier for sheets/paper/money"],["chiếc","classifier for objects/vehicles"]],"36":[["làm phiền","bother / trouble"],["xin phép","ask permission"],["vui lòng","please"],["cảm phiền","could you please"],["không sao đâu","it is okay / no problem"]],"37":[["anh","older brother / male pronoun"],["chị","older sister / female pronoun"],["em","younger person / I to older person"],["cô chú","auntie and uncle"],["con","child / I to elders"],["bác","older aunt/uncle pronoun"],["cháu","I/younger person to elder"]],"38":[["nửa ký","half a kilogram"],["rau muống","water spinach"],["trả giá","bargain"],["tươi","fresh"],["túi ni lông","plastic bag"]],"39":[["tài khoản","bank account"],["rút tiền","withdraw money"],["gửi tiền","deposit money"],["phí giao dịch","transaction fee"],["số dư","balance"]],"40":[["cấp cứu","emergency"],["mất ví","lost wallet"],["cháy","fire"],["giúp tôi với","please help me"],["cảnh báo","warning"]],"41":[["rảnh","free / available"],["hẹn gặp","make an appointment / meet"],["đi ăn","go eat out"],["đổi lịch","reschedule"],["lần sau","next time"]],"42":[["theo tôi","in my opinion"],["tôi nghĩ là","I think that"],["đồng ý","agree"],["không đồng ý","disagree"],["hợp lý","reasonable"]],"43":[["dự định","plan / intend"],["kế hoạch","plan"],["nếu trời mưa","if it rains"],["đặt trước","book in advance"],["xác nhận","confirm"]],"44":[["khóa cửa","lock the door"],["đổ rác","take out trash"],["giữ yên lặng","keep quiet"],["không hút thuốc","no smoking"],["quy định","rule / regulation"]],"45":[["Tết","Vietnamese Lunar New Year"],["lì xì","lucky money"],["mời cơm","invite someone to eat"],["cúng tổ tiên","worship ancestors"],["áo dài","Vietnamese traditional dress"]],"46":[["mở cửa","open the door"],["đóng cửa","close the door"],["gọi điện","make a phone call"],["đợi","wait"],["mượn","borrow"]],"47":[["sạch","clean"],["bẩn","dirty"],["đông","crowded"],["vắng","quiet / not crowded"],["tiện","convenient"]],"48":[["nghe lại","listen again"],["nói rõ","speak clearly"],["bỏ lỡ","miss / fail to catch"],["tốc độ bình thường","normal speed"],["phụ đề","subtitles"],["nghe từng câu","listen sentence by sentence"]],"49":[["ôn tập","review"],["ghi nhớ","memorize"],["nhầm","mix up / confuse"],["sửa lỗi","correct mistakes"],["tiến bộ","make progress"]],"50":[["dấu sắc","rising tone mark"],["dấu huyền","falling tone mark"],["dấu hỏi","dipping tone mark"],["dấu ngã","broken rising tone mark"],["dấu nặng","heavy tone mark"]]};
+  const vocabFixes = {"một khăn": {vi:"một cái khăn", en:"one towel"}};
+  lessons.forEach(l=>{
+    if(naturalExamples[l.id]) l.examples = naturalExamples[l.id];
+    l.vocab = l.vocab.map(v=>vocabFixes[v.vi] ? {...v, ...vocabFixes[v.vi]} : v);
+    const seen = new Set(l.vocab.map(v=>String(v.vi).trim().toLowerCase()));
+    (extraVocabulary[l.id]||[]).forEach(([vi,en])=>{
+      const key = String(vi).trim().toLowerCase();
+      if(!seen.has(key)){ l.vocab.push({vi,en}); seen.add(key); }
+    });
+  });
+}
+enhanceVietnameseContent();
+
+function ensureLessonVocabularyMinimum(){
+  const practicalPhrases = [
+    ["nói chậm hơn", "speak more slowly"],
+    ["lặp lại giúp tôi", "please repeat for me"],
+    ["tôi chưa hiểu", "I do not understand yet"],
+    ["dùng trong câu", "use in a sentence"],
+    ["ví dụ thực tế", "real-life example"],
+    ["nói tự nhiên", "speak naturally"],
+    ["nghe lại lần nữa", "listen one more time"],
+    ["câu này nghĩa là gì", "what does this sentence mean"],
+    ["từ này dùng khi nào", "when is this word used"],
+    ["cách nói thường ngày", "everyday way to say it"]
+  ];
+  lessons.forEach(l=>{
+    const seen = new Set(l.vocab.map(v=>String(v.vi).trim().toLowerCase()));
+    let i = 0;
+    while(l.vocab.length < 25 && i < practicalPhrases.length){
+      const [vi,en] = practicalPhrases[i++];
+      const key = vi.toLowerCase();
+      if(!seen.has(key)){ l.vocab.push({vi,en}); seen.add(key); }
+    }
+  });
+}
+ensureLessonVocabularyMinimum();
+function splitPair(s){const i=s.indexOf('|');return {vi:s.slice(0,i),en:s.slice(i+1)}}
+function supplementBankForLesson(l){
+  const key=((l.titleEn||'')+' '+(l.titleVi||'')).toLowerCase();
+  const banks={
+    people:['chào buổi sáng|good morning','chào buổi tối|good evening','bạn tên là gì|what is your name','rất vui được gặp bạn|nice to meet you','cho tôi hỏi|may I ask','tôi đến từ Việt Nam|I come from Vietnam','bạn khỏe không|how are you','lâu rồi không gặp|long time no see','hẹn gặp lại nhé|see you again','chúc một ngày tốt lành|have a good day','gia đình bạn|your family','anh trai tôi|my older brother','chị gái tôi|my older sister','em của tôi|my younger sibling','nhà tôi ở gần đây|my home is nearby','họ hàng bên nội|paternal relatives','họ hàng bên ngoại|maternal relatives','đã lập gia đình|married','sống cùng gia đình|live with family','về thăm quê|visit hometown'],
+    numbersTime:['số điện thoại|phone number','mã xác nhận|verification code','một trăm nghìn|one hundred thousand','hai trăm rưỡi|two hundred and a half','nửa tiếng|half an hour','đúng giờ|on time','trễ năm phút|five minutes late','lúc bảy giờ sáng|at seven in the morning','chiều thứ sáu|Friday afternoon','cuối tuần này|this weekend','ngày mai|tomorrow','hôm qua|yesterday','tháng sau|next month','sinh nhật tôi|my birthday','ngày lễ|holiday','một tuần hai lần|twice a week','mất bao lâu|how long does it take','bây giờ|right now','sắp đến giờ|almost time','hẹn lúc mấy giờ|what time is the appointment'],
+    food:['gọi món|order food','món đặc sản|specialty dish','ít đường|less sugar','không đá|no ice','ít cay|less spicy','không hành|no scallion','nước mắm|fish sauce','ăn chay|eat vegetarian','mang về|take away','ăn tại chỗ|eat here','tính tiền giúp tôi|please bring the bill','thêm rau|extra herbs / vegetables','một tô phở|one bowl of pho','một ly cà phê sữa đá|one iced milk coffee','trà đá miễn phí|free iced tea','bàn còn trống|available table','đặt bàn trước|reserve a table','khẩu phần lớn|large portion','hơi mặn|a bit salty','ngon vừa miệng|tastes just right'],
+    travel:['đặt xe|book a ride','kẹt xe|traffic jam','trạm xe buýt|bus stop','bến xe|bus station','vé khứ hồi|round-trip ticket','xuống xe ở đây|get off here','đi thẳng|go straight','rẽ trái|turn left','rẽ phải|turn right','ngã tư phía trước|intersection ahead','sân bay quốc tế|international airport','ga tàu|train station','đặt phòng trước|book a room in advance','nhận phòng|check in','trả phòng|check out','phòng có máy lạnh|room has air conditioning','hành lý xách tay|carry-on luggage','lịch trình du lịch|travel itinerary','điểm tham quan|tourist attraction','bản đồ thành phố|city map'],
+    shopping:['bao nhiêu tiền|how much is it','giảm giá được không|can you discount it','thanh toán bằng thẻ|pay by card','chuyển khoản|bank transfer','quét mã QR|scan a QR code','hết hàng|out of stock','còn hàng không|is it still available','đổi hàng|exchange an item','trả lại hàng|return an item','kích cỡ khác|another size','màu khác|another color','hàng mới về|new arrival','nửa ký|half a kilogram','một ký bao nhiêu|how much per kilogram','rau còn tươi|vegetables are still fresh','bớt một chút|reduce the price a little','túi ni lông|plastic bag','tài khoản ngân hàng|bank account','rút tiền|withdraw money','số dư tài khoản|account balance'],
+    health:['đau đầu|headache','đau bụng|stomachache','đau họng|sore throat','bị sốt|have a fever','dị ứng thuốc|medicine allergy','uống sau khi ăn|take after eating','toa thuốc|prescription','gặp bác sĩ|see a doctor','phòng cấp cứu|emergency room','bảo hiểm y tế|health insurance','đau lưng|back pain','đau vai|shoulder pain','cổ họng khô|dry throat','mắt bị mỏi|tired eyes','tai bị ù|ringing ear','tâm trạng tốt|good mood','hơi mệt|a little tired','căng thẳng|stressed','tự tin hơn|more confident','nhớ nhà|homesick'],
+    home:['phòng khách|living room','nhà bếp|kitchen','ban công|balcony','sân thượng|rooftop terrace','cửa ra vào|front door','tủ lạnh|refrigerator','máy giặt|washing machine','quạt máy|electric fan','kệ sách|bookshelf','nệm êm|soft mattress','khóa cửa|lock the door','đổ rác|take out trash','giữ yên lặng|keep quiet','không hút thuốc|no smoking','quy định trong nhà|house rules','bỏ giày bên ngoài|take shoes off outside','dọn phòng|clean the room','bật đèn|turn on the light','tắt máy lạnh|turn off the air conditioner','mở cửa sổ|open the window'],
+    studyWorkTech:['điểm danh|take attendance','bài kiểm tra|test','nộp bài|submit homework','giờ ra chơi|break time','hạn chót|deadline','cuộc họp sáng nay|this morning meeting','tăng ca|work overtime','nghỉ phép|take leave','phỏng vấn xin việc|job interview','gửi email|send an email','mật khẩu Wi-Fi|Wi-Fi password','mã xác nhận|verification code','đăng nhập|log in','đăng xuất|log out','cập nhật ứng dụng|update the app','mất mạng|lose internet connection','sạc điện thoại|charge the phone','sao lưu dữ liệu|back up data','tải tài liệu|download documents','mở tệp|open a file'],
+    leisureNature:['đi dạo|go for a walk','chụp ảnh|take photos','đọc sách|read books','nghe nhạc|listen to music','trồng cây|grow plants','chạy bộ|jog','tập gym|work out at the gym','trận đấu tối nay|tonight match','cổ vũ đội nhà|cheer for the home team','đội tuyển Việt Nam|Vietnam national team','bãi biển đẹp|beautiful beach','thác nước|waterfall','leo núi|go hiking','rừng thông|pine forest','bảo vệ môi trường|protect the environment','thú cưng|pet','con mèo hiền|gentle cat','con chó có cắn không|does the dog bite','sở thú|zoo','chim hót|birds singing'],
+    languageCulture:['cho tôi hỏi một chút|may I ask something','xin phép vào trong|ask permission to enter','làm phiền anh chị|sorry to bother you','vui lòng chờ một chút|please wait a moment','không sao đâu|no problem','tôi nên gọi bạn là gì|how should I address you','câu này nghĩa là gì|what does this sentence mean','nói chậm hơn|speak more slowly','lặp lại giúp tôi|please repeat for me','tôi chưa hiểu|I do not understand yet','theo tôi|in my opinion','tôi nghĩ là|I think that','đồng ý|agree','không đồng ý|disagree','Tết Nguyên đán|Vietnamese Lunar New Year','lì xì|lucky money','mời cơm|invite someone to eat','áo dài|Vietnamese traditional dress','dấu sắc|rising tone mark','dấu nặng|heavy tone mark']
+  };
+  if(/greeting|family|pronoun|chào|gia đình|đại từ/.test(key)) return banks.people;
+  if(/number|time|day|month|past|future|số|thời gian|ngày|tháng|quá khứ|tương lai/.test(key)) return banks.numbersTime;
+  if(/food|drink|café|restaurant|đồ ăn|đồ uống|cà phê|nhà hàng/.test(key)) return banks.food;
+  if(/direction|transport|hotel|travel|city|chỉ đường|giao thông|khách sạn|du lịch|thành phố/.test(key)) return banks.travel;
+  if(/shopping|market|bank|mua sắm|chợ|ngân hàng|colors|clothes|màu|quần áo/.test(key)) return banks.shopping;
+  if(/health|body|feeling|sức khỏe|cơ thể|cảm xúc|emergency|khẩn cấp/.test(key)) return banks.health;
+  if(/home|furniture|house rules|nhà cửa|nội thất|quy tắc/.test(key)) return banks.home;
+  if(/school|work|technology|trường|công việc|công nghệ/.test(key)) return banks.studyWorkTech;
+  if(/hobbies|sports|nature|animals|weather|sở thích|thể thao|thiên nhiên|động vật|thời tiết/.test(key)) return banks.leisureNature;
+  return banks.languageCulture;
+}
+function buildVocabularyLevels(){
+  lessons.forEach(l=>{
+    const seen = new Set(l.vocab.map(v=>String(v.vi).trim().toLowerCase()));
+    supplementBankForLesson(l).map(splitPair).forEach(v=>{const key=String(v.vi).trim().toLowerCase(); if(l.vocab.length<45 && !seen.has(key)){ l.vocab.push(v); seen.add(key); }});
+    const meaningfulFallbacks=['nói chậm hơn|speak more slowly','lặp lại giúp tôi|please repeat for me','tôi chưa hiểu|I do not understand yet','dùng trong câu|use in a sentence','ví dụ thực tế|real-life example','nói tự nhiên|speak naturally','nghe lại lần nữa|listen one more time','câu này nghĩa là gì|what does this sentence mean','từ này dùng khi nào|when is this word used','cách nói thường ngày|everyday way to say it','phát âm rõ hơn|pronounce more clearly','ngữ cảnh sử dụng|usage context','câu hỏi thường gặp|common question','trả lời ngắn gọn|answer briefly','mẫu câu hữu ích|useful sentence pattern','thực hành mỗi ngày|practice every day','nghe tốc độ bình thường|listen at normal speed','viết lại câu|rewrite the sentence','so sánh nghĩa|compare meanings','ghi nhớ lâu hơn|remember longer'].map(splitPair); let fallbackIndex=0; while(l.vocab.length<45){const v=meaningfulFallbacks[fallbackIndex%meaningfulFallbacks.length]; const key=String(v.vi).trim().toLowerCase(); if(!seen.has(key)){l.vocab.push(v); seen.add(key)} fallbackIndex++;}
+    l.vocab=l.vocab.slice(0,45);
+    l.levels=[{id:'basic',name:'Level 1 - Core Vocabulary',desc:'15 essential words or phrases to learn first.',items:l.vocab.slice(0,15)},{id:'practical',name:'Level 2 - Practical Daily Use',desc:'15 useful phrases for real conversations.',items:l.vocab.slice(15,30)},{id:'expanded',name:'Level 3 - Expanded Usage',desc:'15 extra phrases for context, fluency, and faster recall.',items:l.vocab.slice(30,45)}];
+  });
+}
+buildVocabularyLevels();
+
+function improveEnglishGlosses(){
+  const fixes={
+    "xin chào":"hello; safe formal/general greeting",
+    "chào bạn":"hi / hello; friendly greeting to someone around your age",
+    "tạm biệt":"goodbye; used when leaving",
+    "hẹn gặp lại":"see you again / see you later",
+    "cảm ơn":"thank you",
+    "xin lỗi":"sorry / excuse me; used to apologize or get attention",
+    "tôi":"I / me; neutral first-person pronoun",
+    "bạn":"you; friendly pronoun for peers, not always for elders",
+    "tên":"name",
+    "tôi tên là":"my name is; self-introduction phrase",
+    "rất vui":"very happy / pleased; often in 'nice to meet you'",
+    "gặp":"meet / see someone",
+    "người nước ngoài":"foreigner / person from another country",
+    "người Việt":"Vietnamese person",
+    "đến từ":"come from; used for origin or hometown/country",
+    "ở đâu":"where; used to ask location",
+    "bao nhiêu tuổi":"how old; asks a person's age",
+    "khỏe":"well / healthy; used in greetings like 'Bạn khỏe không?'",
+    "vâng":"yes; polite response, especially to older/respected people",
+    "dạ":"polite yes / respectful response; common in southern Vietnamese too",
+    "ạ":"polite sentence-ending particle; adds respect, not a standalone word",
+    "không":"no / not; also makes yes-no questions at the end of a sentence",
+    "có":"have / yes; also used before verbs in yes-no questions",
+    "cho tôi hỏi":"excuse me, may I ask; polite way to start a question",
+    "bạn tên là gì":"what is your name; friendly/peer form",
+    "rất vui được gặp bạn":"nice to meet you; friendly/peer form",
+    "linh":"zero; used when reading phone numbers, not normal counting",
+    "rưỡi":"half; used with time or quantities, e.g. 'ba rưỡi'",
+    "chục":"ten / group of ten; informal counting unit",
+    "trăm nghìn":"hundred thousand; money/counting phrase",
+    "bao nhiêu":"how much / how many; quantity or price question",
+    "lần":"time / occurrence; as in 'three times'",
+    "giờ":"hour / o'clock; also 'now' in some contexts",
+    "bây giờ":"now / right now",
+    "mấy giờ":"what time",
+    "lúc mấy giờ":"at what time",
+    "đúng giờ":"on time",
+    "trễ":"late",
+    "nửa tiếng":"half an hour",
+    "mất bao lâu":"how long does it take",
+    "bố":"dad / father; common in northern Vietnamese",
+    "ba":"dad / father; also number three depending on context",
+    "mẹ":"mother / mom",
+    "con":"child; also classifier for animals and some objects",
+    "anh":"older brother; also pronoun for an older male",
+    "chị":"older sister; also pronoun for an older female",
+    "em":"younger sibling; also pronoun for a younger person or 'I' to older people",
+    "ông":"grandfather / older man; respectful male pronoun",
+    "bà":"grandmother / older woman; respectful female pronoun",
+    "cô":"aunt / Miss / female teacher; pronoun for an older woman",
+    "chú":"uncle; pronoun for a younger adult male than your parents",
+    "bác":"older aunt/uncle; respectful pronoun for older adults",
+    "cháu":"child/grandchild; pronoun used by a younger person to elders",
+    "vợ":"wife",
+    "chồng":"husband",
+    "người yêu":"boyfriend/girlfriend/romantic partner",
+    "họ hàng":"relatives / extended family",
+    "cơm":"cooked rice; also means a meal in daily speech",
+    "phở":"phở; Vietnamese noodle soup, usually beef or chicken",
+    "bánh mì":"Vietnamese baguette sandwich; also plain bread in some contexts",
+    "bún":"rice vermicelli noodles",
+    "mì":"wheat noodles / instant noodles depending on context",
+    "cháo":"rice porridge / congee",
+    "gỏi cuốn":"fresh spring roll / summer roll",
+    "nem rán":"fried spring roll; northern term",
+    "chả giò":"fried spring roll; southern term",
+    "rau":"vegetables / herbs; often fresh greens served with food",
+    "trái cây":"fruit; southern/common term",
+    "hoa quả":"fruit; northern/common term",
+    "ngon":"delicious / tastes good",
+    "đói":"hungry",
+    "no":"full; not hungry anymore",
+    "cay":"spicy / hot-tasting",
+    "ít hành":"less scallion/onion; useful when ordering food",
+    "không cay":"not spicy",
+    "nước mắm":"fish sauce; common Vietnamese condiment",
+    "ăn chay":"eat vegetarian / vegetarian-friendly",
+    "mang về":"take away / to go; for food or drinks",
+    "mang đi":"take away / to go",
+    "ăn tại chỗ":"eat here / dine in",
+    "gọi món":"order food",
+    "đặc sản":"local specialty dish/product",
+    "hóa đơn":"bill / receipt; ask for it when paying",
+    "tính tiền":"pay the bill / ask for the bill",
+    "nước":"water; also country depending on context",
+    "nước lọc":"plain drinking water",
+    "nước đá":"ice water; in Vietnam often means ice cubes too",
+    "trà đá":"iced tea; common free/cheap drink in Vietnam",
+    "cà phê sữa đá":"Vietnamese iced coffee with condensed milk",
+    "ít đường":"less sugar",
+    "không đá":"no ice",
+    "ngọt":"sweet",
+    "đắng":"bitter",
+    "ly":"glass/cup; classifier for drinks",
+    "chai":"bottle; classifier for bottled drinks",
+    "quán cà phê":"café / coffee shop",
+    "bàn":"table; also 'to discuss' in another context",
+    "ghế":"chair / seat",
+    "thực đơn":"menu",
+    "phục vụ":"server / service; also 'to serve'",
+    "mật khẩu":"password",
+    "ổ cắm":"power outlet / socket",
+    "yên tĩnh":"quiet / peaceful",
+    "đông":"crowded; also east depending on context",
+    "đặt bàn":"reserve a table",
+    "thức dậy":"wake up / get up",
+    "đánh răng":"brush teeth",
+    "tắm":"take a shower / bathe",
+    "đi làm":"go to work",
+    "nấu cơm":"cook a meal / cook rice",
+    "đi ngủ":"go to sleep",
+    "buổi sáng":"morning",
+    "buổi trưa":"noon / midday",
+    "buổi chiều":"afternoon",
+    "buổi tối":"evening / night",
+    "hằng ngày":"daily / every day",
+    "hôm nay":"today",
+    "ngày mai":"tomorrow",
+    "hôm qua":"yesterday",
+    "cuối tuần":"weekend",
+    "sinh nhật":"birthday",
+    "ngày lễ":"holiday / public festival day",
+    "trời":"sky / weather; often used to talk about weather",
+    "mưa":"rain / rainy",
+    "nắng":"sunny / sunshine",
+    "nóng":"hot; weather, temperature, or spicy in some contexts",
+    "lạnh":"cold; weather or temperature",
+    "mát":"cool / pleasantly fresh",
+    "ẩm":"humid / damp",
+    "dự báo thời tiết":"weather forecast",
+    "xanh lá":"green",
+    "xanh dương":"blue",
+    "đỏ":"red",
+    "vàng":"yellow",
+    "đen":"black",
+    "trắng":"white",
+    "màu be":"beige",
+    "mặc":"wear clothing; not used for shoes",
+    "đi giày":"wear shoes / put on shoes",
+    "đội mũ":"wear a hat or helmet",
+    "cởi giày":"take off shoes",
+    "thử đồ":"try on clothes",
+    "áo khoác":"jacket / coat",
+    "áo mưa":"raincoat",
+    "bao nhiêu tiền":"how much does it cost",
+    "giảm giá":"discount / reduce the price",
+    "chuyển khoản":"bank transfer; very common payment method in Vietnam",
+    "quét mã":"scan a QR code to pay or access something",
+    "hết hàng":"out of stock",
+    "còn hàng không":"is it still available / in stock?",
+    "đổi hàng":"exchange an item",
+    "trả lại":"return an item / give back",
+    "ngã tư":"intersection / crossroads",
+    "đi thẳng":"go straight",
+    "rẽ trái":"turn left",
+    "rẽ phải":"turn right",
+    "bên trái":"on the left",
+    "bên phải":"on the right",
+    "đi bộ":"walk / go on foot",
+    "xe máy":"motorbike / scooter; most common daily transport in Vietnam",
+    "xe công nghệ":"ride-hailing car or motorbike, e.g. Grab/Be",
+    "kẹt xe":"traffic jam",
+    "bến xe":"bus station",
+    "trạm xe buýt":"bus stop",
+    "vé khứ hồi":"round-trip ticket",
+    "xuống xe":"get off a vehicle",
+    "đặt xe":"book a ride",
+    "khách sạn":"hotel",
+    "lễ tân":"reception / front desk",
+    "đặt phòng":"book a room",
+    "nhận phòng":"check in",
+    "trả phòng":"check out",
+    "máy lạnh":"air conditioner; common southern Vietnamese term",
+    "điều hòa":"air conditioner; common northern Vietnamese term",
+    "dọn phòng":"clean the room / housekeeping",
+    "phòng đôi":"double room",
+    "chìa khóa phòng":"room key",
+    "đau đầu":"headache / have a headache",
+    "đau bụng":"stomachache / abdominal pain",
+    "đau họng":"sore throat",
+    "sốt":"fever / have a fever",
+    "dị ứng":"allergy / allergic reaction",
+    "toa thuốc":"prescription",
+    "uống sau khi ăn":"take after eating; medicine instruction",
+    "bác sĩ":"doctor",
+    "bệnh viện":"hospital",
+    "phòng cấp cứu":"emergency room",
+    "bảo hiểm y tế":"health insurance",
+    "đau lưng":"back pain",
+    "đau vai":"shoulder pain",
+    "mắt":"eye",
+    "tai":"ear",
+    "cổ họng":"throat",
+    "bình thường":"normal / okay; often means nothing special is wrong",
+    "mệt":"tired",
+    "vui":"happy",
+    "buồn":"sad",
+    "lo lắng":"worried / anxious",
+    "căng thẳng":"stressed",
+    "ngại":"shy / hesitant / embarrassed depending on context",
+    "tự tin":"confident",
+    "nhớ nhà":"homesick",
+    "nhà":"house / home",
+    "phòng khách":"living room",
+    "nhà bếp":"kitchen",
+    "ban công":"balcony",
+    "sân thượng":"rooftop terrace",
+    "cửa ra vào":"front door / entrance",
+    "tủ lạnh":"refrigerator",
+    "máy giặt":"washing machine",
+    "quạt máy":"electric fan",
+    "kệ sách":"bookshelf",
+    "khóa cửa":"lock the door",
+    "đổ rác":"take out the trash",
+    "giữ yên lặng":"keep quiet",
+    "không hút thuốc":"no smoking / do not smoke",
+    "quy định":"rule / regulation",
+    "điểm danh":"take attendance / attendance check",
+    "bài kiểm tra":"test / quiz",
+    "nộp bài":"submit homework or an assignment",
+    "giờ ra chơi":"break time at school",
+    "hạn chót":"deadline",
+    "tăng ca":"work overtime",
+    "nghỉ phép":"take leave / request time off",
+    "lương":"salary / wage",
+    "phỏng vấn":"interview",
+    "mã xác nhận":"verification code / OTP",
+    "đăng nhập":"log in",
+    "đăng xuất":"log out",
+    "cập nhật":"update",
+    "mất mạng":"lose internet connection / no network",
+    "sạc điện thoại":"charge the phone",
+    "sao lưu":"back up data",
+    "đi dạo":"go for a walk",
+    "chụp ảnh":"take photos",
+    "đọc sách":"read books",
+    "nghe nhạc":"listen to music",
+    "trồng cây":"grow plants",
+    "chạy bộ":"jog / run for exercise",
+    "tập gym":"work out at the gym",
+    "trận đấu":"match / game in sports",
+    "cổ vũ":"cheer / support a team",
+    "đội tuyển":"national team / selected team",
+    "bãi biển":"beach",
+    "thác nước":"waterfall",
+    "rừng":"forest",
+    "leo núi":"go hiking / climb a mountain",
+    "bảo vệ môi trường":"protect the environment",
+    "thú cưng":"pet",
+    "sở thú":"zoo",
+    "chim":"bird",
+    "khi nào":"when; asks about time",
+    "tại sao":"why; asks for a reason",
+    "như thế nào":"how / what is it like; asks method or condition",
+    "bao lâu":"how long / how often depending on sentence",
+    "chưa":"not yet / yet?; also asks whether something has happened",
+    "không phải":"is not / are not; corrects identity or category",
+    "đừng":"do not; command/request not to do something",
+    "không cần":"do not need to",
+    "không được":"must not / not allowed; also 'cannot' by rule",
+    "đã":"already / past marker; optional when context is clear",
+    "đang":"currently doing; progressive marker",
+    "sẽ":"will / future marker",
+    "sắp":"about to / soon",
+    "vừa mới":"just recently",
+    "đã từng":"have ever / used to have experience",
+    "cái":"general classifier for many objects",
+    "chiếc":"classifier for individual objects/vehicles; slightly more formal",
+    "tờ":"classifier for flat sheets, documents, or paper money",
+    "quyển":"classifier for books/notebooks",
+    "cuốn":"classifier for books/rolls; common with books too",
+    "bó":"bunch classifier, e.g. flowers or vegetables",
+    "ký":"kilogram; everyday market unit",
+    "làm phiền":"bother / trouble someone; used in polite requests",
+    "xin phép":"ask for permission",
+    "vui lòng":"please; formal/polite written or service language",
+    "cảm phiền":"could you please; polite but formal request",
+    "không sao đâu":"it is okay / no problem",
+    "Tết":"Vietnamese Lunar New Year",
+    "lì xì":"lucky money given during Tết",
+    "mời cơm":"invite someone to eat; polite meal expression",
+    "áo dài":"Vietnamese traditional long dress",
+    "dấu sắc":"acute rising tone mark",
+    "dấu huyền":"falling tone mark",
+    "dấu hỏi":"dipping questioning tone mark",
+    "dấu ngã":"broken rising tone mark",
+    "dấu nặng":"heavy low tone mark"
+  };
+  lessons.forEach(l=>{
+    l.vocab.forEach(v=>{ if(fixes[v.vi]) v.en=fixes[v.vi]; });
+    if(l.levels) l.levels.forEach(level=>level.items.forEach(v=>{ if(fixes[v.vi]) v.en=fixes[v.vi]; }));
+  });
+}
+improveEnglishGlosses();
+const $=id=>document.getElementById(id);
+let current=0,flashIndex=0,selected=null,listenTarget=null,dictTarget=null,typeTarget=null;
+let state=JSON.parse(localStorage.getItem("vietlingo-pro-state")||'{"xp":0,"done":[],"wrong":[]}');
+let viVoice=null, mode=localStorage.getItem("voice-mode")||"online";
+function lesson(){return lessons[current]} function save(){localStorage.setItem("vietlingo-pro-state",JSON.stringify(state))} function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1800)} function esc(s){return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/\n/g,"\\n").replace(/`/g,"\\`")} function norm(s){return String(s||"").trim().toLowerCase().normalize("NFC")} function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1])} function sample(a,n){return shuffle([...a]).slice(0,n)} function addXP(n){state.xp+=n;save();updateStats()} function addWrong(v){if(!state.wrong.find(x=>x.vi===v.vi&&x.en===v.en)){state.wrong.push(v);save();renderReview()}} function removeWrong(v){state.wrong=state.wrong.filter(x=>!(x.vi===v.vi&&x.en===v.en));save();renderReview()}
+function setVoiceMode(v){mode=v;localStorage.setItem("voice-mode",v);loadVoices(true)}
+function scoreVietnameseVoice(v){
+ const name=(v.name||"").toLowerCase(), lang=(v.lang||"").toLowerCase(); let score=0;
+ if(lang==="vi-vn") score+=120; else if(lang.startsWith("vi")) score+=80;
+ if(/hoaimy|hoài my|namminh|nam minh|vietnam|việt|tieng viet|tiếng việt/.test(name)) score+=60;
+ if(/microsoft|google|natural|neural|online/.test(name)) score+=35;
+ if(/compact|espeak|sam/.test(name)) score-=25;
+ return score;
+}
+function loadVoices(show=false){$("voiceMode").value=mode;if(!("speechSynthesis" in window)){ $("voiceStatus").innerHTML="Trình duyệt không có browser voice. Auto sẽ dùng online Vietnamese TTS nếu có internet."; return null}
+ const voices=speechSynthesis.getVoices();
+ viVoice=[...voices].sort((a,b)=>scoreVietnameseVoice(b)-scoreVietnameseVoice(a))[0]||null;
+ if(viVoice && scoreVietnameseVoice(viVoice)<70) viVoice=null;
+ if(mode==="online") $("voiceStatus").innerHTML="Đang dùng <b>online Vietnamese TTS</b>. Giọng thường tự nhiên hơn nhưng cần internet.";
+ else if(viVoice) $("voiceStatus").innerHTML=`Đang ưu tiên voice bản ngữ: <b>${viVoice.name}</b> (${viVoice.lang||"unknown"}).`;
+ else $("voiceStatus").innerHTML="Chưa thấy voice tiếng Việt trong máy. Auto sẽ dùng <b>online Vietnamese TTS</b>; nếu bị chặn, hãy cài Vietnamese voice trong Windows.";
+ if(show) toast(viVoice&&mode!=="online"?"Đã chọn voice tiếng Việt tốt nhất":"Đang dùng online Vietnamese TTS"); return viVoice}
+function cleanSpeechText(text){return String(text||"").replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/\s+/g," ").trim()}
+function splitSpeechText(text){const clean=cleanSpeechText(text); return clean.match(/.{1,120}(?:[.,!?;:]|\s|$)/g)?.map(x=>x.trim()).filter(Boolean)||[clean]}
+function speakOnline(text,slow=false){const audio=$("ttsAudio"); if("speechSynthesis" in window) speechSynthesis.cancel(); audio.pause(); audio.currentTime=0; const parts=splitSpeechText(text); let i=0; function play(){if(i>=parts.length)return; const q=encodeURIComponent(parts[i]); audio.src=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${q}`; audio.playbackRate=slow?.82:1; audio.onended=()=>{i++;setTimeout(play,90)}; audio.onerror=()=>toast("Online voice bị chặn. Hãy thử Chrome hoặc chọn Browser vi-VN."); audio.play().catch(()=>toast("Click vào trang một lần rồi bấm Voice lại."))} play()}
+function speak(text,slow=false){loadVoices(false); const spoken=cleanSpeechText(text); const useOnline=mode==="online"||(mode==="auto"&&!viVoice); if(useOnline){speakOnline(spoken,slow);return} if(!("speechSynthesis" in window)){speakOnline(spoken,slow);return} speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(spoken); u.lang="vi-VN"; u.rate=slow?.68:.94; u.pitch=1.02; u.volume=1; if(viVoice){u.voice=viVoice;u.lang=viVoice.lang||"vi-VN"} else toast("Không có browser voice tiếng Việt."); speechSynthesis.speak(u)}
+function testVoice(){speak("Xin chào. Tôi là người Việt Nam. Tôi đang luyện phát âm tiếng Việt tự nhiên, rõ dấu và đúng ngữ điệu.",false)}
+function updateStats(){$("xp").textContent=state.xp;$("done").textContent=`${state.done.length}/50`;$("progress").style.width=`${state.done.length/lessons.length*100}%`}
+function renderLessonList(filter=""){const q=filter.toLowerCase();$("lessonList").innerHTML="";lessons.filter(l=>(l.titleEn+" "+l.titleVi+" "+l.vocab.map(v=>v.vi+" "+v.en).join(" ")).toLowerCase().includes(q)).forEach(l=>{const b=document.createElement("button");b.className="lesson-btn"+(l.id-1===current?" active":"")+(state.done.includes(l.id)?" done":"");b.innerHTML=`<div class="node">${state.done.includes(l.id)?"✓":l.id}</div><div><div class="lesson-title">${l.titleVi}</div><div class="lesson-small">${l.titleEn}</div><div class="count">45 words · 3 levels · listening</div></div>`;b.onclick=()=>{current=l.id-1;flashIndex=0;newListening();newDictation();newTyping();renderAll();window.scrollTo({top:0,behavior:"smooth"})};$("lessonList").appendChild(b)})}
+
+function levelOfVocab(v){const l=lesson();const idx=l.vocab.findIndex(x=>x.vi===v.vi&&x.en===v.en);if(idx<0)return 'Practice';if(idx<15)return 'Core Vocabulary';if(idx<30)return 'Practical Daily Use';return 'Expanded Usage'}
+function studyUseLine(v){
+  const en=String(v.en||'');
+  if(/question|ask|where|when|how|why|what|who|yes-no/i.test(en)) return 'Use it to ask or answer a real-life question.';
+  if(/polite|respect|permission|please|excuse/i.test(en)) return 'Use it when speaking politely to Vietnamese people.';
+  if(/food|drink|bill|order|take away|restaurant|coffee|spicy|sugar/i.test(en)) return 'Useful when ordering food, drinks, or paying.';
+  if(/hotel|room|ticket|bus|airport|ride|turn|left|right|traffic|travel/i.test(en)) return 'Useful for travel, directions, and getting around.';
+  if(/doctor|pain|fever|medicine|hospital|emergency|health/i.test(en)) return 'Useful for health, safety, or urgent situations.';
+  return 'Learn the meaning, then say it aloud in a short sentence.';
+}
+function renderAll(){const l=lesson();$("lessonHeading").textContent=`${l.id}. ${l.titleVi}`;$("lessonDesc").textContent=`${l.titleEn} — 45 words/phrases in 3 English-labeled levels: Core Vocabulary, Practical Daily Use, and Expanded Usage. Listening, dictation, quiz, matching, and flashcards use all 45 items.`;renderLessonList($("search").value);renderVocab();renderListening();renderDictation();renderFlash();renderQuiz();renderTyping();renderQuestions();renderMatch();renderGrammar();renderReview();updateStats()}
+function renderVocab(){const l=lesson();const levelClass={basic:"level-basic",practical:"level-practical",expanded:"level-expanded"};$("vocab").innerHTML=l.levels.map((level,li)=>`<div class="level-section"><div class="level-head"><div><h2>${level.name}</h2><div class="level-desc">${level.desc}</div></div><span class="level-badge ${levelClass[level.id]}">15 từ</span></div><div class="grid">${level.items.map((v,i)=>{const n=li*15+i+1;return `<div class="card vocab-card" onclick="speak('${esc(v.vi)}')"><div><div class="vi">${v.vi}</div><div class="en">${v.en}</div><div class="vocab-level">${level.name} · Word ${n}/45</div><div class="mini">click to listen</div></div><div><button class="speaker" onclick="event.stopPropagation();speak('${esc(v.vi)}')">🔊 Voice</button> <button class="speaker slow" onclick="event.stopPropagation();speak('${esc(v.vi)}',true)">🐢 Slow</button></div></div>`}).join("")}</div></div>`).join("")}
+function speakLessonList(){speak(lesson().levels.map(level=>`${level.name}. `+level.items.map((v,i)=>`${i+1}. ${v.vi}`).join(". ")).join(". "),true)}
+function newListening(){listenTarget=sample(lesson().vocab,1)[0]} function renderListening(){if(!listenTarget)newListening();const opts=shuffle([listenTarget,...sample(lesson().vocab.filter(v=>v.vi!==listenTarget.vi),3)]);$("listening").innerHTML=`<div class="card quiz"><h2>Listening: identify real meaning</h2><p>Listen to the Vietnamese item, then choose the English explanation that best matches how it is used in real life.</p><div class="mini"><b>Level:</b> ${levelOfVocab(listenTarget)} · ${studyUseLine(listenTarget)}</div><div class="actions" style="margin-top:12px"><button class="primary" onclick="speak('${esc(listenTarget.vi)}')">🔊 Listen</button><button class="secondary" onclick="speak('${esc(listenTarget.vi)}',true)">🐢 Slow</button></div>${opts.map(o=>`<button class="option" onclick="checkListening(this,'${esc(o.vi)}')">${o.en}</button>`).join("")}</div>`}
+function checkListening(btn,vi){document.querySelectorAll("#listening .option").forEach(b=>b.disabled=true);if(vi===listenTarget.vi){btn.classList.add("correct");addXP(5);removeWrong(listenTarget);toast("Correct! +5 XP")}else{btn.classList.add("wrong");addWrong(listenTarget);[...document.querySelectorAll("#listening .option")].find(b=>b.textContent===listenTarget.en)?.classList.add("correct");toast(`Sai. Từ đúng: ${listenTarget.vi}`)}setTimeout(()=>{newListening();renderListening()},1200)}
+function newDictation(){dictTarget=sample(lesson().vocab,1)[0]} function renderDictation(){if(!dictTarget)newDictation();$("dictation").innerHTML=`<div class="card quiz"><h2>Dictation: type what you hear</h2><p>Listen carefully and type the Vietnamese with tone marks. This trains real recognition, not just memorization.</p><div class="mini"><b>Level:</b> ${levelOfVocab(dictTarget)} · Meaning: ${dictTarget.en}</div><div class="actions" style="margin-top:12px"><button class="primary" onclick="speak('${esc(dictTarget.vi)}')">🔊 Listen</button><button class="secondary" onclick="speak('${esc(dictTarget.vi)}',true)">🐢 Slow</button></div><div class="input-row"><input class="answer" id="dictInput" placeholder="Type the Vietnamese you hear..." onkeydown="if(event.key==='Enter')checkDictation()"><button class="primary" onclick="checkDictation()">Check</button></div><div id="dictFeedback" class="mini" style="margin-top:10px">Tip: type accents if you can. Tone marks matter in Vietnamese.</div></div>`}
+function checkDictation(){const val=norm($("dictInput").value),ans=norm(dictTarget.vi);if(val===ans){$("dictInput").style.borderColor="var(--g)";addXP(6);removeWrong(dictTarget);toast("Correct listening! +6 XP");setTimeout(()=>{newDictation();renderDictation()},900)}else{$("dictInput").style.borderColor="var(--r)";addWrong(dictTarget);$("dictFeedback").innerHTML=`Answer: <b>${dictTarget.vi}</b> — ${dictTarget.en}`;toast("Not yet. Listen again slowly.")}}
+function renderFlash(){const v=lesson().vocab[flashIndex%lesson().vocab.length];$("flash").innerHTML=`<div class="flash-stage"><div><div class="flashcard" onclick="this.classList.toggle('flipped')"><div class="flash-inner"><div class="face"><div><div class="word">${v.vi}</div><div class="hint">Tap to reveal meaning</div></div></div><div class="face back"><div><div class="word">${v.en}</div><div class="hint">${v.vi}</div></div></div></div></div><div class="controls"><button class="secondary" onclick="prevFlash()">← Previous</button><button class="primary" onclick="speak('${esc(v.vi)}')">🔊 Voice</button><button class="secondary" onclick="nextFlash()">Next →</button><button class="danger" onclick='addWrong(${JSON.stringify(v).replace(/'/g,"&#39;")});toast("Added to review")'>Add review</button></div></div></div>`}
+function prevFlash(){flashIndex=(flashIndex-1+lesson().vocab.length)%lesson().vocab.length;renderFlash()}function nextFlash(){flashIndex=(flashIndex+1)%lesson().vocab.length;renderFlash()}
+function renderQuiz(){const q=sample(lesson().vocab,1)[0],opts=shuffle([q,...sample(lesson().vocab.filter(v=>v.vi!==q.vi),3)]);$("quiz").innerHTML=`<div class="card quiz"><h2>Meaning Quiz: choose the best explanation</h2><p>What does <b>“${q.vi}”</b> mean, and when is it used?</p><div class="mini"><b>Level:</b> ${levelOfVocab(q)} · ${studyUseLine(q)}</div>${opts.map(o=>`<button class="option" onclick="checkQuiz(this,'${esc(o.en)}','${esc(q.en)}','${esc(q.vi)}')">${o.en}</button>`).join("")}<div class="actions"><button class="secondary" onclick="speak('${esc(q.vi)}')">🔊 Hear Vietnamese</button><button class="secondary" onclick="renderQuiz()">New question</button></div></div>`}
+function checkQuiz(btn,val,ans,vi){document.querySelectorAll("#quiz .option").forEach(b=>b.disabled=true);if(val===ans){btn.classList.add("correct");addXP(4);toast("Correct! +4 XP")}else{btn.classList.add("wrong");addWrong({vi:vi,en:ans});[...document.querySelectorAll("#quiz .option")].find(b=>b.textContent===ans)?.classList.add("correct");toast("Wrong — added to review.")}}
+function newTyping(){typeTarget=sample(lesson().vocab,1)[0]} function renderTyping(){if(!typeTarget)newTyping();$("typing").innerHTML=`<div class="card quiz"><h2>Typing: English meaning → Vietnamese</h2><p>Type the Vietnamese for this real-use meaning:</p><div class="english-line"><b>Meaning:</b> ${typeTarget.en}</div><div class="mini"><b>Level:</b> ${levelOfVocab(typeTarget)} · ${studyUseLine(typeTarget)}</div><div class="input-row"><input class="answer" id="typeInput" placeholder="Type Vietnamese with tone marks..." onkeydown="if(event.key==='Enter')checkTyping()"><button class="primary" onclick="checkTyping()">Check</button></div><div class="actions" style="margin-top:12px"><button class="secondary" onclick="speak('${esc(typeTarget.vi)}',true)">Hear answer slowly</button><button class="secondary" onclick="newTyping();renderTyping()">Skip</button></div><div id="typeFeedback" class="mini" style="margin-top:10px"></div></div>`}
+function checkTyping(){const val=norm($("typeInput").value),ans=norm(typeTarget.vi);if(val===ans){$("typeInput").style.borderColor="var(--g)";addXP(5);removeWrong(typeTarget);toast("Đúng! +5 XP");setTimeout(()=>{newTyping();renderTyping()},900)}else{$("typeInput").style.borderColor="var(--r)";addWrong(typeTarget);$("typeFeedback").innerHTML=`Answer: <b>${typeTarget.vi}</b>`;toast("Sai — added to review.")}}
+
+
+function getQuestionScenarios(){
+  const l=lesson();
+  const title=(l.titleEn||"").toLowerCase();
+  const v=l.vocab;
+  const w=(i)=>v[i % v.length].vi;
+
+  const library=[
+    {
+      keys:["greeting","introductions","chào"],
+      items:[
+        {role:"You meet a Vietnamese person for the first time. Ask their name politely.", answer:"Bạn tên là gì?", chunks:["Bạn","tên","là","gì?"]},
+        {role:"Ask where they are from.", answer:"Bạn đến từ đâu?", chunks:["Bạn","đến","từ","đâu?"]},
+        {role:"Ask if they are well.", answer:"Bạn khỏe không?", chunks:["Bạn","khỏe","không?"]},
+        {role:"Ask how old they are in a simple way.", answer:"Bạn bao nhiêu tuổi?", chunks:["Bạn","bao nhiêu","tuổi?"]},
+        {role:"Ask if you can meet again.", answer:"Chúng ta có thể gặp lại không?", chunks:["Chúng ta","có thể","gặp lại","không?"]}
+      ]
+    },
+    {
+      keys:["number","số"],
+      items:[
+        {role:"At a shop, ask how many items there are.", answer:"Có bao nhiêu cái?", chunks:["Có","bao nhiêu","cái?"]},
+        {role:"Ask for someone’s phone number.", answer:"Số điện thoại của bạn là gì?", chunks:["Số điện thoại","của bạn","là","gì?"]},
+        {role:"Ask how many times something happens.", answer:"Một tuần mấy lần?", chunks:["Một tuần","mấy","lần?"]},
+        {role:"Ask if the number is correct.", answer:"Số này đúng không?", chunks:["Số này","đúng","không?"]},
+        {role:"Ask for the price using a number phrase.", answer:"Cái này bao nhiêu tiền?", chunks:["Cái này","bao nhiêu","tiền?"]}
+      ]
+    },
+    {
+      keys:["family","gia đình"],
+      items:[
+        {role:"Ask how many people are in someone’s family.", answer:"Gia đình bạn có bao nhiêu người?", chunks:["Gia đình bạn","có","bao nhiêu","người?"]},
+        {role:"Ask if they have an older brother.", answer:"Bạn có anh trai không?", chunks:["Bạn","có","anh trai","không?"]},
+        {role:"Ask what their mother does.", answer:"Mẹ bạn làm nghề gì?", chunks:["Mẹ bạn","làm","nghề gì?"]},
+        {role:"Ask where their family lives.", answer:"Gia đình bạn sống ở đâu?", chunks:["Gia đình bạn","sống","ở đâu?"]},
+        {role:"Ask if they are married.", answer:"Bạn có vợ hoặc chồng chưa?", chunks:["Bạn","có","vợ hoặc chồng","chưa?"]}
+      ]
+    },
+    {
+      keys:["food","đồ ăn"],
+      items:[
+        {role:"At a restaurant, ask what dish is delicious.", answer:"Món nào ngon?", chunks:["Món nào","ngon?"]},
+        {role:"Ask if a dish is spicy.", answer:"Món này có cay không?", chunks:["Món này","có","cay","không?"]},
+        {role:"Ask if the dish has beef.", answer:"Món này có thịt bò không?", chunks:["Món này","có","thịt bò","không?"]},
+        {role:"Ask for one bowl of phở.", answer:"Cho tôi một tô phở được không?", chunks:["Cho tôi","một tô phở","được không?"]},
+        {role:"Ask what they want to eat.", answer:"Bạn muốn ăn gì?", chunks:["Bạn","muốn ăn","gì?"]}
+      ]
+    },
+    {
+      keys:["drink","đồ uống"],
+      items:[
+        {role:"At a café, ask what they want to drink.", answer:"Bạn muốn uống gì?", chunks:["Bạn","muốn uống","gì?"]},
+        {role:"Ask for iced coffee.", answer:"Cho tôi một cà phê đá được không?", chunks:["Cho tôi","một cà phê đá","được không?"]},
+        {role:"Ask if the drink is sweet.", answer:"Nước này có ngọt không?", chunks:["Nước này","có","ngọt","không?"]},
+        {role:"Ask for less sugar.", answer:"Có thể cho ít đường không?", chunks:["Có thể","cho","ít đường","không?"]},
+        {role:"Ask if they have orange juice.", answer:"Ở đây có nước cam không?", chunks:["Ở đây","có","nước cam","không?"]}
+      ]
+    },
+    {
+      keys:["café","cafe","quán cà phê"],
+      items:[
+        {role:"Ask for the Wi‑Fi password.", answer:"Mật khẩu Wi-Fi là gì?", chunks:["Mật khẩu Wi-Fi","là","gì?"]},
+        {role:"Ask if this table is free.", answer:"Bàn này còn trống không?", chunks:["Bàn này","còn trống","không?"]},
+        {role:"Ask for the bill politely.", answer:"Làm ơn cho tôi hóa đơn.", chunks:["Làm ơn","cho tôi","hóa đơn."]},
+        {role:"Ask if there is a power outlet.", answer:"Ở đây có ổ cắm không?", chunks:["Ở đây","có","ổ cắm","không?"]},
+        {role:"Ask if you can order takeaway.", answer:"Tôi có thể mua mang đi không?", chunks:["Tôi","có thể","mua mang đi","không?"]}
+      ]
+    },
+    {
+      keys:["routine","thói quen"],
+      items:[
+        {role:"Ask what time someone wakes up.", answer:"Bạn thức dậy lúc mấy giờ?", chunks:["Bạn","thức dậy","lúc mấy giờ?"]},
+        {role:"Ask what they do every morning.", answer:"Buổi sáng bạn làm gì?", chunks:["Buổi sáng","bạn","làm gì?"]},
+        {role:"Ask if they exercise every day.", answer:"Bạn có tập thể dục mỗi ngày không?", chunks:["Bạn","có","tập thể dục","mỗi ngày","không?"]},
+        {role:"Ask when they go to work.", answer:"Bạn đi làm lúc mấy giờ?", chunks:["Bạn","đi làm","lúc mấy giờ?"]},
+        {role:"Ask what they do in the evening.", answer:"Buổi tối bạn làm gì?", chunks:["Buổi tối","bạn","làm gì?"]}
+      ]
+    },
+    {
+      keys:["time","thời gian"],
+      items:[
+        {role:"Ask what time it is now.", answer:"Bây giờ là mấy giờ?", chunks:["Bây giờ","là","mấy giờ?"]},
+        {role:"Ask when the class starts.", answer:"Lớp học bắt đầu lúc mấy giờ?", chunks:["Lớp học","bắt đầu","lúc mấy giờ?"]},
+        {role:"Ask if someone is late.", answer:"Bạn có trễ không?", chunks:["Bạn","có","trễ","không?"]},
+        {role:"Ask what they will do tomorrow.", answer:"Ngày mai bạn sẽ làm gì?", chunks:["Ngày mai","bạn","sẽ","làm gì?"]},
+        {role:"Ask how long it takes.", answer:"Mất bao lâu?", chunks:["Mất","bao lâu?"]}
+      ]
+    },
+    {
+      keys:["weather","thời tiết"],
+      items:[
+        {role:"Ask what the weather is like today.", answer:"Hôm nay thời tiết thế nào?", chunks:["Hôm nay","thời tiết","thế nào?"]},
+        {role:"Ask if it will rain.", answer:"Trời sẽ mưa không?", chunks:["Trời","sẽ","mưa","không?"]},
+        {role:"Ask if it is hot outside.", answer:"Bên ngoài có nóng không?", chunks:["Bên ngoài","có","nóng","không?"]},
+        {role:"Ask for the temperature.", answer:"Nhiệt độ bao nhiêu?", chunks:["Nhiệt độ","bao nhiêu?"]},
+        {role:"Ask if you need an umbrella.", answer:"Tôi có cần mang ô không?", chunks:["Tôi","có cần","mang ô","không?"]}
+      ]
+    },
+    {
+      keys:["shopping","mua sắm","market","chợ"],
+      items:[
+        {role:"Ask how much this costs.", answer:"Cái này bao nhiêu tiền?", chunks:["Cái này","bao nhiêu","tiền?"]},
+        {role:"Ask if there is a discount.", answer:"Có giảm giá không?", chunks:["Có","giảm giá","không?"]},
+        {role:"Ask if you can pay by card.", answer:"Tôi có thể thanh toán bằng thẻ không?", chunks:["Tôi","có thể","thanh toán","bằng thẻ","không?"]},
+        {role:"Ask for another size.", answer:"Có cỡ khác không?", chunks:["Có","cỡ khác","không?"]},
+        {role:"Ask if you can return it.", answer:"Tôi có thể trả lại không?", chunks:["Tôi","có thể","trả lại","không?"]}
+      ]
+    },
+    {
+      keys:["direction","chỉ đường","transportation","giao thông","city","thành phố","travel","du lịch"],
+      items:[
+        {role:"Ask where the bus stop is.", answer:"Trạm xe buýt ở đâu?", chunks:["Trạm xe buýt","ở đâu?"]},
+        {role:"Ask how to get to the airport.", answer:"Đi sân bay như thế nào?", chunks:["Đi","sân bay","như thế nào?"]},
+        {role:"Ask if this place is far.", answer:"Chỗ này có xa không?", chunks:["Chỗ này","có","xa","không?"]},
+        {role:"Ask if you should turn left.", answer:"Tôi có phải rẽ trái không?", chunks:["Tôi","có phải","rẽ trái","không?"]},
+        {role:"Ask where you can buy a ticket.", answer:"Tôi có thể mua vé ở đâu?", chunks:["Tôi","có thể","mua vé","ở đâu?"]}
+      ]
+    },
+    {
+      keys:["hotel","khách sạn"],
+      items:[
+        {role:"Tell reception you booked a room and ask if you can check in.", answer:"Tôi đã đặt phòng, tôi có thể nhận phòng không?", chunks:["Tôi đã đặt phòng,","tôi","có thể","nhận phòng","không?"]},
+        {role:"Ask what time checkout is.", answer:"Mấy giờ phải trả phòng?", chunks:["Mấy giờ","phải","trả phòng?"]},
+        {role:"Ask if the room has hot water.", answer:"Phòng có nước nóng không?", chunks:["Phòng","có","nước nóng","không?"]},
+        {role:"Ask for one more towel.", answer:"Cho tôi thêm một khăn được không?", chunks:["Cho tôi","thêm","một khăn","được không?"]},
+        {role:"Ask if the hotel is quiet.", answer:"Khách sạn có yên tĩnh không?", chunks:["Khách sạn","có","yên tĩnh","không?"]}
+      ]
+    },
+    {
+      keys:["restaurant","nhà hàng"],
+      items:[
+        {role:"Ask for the menu.", answer:"Cho tôi thực đơn được không?", chunks:["Cho tôi","thực đơn","được không?"]},
+        {role:"Ask if the dish is vegetarian.", answer:"Món này có ăn chay được không?", chunks:["Món này","có","ăn chay","được không?"]},
+        {role:"Ask what the server recommends.", answer:"Bạn giới thiệu món nào?", chunks:["Bạn","giới thiệu","món nào?"]},
+        {role:"Ask for chopsticks.", answer:"Cho tôi một đôi đũa được không?", chunks:["Cho tôi","một đôi đũa","được không?"]},
+        {role:"Ask if service charge is included.", answer:"Phí phục vụ đã bao gồm chưa?", chunks:["Phí phục vụ","đã","bao gồm","chưa?"]}
+      ]
+    },
+    {
+      keys:["health","sức khỏe","body","cơ thể"],
+      items:[
+        {role:"Tell a doctor your stomach hurts and ask what medicine to take.", answer:"Tôi đau bụng, tôi nên uống thuốc gì?", chunks:["Tôi đau bụng,","tôi","nên uống","thuốc gì?"]},
+        {role:"Ask where the hospital is.", answer:"Bệnh viện ở đâu?", chunks:["Bệnh viện","ở đâu?"]},
+        {role:"Ask if you need to see a doctor.", answer:"Tôi có cần gặp bác sĩ không?", chunks:["Tôi","có cần","gặp bác sĩ","không?"]},
+        {role:"Ask if this medicine is for headache.", answer:"Thuốc này dùng cho đau đầu phải không?", chunks:["Thuốc này","dùng cho","đau đầu","phải không?"]},
+        {role:"Ask if they have insurance.", answer:"Bạn có bảo hiểm không?", chunks:["Bạn","có","bảo hiểm","không?"]}
+      ]
+    },
+    {
+      keys:["work","công việc","school","trường"],
+      items:[
+        {role:"Ask what someone does for work.", answer:"Bạn làm nghề gì?", chunks:["Bạn","làm","nghề gì?"]},
+        {role:"Ask when the meeting starts.", answer:"Cuộc họp bắt đầu lúc mấy giờ?", chunks:["Cuộc họp","bắt đầu","lúc mấy giờ?"]},
+        {role:"Ask if there is homework.", answer:"Có bài tập về nhà không?", chunks:["Có","bài tập về nhà","không?"]},
+        {role:"Ask if the deadline is tomorrow.", answer:"Hạn chót là ngày mai phải không?", chunks:["Hạn chót","là","ngày mai","phải không?"]},
+        {role:"Ask if you can ask a question.", answer:"Tôi có thể hỏi một câu không?", chunks:["Tôi","có thể","hỏi","một câu","không?"]}
+      ]
+    },
+    {
+      keys:["technology","công nghệ","internet"],
+      items:[
+        {role:"Ask for the Wi‑Fi password.", answer:"Mật khẩu Wi-Fi là gì?", chunks:["Mật khẩu Wi-Fi","là","gì?"]},
+        {role:"Ask if the phone battery is dead.", answer:"Điện thoại hết pin rồi phải không?", chunks:["Điện thoại","hết pin rồi","phải không?"]},
+        {role:"Ask where you can charge your phone.", answer:"Tôi có thể sạc điện thoại ở đâu?", chunks:["Tôi","có thể","sạc điện thoại","ở đâu?"]},
+        {role:"Ask if you need to log in.", answer:"Tôi có cần đăng nhập không?", chunks:["Tôi","có cần","đăng nhập","không?"]},
+        {role:"Ask how to download the app.", answer:"Tải ứng dụng như thế nào?", chunks:["Tải","ứng dụng","như thế nào?"]}
+      ]
+    },
+    {
+      keys:["hobbies","sở thích","sports","thể thao"],
+      items:[
+        {role:"Ask what someone likes to do.", answer:"Bạn thích làm gì?", chunks:["Bạn","thích","làm gì?"]},
+        {role:"Ask if they like football.", answer:"Bạn có thích bóng đá không?", chunks:["Bạn","có thích","bóng đá","không?"]},
+        {role:"Ask how often they exercise.", answer:"Bạn tập thể dục bao lâu một lần?", chunks:["Bạn","tập thể dục","bao lâu","một lần?"]},
+        {role:"Ask if they want to watch a movie.", answer:"Bạn có muốn xem phim không?", chunks:["Bạn","có muốn","xem phim","không?"]},
+        {role:"Ask who their favorite player is.", answer:"Cầu thủ yêu thích của bạn là ai?", chunks:["Cầu thủ yêu thích","của bạn","là","ai?"]}
+      ]
+    },
+    {
+      keys:["emergency","khẩn cấp"],
+      items:[
+        {role:"Ask someone to call the police.", answer:"Bạn có thể gọi cảnh sát không?", chunks:["Bạn","có thể","gọi cảnh sát","không?"]},
+        {role:"Say you are lost and ask for help.", answer:"Tôi bị lạc, bạn giúp tôi được không?", chunks:["Tôi bị lạc,","bạn","giúp tôi","được không?"]},
+        {role:"Ask where the emergency room is.", answer:"Phòng cấp cứu ở đâu?", chunks:["Phòng cấp cứu","ở đâu?"]},
+        {role:"Ask if this place is dangerous.", answer:"Chỗ này có nguy hiểm không?", chunks:["Chỗ này","có","nguy hiểm","không?"]},
+        {role:"Ask someone to hurry.", answer:"Bạn có thể nhanh lên không?", chunks:["Bạn","có thể","nhanh lên","không?"]}
+      ]
+    },
+    {
+      keys:["pronouns","politeness","lịch sự","đại từ"],
+      items:[
+        {role:"Ask politely if you can ask something.", answer:"Cho tôi hỏi một chút được không ạ?", chunks:["Cho tôi hỏi","một chút","được không","ạ?"]},
+        {role:"Ask how to address someone politely.", answer:"Tôi nên gọi bạn là gì?", chunks:["Tôi","nên gọi","bạn","là gì?"]},
+        {role:"Ask someone to help you politely.", answer:"Bạn có thể giúp tôi được không ạ?", chunks:["Bạn","có thể","giúp tôi","được không ạ?"]},
+        {role:"Ask if you said it correctly.", answer:"Tôi nói vậy đúng không ạ?", chunks:["Tôi","nói vậy","đúng không","ạ?"]},
+        {role:"Ask them to repeat politely.", answer:"Bạn có thể lặp lại được không ạ?", chunks:["Bạn","có thể","lặp lại","được không ạ?"]}
+      ]
+    }
+  ];
+
+  const found=library.find(group=>group.keys.some(k=>title.includes(k) || (l.titleVi||"").toLowerCase().includes(k)));
+  if(found) return found.items;
+
+  return [
+    {role:`Ask what “${w(0)}” means in a natural learning conversation.`, answer:`${w(0)} có nghĩa là gì?`, chunks:[w(0),"có nghĩa là","gì?"]},
+    {role:`Ask where you can use or find “${w(1)}”.`, answer:`Tôi có thể dùng ${w(1)} ở đâu?`, chunks:["Tôi","có thể","dùng "+w(1),"ở đâu?"]},
+    {role:`Ask if someone likes “${w(2)}”.`, answer:`Bạn có thích ${w(2)} không?`, chunks:["Bạn","có thích",w(2),"không?"]},
+    {role:`Ask someone to say “${w(3)}” slowly.`, answer:`Bạn có thể nói chậm từ ${w(3)} không?`, chunks:["Bạn","có thể","nói chậm","từ "+w(3),"không?"]},
+    {role:`Ask how to use “${w(4)}” in a sentence.`, answer:`Dùng ${w(4)} trong câu như thế nào?`, chunks:["Dùng",w(4),"trong câu","như thế nào?"]}
+  ];
+}
+
+
+function translateQuestionChunk(chunk){
+  const raw=String(chunk||"").replace(/[?？.!。,:;'"“”‘’]/g,"").trim();
+  const low=raw.toLowerCase();
+
+  // First use current lesson vocabulary when the chunk is a lesson word/phrase.
+  const hit=lesson().vocab.find(v=>norm(v.vi)===norm(raw) || low.includes(norm(v.vi)));
+  if(hit) return hit.en;
+
+  const dict={
+    "bạn":"you","tôi":"I / me","chúng ta":"we / us","có":"have / yes-no question marker","có thể":"can / be able to",
+    "có cần":"need to","có phải":"do I have to / is it true that","muốn":"want","muốn ăn":"want to eat",
+    "muốn uống":"want to drink","thích":"like","có thích":"like?","có muốn":"want to?",
+    "là":"is / are","là gì":"is what? / what is","gì":"what","ở đâu":"where","đâu":"where",
+    "không":"yes/no question marker","được không":"is it okay? / can you?","phải không":"right? / isn’t it?",
+    "chưa":"yet? / already?","bao nhiêu":"how much / how many","mấy giờ":"what time","lúc mấy giờ":"at what time",
+    "như thế nào":"how","thế nào":"how / what like","ai":"who","tại sao":"why","vì sao":"why",
+    "làm gì":"do what","nghề gì":"what job","cho tôi":"please give me / I’d like","làm ơn":"please",
+    "xin lỗi":"sorry / excuse me","cảm ơn":"thank you","nói chậm":"speak slowly","nói chậm từ":"say the word slowly",
+    "lặp lại":"repeat","giúp tôi":"help me","gọi":"call","gọi cảnh sát":"call the police",
+    "mật khẩu wi-fi":"Wi‑Fi password","bàn này":"this table","còn trống":"still available / empty",
+    "hóa đơn":"bill / receipt","ổ cắm":"power outlet","mua mang đi":"buy takeaway",
+    "món này":"this dish","món nào":"which dish","ăn chay":"vegetarian","giới thiệu":"recommend / introduce",
+    "một đôi đũa":"a pair of chopsticks","phí phục vụ":"service charge","bao gồm":"included",
+    "trạm xe buýt":"bus stop","sân bay":"airport","chỗ này":"this place","rẽ trái":"turn left","mua vé":"buy a ticket",
+    "đặt phòng":"booked a room","nhận phòng":"check in","trả phòng":"check out","nước nóng":"hot water",
+    "một khăn":"one towel","khách sạn":"hotel","yên tĩnh":"quiet","đau bụng":"stomachache",
+    "nên uống":"should take / should drink","thuốc gì":"what medicine","bệnh viện":"hospital",
+    "gặp bác sĩ":"see a doctor","bảo hiểm":"insurance","bài tập về nhà":"homework",
+    "cuộc họp":"meeting","bắt đầu":"start","hạn chót":"deadline","ngày mai":"tomorrow",
+    "hỏi":"ask","một câu":"one question","đăng nhập":"log in","sạc điện thoại":"charge the phone",
+    "tải":"download","ứng dụng":"app","xem phim":"watch a movie","bóng đá":"football / soccer",
+    "tập thể dục":"exercise","bao lâu":"how long / how often","một lần":"one time","yêu thích":"favorite",
+    "bị lạc":"lost","phòng cấp cứu":"emergency room","nguy hiểm":"dangerous","nhanh lên":"hurry up",
+    "ạ":"polite particle","một chút":"a little / for a moment","nên gọi":"should call/address",
+    "nói vậy":"say it like that","đúng không":"is that right?","từ":"word / from","có nghĩa là":"means",
+    "trong câu":"in a sentence","dùng":"use"
+  };
+
+  if(dict[low]) return dict[low];
+
+  // Try partial phrase match for longer chunks.
+  const key=Object.keys(dict).sort((a,b)=>b.length-a.length).find(k=>low.includes(k));
+  if(key) return dict[key];
+
+  return "Tap to study this phrase in context";
+}
+
+function chunkButtonHTML(chunk){
+  return `<button class="secondary chunk-btn" onclick="addQuestionChunk(this,'${esc(chunk)}')">
+    <span class="chunk-vi">${chunk}</span>
+    <span class="chunk-en">${translateQuestionChunk(chunk)}</span>
+  </button>`;
+}
+
+let questionTaskIndex=0;
+
+function renderQuestions(){
+  const tasks=getQuestionScenarios();
+  const t=tasks[questionTaskIndex % tasks.length];
+  const shuffled=shuffle([...t.chunks]);
+  $("questions").innerHTML=`<div class="question-bank">
+    <div class="card">
+      <h2>Real-Life Questions: practical speaking tasks</h2>
+      <p>Practice useful questions people actually say in Vietnam: shopping, directions, hotels, restaurants, health, work, and daily conversations.</p>
+      <div class="mini"><b>Study flow:</b> 1) read the situation → 2) listen to the model answer → 3) tap chunks to reveal English meaning → 4) build the sentence → 5) type your own version → 6) compare with natural Vietnamese.</div>
+    </div>
+
+    <div class="question-card">
+      <h3>Situation ${questionTaskIndex+1}/5</h3>
+      <p><b>Real-life task:</b> ${t.role}</p>
+      <div class="actions">
+        <button class="primary" onclick="speak('${esc(t.answer)}')">🔊 Hear natural question</button>
+        <button class="secondary" onclick="speak('${esc(t.answer)}',true)">🐢 Slow</button>
+        <button class="secondary" onclick="nextQuestionTask()">Next situation</button>
+      </div>
+      <div class="mini" style="margin-top:12px"><b>Build the question:</b> click chunks in the correct order.</div>
+      <div id="chunkPool" class="actions" style="margin-top:10px">
+        ${shuffled.map(c=>chunkButtonHTML(c)).join("")}
+      </div>
+      <div class="input-row">
+        <input class="answer" id="builtQuestion" placeholder="Click chunks or type your own Vietnamese question..." onkeydown="if(event.key==='Enter')checkRealQuestion()">
+        <button class="primary" onclick="checkRealQuestion()">Check</button>
+      </div>
+      <div class="actions" style="margin-top:10px">
+        <button class="secondary" onclick="$('builtQuestion').value=''">Clear</button>
+        <button class="secondary" onclick="showQuestionModel()">Show model</button>
+      </div>
+      <div class="model-answer" id="questionModel">
+        <b>Natural question:</b> ${t.answer}
+        <div class="english-line"><b>English:</b> ${t.role}</div>
+        <div class="mini">Tap any phrase above to reveal its English meaning.</div>
+      </div>
+      <div id="questionFeedback" class="score-chip" style="display:none"></div>
+    </div>
+  </div>`;
+}
+
+function addQuestionChunk(btn,chunk){
+  // First click/tap reveals the English meaning and also adds the Vietnamese chunk.
+  btn.classList.add("revealed");
+  const input=$("builtQuestion");
+  input.value=(input.value+" "+chunk).replace(/\s+/g," ").trim();
+  btn.disabled=true;
+  btn.style.opacity=.72;
+  input.focus();
+}
+
+function nextQuestionTask(){
+  questionTaskIndex=(questionTaskIndex+1)%5;
+  renderQuestions();
+}
+
+function showQuestionModel(){
+  $("questionModel").classList.add("show");
+}
+
+function stripVietnamesePunctuation(s){
+  return norm(s).replace(/[?？.!。,:;'"“”‘’()\[\]{}]/g,"").replace(/\s+/g," ").trim();
+}
+
+function questionSimilarity(a,b){
+  const A=stripVietnamesePunctuation(a).split(" ").filter(Boolean);
+  const B=stripVietnamesePunctuation(b).split(" ").filter(Boolean);
+  const setA=new Set(A), setB=new Set(B);
+  let common=0;
+  setA.forEach(w=>{if(setB.has(w)) common++});
+  return common / Math.max(1, Math.max(setA.size,setB.size));
+}
+
+function checkRealQuestion(){
+  const t=getQuestionScenarios()[questionTaskIndex % 5];
+  const input=$("builtQuestion");
+  const feedback=$("questionFeedback");
+  const model=$("questionModel");
+  const val=input.value.trim();
+  if(!val){toast("Hãy sắp xếp hoặc gõ câu hỏi trước.");return}
+
+  const clean=stripVietnamesePunctuation(val);
+  const target=stripVietnamesePunctuation(t.answer);
+  const sim=questionSimilarity(clean,target);
+  const hasQuestionSignal=/\b(gì|đâu|không|bao nhiêu|được không|thế nào|khi nào|ai|tại sao|mấy giờ|chưa|phải không)\b/i.test(clean);
+
+  if(clean===target || (sim>=0.62 && hasQuestionSignal)){
+    input.style.borderColor="var(--g)";
+    feedback.style.display="inline-flex";
+    feedback.textContent="Natural question! +8 XP";
+    model.classList.add("show");
+    addXP(8);
+    toast("Câu hỏi tự nhiên! +8 XP");
+  }else if(sim>=0.42){
+    input.style.borderColor="var(--p)";
+    feedback.style.display="inline-flex";
+    feedback.textContent="Almost — compare word order with model";
+    model.classList.add("show");
+    addXP(2);
+    toast("Gần đúng. Chú ý thứ tự từ.");
+  }else{
+    input.style.borderColor="var(--r)";
+    feedback.style.display="inline-flex";
+    feedback.textContent="Not natural yet — study the model";
+    model.classList.add("show");
+    toast("Chưa tự nhiên. Xem câu mẫu.");
+  }
+}
+
+function renderMatch(){selected=null;const chosen=sample(lesson().vocab,8),items=shuffle([...chosen.map((v,i)=>({type:"vi",text:v.vi,pair:i})),...chosen.map((v,i)=>({type:"en",text:v.en,pair:i}))]);$("match").innerHTML=`<div class="card"><h2>Matching: Vietnamese ↔ real-use meaning</h2><p>Match each Vietnamese word or phrase with the English explanation. Focus on usage, not one-word translation.</p><div class="match-grid">${items.map(it=>`<button class="match-item" data-pair="${it.pair}" data-type="${it.type}" onclick="selectMatch(this)">${it.text}</button>`).join("")}</div><div class="actions" style="margin-top:16px"><button class="secondary" onclick="renderMatch()">New set</button></div></div>`}
+function selectMatch(el){if(!selected){selected=el;el.classList.add("selected");return}if(selected===el){el.classList.remove("selected");selected=null;return}const ok=selected.dataset.pair===el.dataset.pair&&selected.dataset.type!==el.dataset.type;if(ok){selected.classList.add("matched");el.classList.add("matched");selected.classList.remove("selected");addXP(2);toast("Matched! +2 XP")}else{const old=selected;el.classList.add("selected");setTimeout(()=>{old.classList.remove("selected");el.classList.remove("selected")},450);toast("Try again")}selected=null}
+function renderGrammar(){const l=lesson();$("grammar").innerHTML=`<div class="two"><div class="card"><h2>Usage Notes</h2><p>These notes explain how the lesson language works in real Vietnamese conversations.</p><p>${l.grammar}</p><p><b>Core pattern:</b> Vietnamese usually uses Subject + Verb + Object. Verbs do not conjugate. Time words, particles, and pronouns carry much of the meaning.</p><p><b>How to study:</b> listen, repeat aloud, type from memory, then use the phrase in a real question or answer.</p></div><div class="card"><h2>Practical example sentences</h2>${l.examples.map(e=>`<div class="example"><span>${e}</span><button class="speaker" onclick="speak('${esc(e)}',true)">🔊</button></div>`).join("")}</div></div>`}
+function renderReview(){const w=state.wrong||[];if(!w.length){$("review").innerHTML=`<div class="card"><h2>Mistake Review</h2><p>No mistakes yet. Items you miss in Listening, Dictation, Typing, or Quiz will appear here automatically.</p></div>`;return}$("review").innerHTML=`<div class="card"><h2>Mistake Review (${w.length})</h2><p>Review the Vietnamese items you missed, listen again, and practice until the meaning feels natural.</p>${w.map(v=>`<div class="review-item"><div><b>${v.vi}</b><div class="mini">${v.en}</div></div><div class="actions"><button class="speaker" onclick="speak('${esc(v.vi)}')">🔊</button><button class="speaker slow" onclick="speak('${esc(v.vi)}',true)">🐢</button><button class="secondary" onclick='removeWrong(${JSON.stringify(v).replace(/'/g,"&#39;")})'>Remove</button></div></div>`).join("")}<div class="actions" style="margin-top:14px"><button class="danger" onclick="state.wrong=[];save();renderReview();toast('Review cleared')">Clear all</button></div></div>`}
+function showTab(id){document.querySelector(`.tab[data-tab="${id}"]`).click()}
+function markComplete(){const id=lesson().id;if(!state.done.includes(id)){state.done.push(id);addXP(20);toast("Lesson completed! +20 XP")}else toast("Bài này đã hoàn thành rồi.");updateStats();renderLessonList($("search").value)}
+document.querySelectorAll(".tab").forEach(tab=>tab.onclick=()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));tab.classList.add("active");$(tab.dataset.tab).classList.add("active")});
+$("search").addEventListener("input",e=>renderLessonList(e.target.value));
+function renderMatch(){selected=null;const chosen=sample(lesson().vocab,8),english=shuffle(chosen.map((v,i)=>({type:"en",text:v.en,pair:i}))),vietnamese=shuffle(chosen.map((v,i)=>({type:"vi",text:v.vi,pair:i})));$("match").innerHTML=`<div class="card"><h2>Matching: English ↔ Vietnamese</h2><p>Match the English meaning on the left with the Vietnamese word or phrase on the right. Click Vietnamese to hear pronunciation.</p><div class="match-grid"><div class="match-col"><div class="match-head">English</div>${english.map(it=>`<button class="match-item" data-pair="${it.pair}" data-type="${it.type}" onclick="selectMatch(this)">${it.text}</button>`).join("")}</div><div class="match-col"><div class="match-head">Tiếng Việt</div>${vietnamese.map(it=>`<button class="match-item" data-pair="${it.pair}" data-type="${it.type}" onclick="selectMatch(this)" title="Click to hear Vietnamese">${it.text}</button>`).join("")}</div></div><div class="actions" style="margin-top:16px"><button class="secondary" onclick="renderMatch()">New set</button></div></div>`}
+function selectMatch(el){if(el.dataset.type==="vi")speak(el.textContent);if(!selected){selected=el;el.classList.add("selected");return}if(selected===el){el.classList.remove("selected");selected=null;return}const ok=selected.dataset.pair===el.dataset.pair&&selected.dataset.type!==el.dataset.type;if(ok){selected.classList.add("matched");el.classList.add("matched");selected.classList.remove("selected");addXP(2);toast("Matched! +2 XP")}else{const old=selected;el.classList.add("selected");setTimeout(()=>{old.classList.remove("selected");el.classList.remove("selected")},450);toast("Try again")}selected=null}
+function ensureCoachState(){state.memory=state.memory||{};state.wrong=state.wrong||[];state.done=state.done||[];state.xp=Number(state.xp||0)}
+function vocabKey(v){return `${v.lessonId||lesson().id}|${norm(v.vi)}`}
+function withLesson(v,l=lesson()){return {...v,lessonId:v.lessonId||l.id,lessonTitle:v.lessonTitle||l.titleEn}}
+function allVocab(){return lessons.flatMap(l=>l.vocab.map(v=>withLesson(v,l)))}
+function memoryFor(v){ensureCoachState();const k=vocabKey(v);state.memory[k]=state.memory[k]||{seen:0,correct:0,wrong:0,streak:0,last:0};return state.memory[k]}
+function recordMemory(v,correct){const m=memoryFor(v);m.seen++;m.last=Date.now();if(correct){m.correct++;m.streak=Math.max(1,m.streak+1)}else{m.wrong++;m.streak=Math.min(-1,m.streak-1)}save()}
+function statusFor(v){const m=memoryFor(v);if(m.wrong>m.correct&&m.wrong>0)return {label:"Weak",cls:"status-weak"};if(m.streak>=3)return {label:"Strong",cls:"status-strong"};if(m.seen>0)return {label:"Learning",cls:"status-learning"};return {label:"New",cls:"status-new"}}
+function packVocab(v){return encodeURIComponent(JSON.stringify(withLesson(v)))}
+function unpackVocab(raw){return JSON.parse(decodeURIComponent(raw))}
+function usageFor(v){const en=String(v.en||"").toLowerCase();if(/polite|please|excuse|respect|permission/.test(en))return "Use this when you want to sound polite, respectful, or less direct.";if(/food|drink|restaurant|order|bill|coffee|spicy|sugar/.test(en))return "Useful in restaurants, cafes, markets, and everyday ordering.";if(/where|when|how|why|what|who|question|ask/.test(en))return "Use this to ask practical questions in daily conversation.";if(/doctor|pain|fever|medicine|health|emergency/.test(en))return "Useful for health, safety, and urgent situations.";if(/work|school|meeting|interview|deadline/.test(en))return "Useful in work, school, and appointment situations.";return "Listen first, repeat aloud, then try using it in one short sentence."}
+function exampleFor(v){return `Vietnamese: ${v.vi}. English meaning: ${v.en}.`}
+function practiceCard(v,kind="today"){const s=statusFor(v),p=packVocab(v);return `<div class="practice-card"><div><div class="vi">${v.vi}</div><div class="en">${v.en}</div><span class="status-chip ${s.cls}">${s.label}</span><div class="usage-note">${kind==="new"?usageFor(v):exampleFor(v)}</div></div><div class="mini-actions"><button class="speaker" onclick="speak('${esc(v.vi)}')">Listen</button><button class="speaker slow" onclick="speak('${esc(v.vi)}',true)">Slow</button><button class="speaker slow" onclick="speak('${esc(v.vi)}','verySlow')">Very slow</button><button class="secondary" onclick="markKnown('${p}')">I know it</button><button class="danger" onclick="markWeak('${p}')">Need review</button></div></div>`}
+function weakItems(){ensureCoachState();const fromWrong=(state.wrong||[]).map(v=>withLesson(v));const fromMemory=allVocab().filter(v=>{const m=memoryFor(v);return m.wrong>m.correct&&m.wrong>0});const seen=new Set();return [...fromWrong,...fromMemory].filter(v=>{const k=vocabKey(v);if(seen.has(k))return false;seen.add(k);return true})}
+function newItemsForToday(){return lesson().vocab.map(v=>withLesson(v)).filter(v=>memoryFor(v).seen===0).slice(0,5)}
+function reviewItemsForToday(){return weakItems().slice(0,5)}
+function markKnown(raw){const v=unpackVocab(raw);recordMemory(v,true);state.wrong=state.wrong.filter(x=>!(norm(x.vi)===norm(v.vi)&&x.en===v.en));state.xp+=1;save();renderToday();renderReview();renderVocab();updateStats();toast("Marked as known +1 XP")}
+function markWeak(raw){const v=unpackVocab(raw);addWrong(v);renderToday();renderReview();toast("Added to smart review")}
+function renderToday(){ensureCoachState();const currentNew=newItemsForToday(),review=reviewItemsForToday(),strong=allVocab().filter(v=>statusFor(v).label==="Strong").length,learning=allVocab().filter(v=>statusFor(v).label==="Learning").length;$("today").innerHTML=`<div class="today-grid"><div class="today-hero"><h2>Today&apos;s Vietnamese Coach</h2><p>Do a short, focused session: learn a few new words, review weak items, listen carefully, and type one answer. This keeps the app useful for real learners instead of becoming a long vocabulary list.</p><div class="coach-row"><div class="coach-stat"><b>${currentNew.length}</b><span>new items now</span></div><div class="coach-stat"><b>${review.length}</b><span>review items now</span></div><div class="coach-stat"><b>${learning}</b><span>learning</span></div><div class="coach-stat"><b>${strong}</b><span>strong</span></div></div><div class="actions" style="margin-top:16px"><button class="primary" onclick="showTab('listening')">Start listening</button><button class="secondary" onclick="showTab('typing')">Practice typing</button><button class="secondary" onclick="showTab('match')">Do matching</button></div></div><div class="card"><h3 class="section-title">Smart Review</h3>${review.length?`<div class="practice-list">${review.map(v=>practiceCard(v,"review")).join("")}</div>`:`<div class="empty-state">No weak words yet. Mistakes from Listening, Dictation, Typing, and Quiz will appear here automatically.</div>`}</div></div><div class="card" style="margin-top:18px"><h3 class="section-title">5 New Items From This Lesson</h3>${currentNew.length?`<div class="practice-list">${currentNew.map(v=>practiceCard(v,"new")).join("")}</div>`:`<div class="empty-state">You have already seen all items in this lesson. Go to another lesson or focus on review.</div>`}</div>`}
+function renderReview(){ensureCoachState();const w=weakItems();if(!w.length){$("review").innerHTML=`<div class="card"><h2>Smart Mistake Review</h2><p>No weak words yet. Items you miss will appear here with a memory status.</p></div>`;return}$("review").innerHTML=`<div class="card"><h2>Smart Mistake Review (${w.length})</h2><p>Review weak Vietnamese items, listen again, then mark whether you know them. The app uses this to separate New, Learning, Weak, and Strong words.</p><div class="practice-list">${w.map(v=>practiceCard(v,"review")).join("")}</div><div class="actions" style="margin-top:14px"><button class="danger" onclick="state.wrong=[];save();renderToday();renderReview();toast('Review queue cleared')">Clear review queue</button></div></div>`}
+const oldRenderAll=renderAll;
+renderAll=function(){oldRenderAll();renderToday();renderSpeaking();polishEnglishUI()}
+const oldAddWrong=addWrong;
+addWrong=function(v){recordMemory(v,false);oldAddWrong(v)}
+const oldRemoveWrong=removeWrong;
+removeWrong=function(v){recordMemory(v,true);state.wrong=state.wrong.filter(x=>!(norm(x.vi)===norm(v.vi)&&x.en===v.en));save();renderReview()}
+function polishEnglishUI(){const complete=document.querySelector('button[onclick="markComplete()"]');if(complete)complete.textContent="Complete lesson +20 XP";const listen=document.querySelector('button[onclick="speakLessonList()"]');if(listen)listen.textContent="Listen to all vocabulary";const review=document.querySelector("button[onclick=\"showTab('review')\"]");if(review)review.textContent="Review weak words";const voiceMini=document.querySelector(".voicebox .mini");if(voiceMini)voiceMini.textContent="The app chooses a Vietnamese voice automatically. If your browser has no vi-VN voice, Auto mode uses online Vietnamese TTS when available.";const voiceStatus=$("voiceStatus");if(voiceStatus)voiceStatus.innerHTML=mode==="online"?"Using online Vietnamese TTS. Internet is required.":viVoice?`Using Vietnamese voice: <b>${viVoice.name}</b> (${viVoice.lang||"unknown"}).`:"No local Vietnamese voice found. Auto mode can use online Vietnamese TTS when available."}
+scoreVietnameseVoice=function(v){const name=(v.name||"").toLowerCase(),lang=(v.lang||"").toLowerCase();let score=0;if(lang==="vi-vn")score+=160;else if(lang.startsWith("vi"))score+=100;if(/hoaimy|hoai my|hoài my|namminh|nam minh|vietnam|viet|việt|tieng viet|tiếng việt/.test(name))score+=90;if(/microsoft|google|natural|neural|online|premium/.test(name))score+=45;if(/female|woman|hoaimy|hoai my|hoài my/.test(name))score+=12;if(/compact|espeak|sam|zira|david|mark|english|en-us|en-gb/.test(name))score-=60;return score}
+if(mode==="auto"){mode="online";localStorage.setItem("voice-mode","online")}
+function voiceSpeed(level,engine="online"){if(level==="verySlow")return engine==="online"?.62:.55;if(level===true||level==="slow")return engine==="online"?.78:.68;return engine==="online"?.94:.88}
+function speakBrowserFallback(text,slow=false,notice=false){if(!("speechSynthesis" in window)){if(notice)toast("This browser cannot play a Vietnamese voice.");return}loadVoices(false);speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(cleanSpeechText(text));u.lang="vi-VN";u.rate=voiceSpeed(slow,"browser");u.pitch=.98;u.volume=1;if(viVoice){u.voice=viVoice;u.lang=viVoice.lang||"vi-VN"}speechSynthesis.speak(u);if(notice)toast("Online voice was blocked, using browser voice instead.")}
+speakOnline=function(text,slow=false){const audio=$("ttsAudio");if("speechSynthesis" in window)speechSynthesis.cancel();audio.pause();audio.currentTime=0;const parts=splitSpeechText(text);let i=0,failed=false;function fallback(){if(failed)return;failed=true;if(viVoice)speakBrowserFallback(text,slow,true);else toast("Vietnamese online voice is unavailable. Open the HTTPS link again or install a vi-VN voice in Chrome/Edge.")}function ttsUrl(part){const q=encodeURIComponent(part);return location.protocol.startsWith("http")?`/api/tts?text=${q}`:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${q}`}function play(){if(i>=parts.length)return;audio.src=ttsUrl(parts[i]);audio.playbackRate=voiceSpeed(slow,"online");audio.onended=()=>{i++;setTimeout(play,120)};audio.onerror=fallback;audio.play().catch(fallback)}play()}
+speak=function(text,slow=false){loadVoices(false);const spoken=cleanSpeechText(text);const goodLocal=viVoice&&scoreVietnameseVoice(viVoice)>=185;const useOnline=mode==="online"||(mode==="auto"&&!goodLocal);if(useOnline){speakOnline(spoken,slow);return}if(!("speechSynthesis" in window)){speakOnline(spoken,slow);return}speakBrowserFallback(spoken,slow,false)}
+testVoice=function(){speak("Xin chào. Tôi đang học tiếng Việt. Tôi muốn nghe rõ dấu sắc, dấu huyền, dấu hỏi, dấu ngã và dấu nặng.",false)}
+let speakTarget=null, speechRec=null;
+function speechSupported(){return window.SpeechRecognition||window.webkitSpeechRecognition}
+function cleanCompare(s){return norm(s).replace(/[.,!?;:"'“”‘’()]/g,"").replace(/\s+/g," ").trim()}
+function similarity(a,b){a=cleanCompare(a);b=cleanCompare(b);if(!a||!b)return 0;if(a===b)return 1;const aw=a.split(" "),bw=b.split(" "),set=new Set(aw);let hit=0;bw.forEach(w=>{if(set.has(w))hit++});return hit/Math.max(aw.length,bw.length)}
+function newSpeaking(){speakTarget=sample(lesson().vocab,1)[0]}
+function nextSpeaking(){newSpeaking();renderSpeaking()}
+function renderSpeaking(){if(!speakTarget)newSpeaking();const supported=!!speechSupported();$("speaking").innerHTML=`<div class="card quiz speaking-card"><h2>Speaking: listen and repeat</h2><p>Listen to the Vietnamese audio, then press the microphone and repeat what you heard. The answer is hidden until you check.</p><div class="english-line"><b>Meaning:</b> ${speakTarget.en}</div><div class="listen-card">Vietnamese text is hidden. Use the audio first.</div><div id="speechAnswer" class="speech-target hidden-answer">Answer: ${speakTarget.vi}</div><div class="actions" style="margin-top:12px"><button class="primary" onclick="speak('${esc(speakTarget.vi)}')">Listen</button><button class="secondary" onclick="speak('${esc(speakTarget.vi)}',true)">Slow</button><button class="secondary" onclick="speak('${esc(speakTarget.vi)}','verySlow')">Very slow</button><button class="primary" onclick="startSpeakingPractice()" ${supported?"":"disabled"}>Start microphone</button><button class="secondary" onclick="nextSpeaking()">Next phrase</button></div><input class="answer" id="speechInput" placeholder="Your spoken Vietnamese will appear here..." onkeydown="if(event.key==='Enter')checkSpeaking()"><div id="speechHeard" class="speech-heard">Press Start microphone and repeat the audio.</div><div id="speechStatus" class="mic-status ${supported?"":"warn"}">${supported?"Microphone ready. Use Chrome or Edge for best speech recognition.":"Speech recognition is not available in this browser. Try Chrome or Edge."}</div><div class="actions" style="margin-top:12px"><button class="secondary" onclick="checkSpeaking()">Check spoken text</button><button class="secondary" onclick="revealSpeakingAnswer()">Show answer</button><button class="primary" onclick="nextSpeaking()">Next phrase</button></div></div>`}
+function revealSpeakingAnswer(){const a=$("speechAnswer");if(a)a.classList.add("show")}
+function startSpeakingPractice(){const Rec=speechSupported();if(!Rec){toast("Speech recognition needs Chrome or Edge.");return}if(speechRec)try{speechRec.abort()}catch(e){}speechRec=new Rec();speechRec.lang="vi-VN";speechRec.interimResults=true;speechRec.continuous=false;speechRec.maxAlternatives=3;const input=$("speechInput"),heard=$("speechHeard"),status=$("speechStatus");input.value="";status.textContent="Listening... speak Vietnamese now.";status.className="mic-status listening";heard.textContent="Listening...";speechRec.onresult=e=>{let finalText="",interim="";for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t;else interim+=t}const text=(finalText||interim).trim();input.value=text;heard.textContent=text||"Listening..."};speechRec.onerror=e=>{status.textContent=`Microphone error: ${e.error}. Try Chrome or allow microphone access.`;status.className="mic-status warn"};speechRec.onend=()=>checkSpeaking();speechRec.start()}
+function checkSpeaking(){if(!speakTarget||!$("speechInput"))return;const heard=$("speechInput").value,score=similarity(heard,speakTarget.vi),status=$("speechStatus");revealSpeakingAnswer();if(score>=.8){status.textContent="Great pronunciation match. Press Next phrase when you are ready. +6 XP";status.className="mic-status good";addXP(6);removeWrong(speakTarget)}else if(score>=.45){status.textContent="Close. Listen again and compare with the answer.";status.className="mic-status warn";recordMemory(speakTarget,false)}else{status.textContent="Not recognized yet. Listen again and compare with the answer.";status.className="mic-status warn";addWrong(speakTarget)}}
+const oldLoadVoices=loadVoices;
+loadVoices=function(show=false){const result=oldLoadVoices(show);setTimeout(polishEnglishUI,0);return result}
+if("speechSynthesis" in window){speechSynthesis.onvoiceschanged=()=>loadVoices(false);setTimeout(()=>loadVoices(false),250);setTimeout(()=>loadVoices(false),1000)}
+loadVoices(false);newListening();newDictation();newTyping();renderAll();
+</script>
+</body>
+</html>
