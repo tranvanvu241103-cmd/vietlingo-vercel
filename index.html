@@ -1060,7 +1060,7 @@ function confettiBurst(){
   }
   loop();
 }
-let _viVoice = null, _voicesReady = false, _viWarned = false;
+let _viVoice = null, _viWarned = false;
 function pickViVoice(){
   if(typeof speechSynthesis === "undefined") return null;
   const voices = speechSynthesis.getVoices() || [];
@@ -1074,19 +1074,20 @@ function pickViVoice(){
     || viVoices[0];
 }
 if(typeof speechSynthesis !== "undefined"){
-  speechSynthesis.onvoiceschanged = ()=>{ _viVoice = pickViVoice(); _voicesReady = true; };
+  speechSynthesis.onvoiceschanged = ()=>{ _viVoice = pickViVoice(); };
 }
 function speak(text, rate){
   try{
-    if(!_voicesReady){
-      _viVoice = pickViVoice();
-      if(speechSynthesis.getVoices().length) _voicesReady = true;
-    }
+    // Chrome loads its voice list asynchronously and doesn't always fire
+    // onvoiceschanged again once it has fired once — if the very first
+    // lookup ran before the Vietnamese voice was registered, retry on every
+    // call until one is actually found, instead of giving up forever.
+    if(!_viVoice) _viVoice = pickViVoice();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "vi-VN"; u.rate = rate||0.9; u.pitch = 1;
     if(_viVoice){
       u.voice = _viVoice;
-    } else if(_voicesReady && !_viWarned){
+    } else if(!_viWarned && speechSynthesis.getVoices().length){
       _viWarned = true;
       toast("⚠️ No Vietnamese voice found on this device. Try Chrome/Edge, or install a Vietnamese voice in your OS settings.");
     }
