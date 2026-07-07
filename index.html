@@ -87,6 +87,24 @@ button{font-family:inherit}
 .vocabItem .ex{font-size:12.5px;color:var(--ink);opacity:.85;margin-top:6px;border-left:2px solid var(--brand);padding-left:8px}
 .vocabItem .exen{font-size:11.5px;color:var(--sub)}
 .playBtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;flex-shrink:0;font-size:14px}
+
+/* Vocab grid (compact, tap-to-expand cards) */
+.vocabToolbar{margin-bottom:12px}
+.vocabGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.vocabCard{position:relative;padding:10px 34px 10px 10px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);cursor:pointer}
+.vocabCard:hover{border-color:var(--brand)}
+.vcTop{display:flex;align-items:center;gap:10px}
+.vcTop .vcEmo{font-size:22px;width:28px;text-align:center;flex-shrink:0}
+.vcMain{flex:1;min-width:0}
+.vcVi{font-size:15px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vcEn{font-size:12px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vcChevron{position:absolute;top:12px;right:10px;font-size:11px;color:var(--sub);transition:transform .2s}
+.vocabCard.expanded .vcChevron{transform:rotate(180deg)}
+.vcDetail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.vocabCard.expanded .vcDetail{display:block;animation:fadeSlideIn .2s ease both}
+.vcToneTag{font-size:11px;color:var(--accent);margin-bottom:6px}
+.vocabCard .ex{font-size:12.5px;color:var(--ink);opacity:.85;border-left:2px solid var(--brand);padding-left:8px}
+.vocabCard .exen{font-size:11.5px;color:var(--sub);margin-top:4px}
 .playBtn:hover{background:var(--brand);color:#06210f;border-color:var(--brand)}
 
 /* Buttons */
@@ -570,7 +588,391 @@ defineLesson(7, "Fruits & Vegetables", "Fruits & Vegetables", "🍎", [
 ["gọt vỏ","got vo","to peel","Mẹ gọt vỏ táo cho tôi.","Mom peeled the apple for me.","","🔪","nặng+hỏi"]
 ]);
 
-/* Lessons 8-100 will be added progressively in the next steps */
+defineLesson(8, "Body Parts", "Body", "🧍", [
+["đầu","dau","head","Đầu tôi hơi đau.","My head hurts a bit.","","🤕","huyền"],
+["tóc","toc","hair","Tóc của cô ấy rất dài.","Her hair is very long.","","💇","sắc"],
+["mặt","mat","face","Mặt anh ấy rất vui.","His face looks very happy.","","😊","nặng"],
+["trán","tran","forehead","Trán em bé rất rộng.","The baby's forehead is very broad.","","🧑","sắc"],
+["mắt","mat","eye","Mắt cô ấy màu nâu.","Her eyes are brown.","","👁️","sắc"],
+["mũi","mui","nose","Mũi tôi bị nghẹt.","My nose is stuffy.","","👃","ngã"],
+["miệng","mieng","mouth","Miệng bé rất xinh.","The baby's mouth is very cute.","","👄","nặng"],
+["môi","moi","lips","Cô ấy tô son môi màu đỏ.","She wears red lipstick.","","💋","ngang"],
+["răng","rang","teeth","Bạn nên đánh răng hai lần một ngày.","You should brush your teeth twice a day.","","🦷","ngang"],
+["lưỡi","luoi","tongue","Lưỡi tôi bị bỏng vì canh nóng.","My tongue got burned from the hot soup.","","👅","ngã"],
+["tai","tai","ear","Tai tôi nghe không rõ.","My ear doesn't hear clearly.","","👂","ngang"],
+["cổ","co","neck","Cổ tôi bị mỏi sau khi ngồi lâu.","My neck feels sore after sitting for a long time.","","🦒","hỏi"],
+["vai","vai","shoulder","Anh ấy vác túi trên vai.","He carries the bag on his shoulder.","","💪","ngang"],
+["ngực","nguc","chest","Ngực tôi đau khi ho.","My chest hurts when I cough.","","🫁","nặng"],
+["lưng","lung","back","Lưng tôi đau vì ngồi sai tư thế.","My back hurts from bad posture.","","🧍","ngang"],
+["bụng","bung","belly / stomach","Bụng tôi đói rồi.","My stomach is hungry now.","","🤰","nặng"],
+["rốn","ron","navel / belly button","Trẻ sơ sinh có rốn rất nhỏ.","Newborns have a very small navel.","","👶","sắc"],
+["tay","tay","arm / hand","Rửa tay trước khi ăn.","Wash your hands before eating.","","✋","ngang"],
+["bàn tay","ban tay","hand (palm)","Bàn tay của mẹ rất ấm.","Mom's hand is very warm.","","🖐️","huyền+ngang"],
+["ngón tay","ngon tay","finger","Tôi bị đau ở ngón tay út.","My pinky finger hurts.","","👆","sắc+ngang"],
+["móng tay","mong tay","fingernail","Cô ấy sơn móng tay màu hồng.","She painted her nails pink.","","💅","sắc+ngang"],
+["khuỷu tay","khuyu tay","elbow","Tôi bị đau khuỷu tay khi chơi tennis.","My elbow hurts from playing tennis.","","💪","hỏi+ngang"],
+["chân","chan","leg / foot","Chân tôi rất mỏi sau khi đi bộ.","My legs are very tired after walking.","","🦵","ngang"],
+["bàn chân","ban chan","foot","Bàn chân của anh ấy rất to.","His foot is very big.","","🦶","huyền+ngang"],
+["ngón chân","ngon chan","toe","Tôi bị đau ngón chân cái.","My big toe hurts.","","🦶","sắc+ngang"],
+["đầu gối","dau goi","knee","Đầu gối tôi đau khi leo cầu thang.","My knee hurts when climbing stairs.","","🦵","huyền+sắc"],
+["đùi","dui","thigh","Đùi anh ấy rất khỏe vì tập gym.","His thighs are very strong from going to the gym.","","🦵","huyền"],
+["mắt cá chân","mat ca chan","ankle","Tôi bị trẹo mắt cá chân khi chạy.","I twisted my ankle while running.","","🦶","sắc+sắc+ngang"],
+["da","da","skin","Da của bé rất mịn.","The baby's skin is very smooth.","","🧴","ngang"],
+["xương","xuong","bone","Sữa tốt cho xương.","Milk is good for bones.","","🦴","ngang"],
+["tim","tim","heart","Tim tôi đập rất nhanh.","My heart is beating very fast.","","❤️","ngang"],
+["phổi","phoi","lungs","Hút thuốc có hại cho phổi.","Smoking is bad for the lungs.","","🫁","hỏi"],
+["não","nao","brain","Đọc sách tốt cho não.","Reading is good for the brain.","","🧠","ngã"],
+["gan","gan","liver","Uống nhiều rượu không tốt cho gan.","Drinking too much alcohol is bad for the liver.","","🫀","ngang"],
+["dạ dày","da day","stomach (organ)","Tôi bị đau dạ dày.","I have a stomachache.","","🫃","nặng+huyền"],
+["râu","rau","beard / mustache","Ông tôi để râu dài.","My grandfather has a long beard.","","🧔","ngang"],
+["lông mày","long may","eyebrow","Lông mày của cô ấy rất đậm.","Her eyebrows are very thick.","","🤨","ngang+huyền"],
+["lông mi","long mi","eyelash","Lông mi của bé rất dài.","The baby's eyelashes are very long.","","👁️","ngang+ngang"],
+["cằm","cam","chin","Anh ấy có cằm nhọn.","He has a pointed chin.","","🧑","huyền"],
+["má","ma","cheek","Má của bé đỏ hồng.","The baby's cheeks are rosy.","In southern dialect 'má' also means 'mom' — context tells them apart.","😊","sắc"],
+["gót chân","got chan","heel","Giày này cọ vào gót chân tôi.","These shoes rub against my heel.","","👠","sắc+ngang"],
+["cao","cao","tall","Anh trai tôi rất cao.","My older brother is very tall.","","📏","ngang"],
+["thấp","thap","short (height)","Em gái tôi thấp hơn tôi.","My younger sister is shorter than me.","","📏","sắc"],
+["khỏe mạnh","khoe manh","healthy / strong","Tập thể dục giúp cơ thể khỏe mạnh.","Exercise helps the body stay healthy.","","💪","hỏi+nặng"],
+["đau","dau","to hurt / painful","Chân tôi bị đau.","My leg hurts.","","🤕","ngang"]
+]);
+
+defineLesson(9, "Clothing & Accessories", "Clothing", "👕", [
+["quần áo","quan ao","clothes","Tôi cần mua quần áo mới.","I need to buy new clothes.","","👕","huyền+sắc"],
+["áo","ao","shirt / top","Áo này màu xanh rất đẹp.","This shirt is a beautiful blue.","","👕","sắc"],
+["áo sơ mi","ao so mi","dress shirt","Anh ấy mặc áo sơ mi trắng đi làm.","He wears a white dress shirt to work.","","👔","sắc+ngang+ngang"],
+["áo thun","ao thun","t-shirt","Tôi thích mặc áo thun vào mùa hè.","I like wearing t-shirts in summer.","","👕","sắc+ngang"],
+["áo khoác","ao khoac","jacket / coat","Trời lạnh, bạn nên mặc áo khoác.","It's cold, you should wear a jacket.","","🧥","sắc+sắc"],
+["áo len","ao len","sweater","Mùa đông tôi hay mặc áo len.","I often wear sweaters in winter.","","🧶","sắc+ngang"],
+["quần","quan","pants / trousers","Quần này hơi chật.","These pants are a bit tight.","","👖","huyền"],
+["quần jean","quan jean","jeans","Quần jean xanh rất phổ biến.","Blue jeans are very popular.","","👖","huyền+ngang"],
+["quần short","quan short","shorts","Trời nóng nên tôi mặc quần short.","It's hot so I'm wearing shorts.","","🩳","huyền+ngang"],
+["váy","vay","skirt / dress","Cô ấy mặc váy rất xinh.","She wears a very pretty dress.","","👗","sắc"],
+["đầm","dam","dress","Chiếc đầm này màu đỏ.","This dress is red.","'Đầm' usually refers to a fitted one-piece dress, similar to 'váy.'","👗","huyền"],
+["đồ ngủ","do ngu","pajamas","Tôi thích mặc đồ ngủ mềm mại.","I like wearing soft pajamas.","","🛌","huyền+hỏi"],
+["giày","giay","shoes","Tôi mới mua một đôi giày mới.","I just bought a new pair of shoes.","","👞","huyền"],
+["dép","dep","sandals","Ở nhà tôi thường đi dép.","I usually wear sandals at home.","","🩴","sắc"],
+["giày thể thao","giay the thao","sneakers","Giày thể thao này rất êm.","These sneakers are very comfortable.","","👟","huyền+hỏi+ngang"],
+["ủng","ung","boots","Trời mưa nên tôi đi ủng.","It's raining so I'm wearing boots.","","👢","hỏi"],
+["tất","tat","socks","Tôi cần mua thêm tất.","I need to buy more socks.","Southern variant: 'vớ.'","🧦","sắc"],
+["mũ","mu","hat","Đội mũ khi ra nắng.","Wear a hat when going out in the sun.","","🧢","ngã"],
+["nón","non","conical hat","Nón lá là biểu tượng của Việt Nam.","The conical hat is a symbol of Vietnam.","","👒","sắc"],
+["khăn quàng cổ","khan quang co","scarf","Mùa đông tôi hay quàng khăn.","I often wear a scarf in winter.","","🧣","ngang+huyền+hỏi"],
+["găng tay","gang tay","gloves","Đeo găng tay khi trời lạnh.","Wear gloves when it's cold.","","🧤","ngang+ngang"],
+["kính","kinh","glasses","Tôi đeo kính khi đọc sách.","I wear glasses when reading.","","👓","sắc"],
+["kính mát","kinh mat","sunglasses","Đeo kính mát khi trời nắng.","Wear sunglasses when it's sunny.","","🕶️","sắc+sắc"],
+["thắt lưng","that lung","belt","Anh ấy đeo thắt lưng da.","He wears a leather belt.","","👔","sắc+ngang"],
+["cà vạt","ca vat","necktie","Anh ấy thắt cà vạt đi họp.","He wears a necktie to the meeting.","","👔","huyền+nặng"],
+["túi xách","tui xach","handbag","Cô ấy mua một chiếc túi xách mới.","She bought a new handbag.","","👜","sắc+sắc"],
+["ba lô","ba lo","backpack","Học sinh đeo ba lô đến trường.","Students carry backpacks to school.","","🎒","ngang+ngang"],
+["ví","vi","wallet","Tôi để tiền trong ví.","I keep money in my wallet.","","👛","sắc"],
+["đồng hồ","dong ho","watch / clock","Anh ấy đeo đồng hồ rất đẹp.","He wears a very nice watch.","","⌚","huyền+huyền"],
+["nhẫn","nhan","ring","Cô ấy đeo nhẫn cưới.","She wears a wedding ring.","","💍","ngã"],
+["vòng cổ","vong co","necklace","Chiếc vòng cổ này bằng vàng.","This necklace is made of gold.","","📿","huyền+hỏi"],
+["hoa tai","hoa tai","earrings","Cô ấy đeo hoa tai bạc.","She wears silver earrings.","","💎","ngang+ngang"],
+["đồ lót","do lot","underwear","Đồ lót nên được giặt riêng.","Underwear should be washed separately.","","🧺","huyền+sắc"],
+["mặc","mac","to wear","Bạn nên mặc gì hôm nay?","What should you wear today?","","👗","nặng"],
+["cởi","coi","to take off (clothes)","Cởi giày trước khi vào nhà.","Take off your shoes before entering the house.","","🧦","hỏi"],
+["mặc thử","mac thu","to try on","Tôi muốn mặc thử chiếc áo này.","I want to try on this shirt.","","🪞","nặng+hỏi"],
+["vừa","vua","to fit","Đôi giày này vừa chân tôi.","These shoes fit my feet.","","👟","huyền"],
+["chật","chat","tight","Quần này hơi chật.","These pants are a bit tight.","","👖","nặng"],
+["rộng","rong","loose / wide","Áo này hơi rộng.","This shirt is a bit loose.","","👕","nặng"],
+["kiểu","kieu","style","Tôi thích kiểu áo này.","I like this style of shirt.","","👗","hỏi"],
+["vải","vai","fabric","Vải này rất mềm.","This fabric is very soft.","","🧵","hỏi"],
+["màu sắc","mau sac","color","Tôi thích quần áo nhiều màu sắc.","I like colorful clothes.","","🎨","huyền+sắc"],
+["cỡ","co","size","Bạn mặc cỡ nào?","What size do you wear?","","📏","ngã"],
+["thời trang","thoi trang","fashion","Cô ấy rất quan tâm đến thời trang.","She's very interested in fashion.","","👗","huyền+ngang"],
+["giặt","giat","to wash (clothes)","Tôi giặt quần áo vào cuối tuần.","I do laundry on weekends.","","🧺","nặng"]
+]);
+
+defineLesson(10, "Weather & Seasons", "Weather", "🌦️", [
+["thời tiết","thoi tiet","weather","Thời tiết hôm nay rất đẹp.","The weather is very nice today.","","🌦️","huyền+sắc"],
+["mùa","mua","season","Việt Nam có bốn mùa.","Vietnam has four seasons.","The north has four seasons; the south mainly has a dry and a rainy season.","🍂","huyền"],
+["mùa xuân","mua xuan","spring","Mùa xuân hoa nở rất đẹp.","Flowers bloom beautifully in spring.","","🌸","huyền+ngang"],
+["mùa hè","mua he","summer","Mùa hè rất nóng.","Summer is very hot.","Northern variant also uses 'mùa hạ.'","☀️","huyền+huyền"],
+["mùa thu","mua thu","autumn / fall","Mùa thu lá vàng rơi.","In autumn, yellow leaves fall.","","🍁","huyền+ngang"],
+["mùa đông","mua dong","winter","Mùa đông ở Hà Nội khá lạnh.","Winter in Hanoi is quite cold.","","❄️","huyền+ngang"],
+["nắng","nang","sunny","Hôm nay trời nắng.","It's sunny today.","","☀️","sắc"],
+["mưa","mua","rain / rainy","Trời đang mưa to.","It's raining heavily.","","🌧️","ngang"],
+["gió","gio","wind","Gió thổi rất mạnh.","The wind is blowing very strongly.","","💨","sắc"],
+["bão","bao","storm / typhoon","Cơn bão sắp đến.","A storm is coming.","","🌀","ngã"],
+["sấm","sam","thunder","Tôi nghe thấy tiếng sấm.","I heard the sound of thunder.","","⛈️","sắc"],
+["chớp","chop","lightning","Chớp lóe sáng cả bầu trời.","Lightning lit up the whole sky.","","⚡","sắc"],
+["mây","may","cloud","Bầu trời có nhiều mây.","The sky has a lot of clouds.","","☁️","ngang"],
+["sương mù","suong mu","fog","Sáng nay có sương mù dày đặc.","There's thick fog this morning.","","🌫️","ngang+huyền"],
+["cầu vồng","cau vong","rainbow","Sau cơn mưa có cầu vồng.","There's a rainbow after the rain.","","🌈","huyền+huyền"],
+["nóng","nong","hot","Hôm nay trời rất nóng.","It's very hot today.","","🥵","sắc"],
+["lạnh","lanh","cold","Trời lạnh, mặc áo ấm vào.","It's cold, put on a warm coat.","","🥶","nặng"],
+["mát","mat","cool","Buổi sáng trời rất mát.","The morning is very cool.","","😌","sắc"],
+["ấm","am","warm","Nước ấm giúp dễ ngủ hơn.","Warm water helps you sleep better.","","🌡️","sắc"],
+["ẩm ướt","am uot","humid","Miền Nam có khí hậu ẩm ướt.","The South has a humid climate.","","💧","hỏi+sắc"],
+["khô","kho","dry","Mùa khô ở miền Nam kéo dài.","The dry season in the South lasts a long time.","","🏜️","ngang"],
+["nhiệt độ","nhiet do","temperature","Nhiệt độ hôm nay là 30 độ.","Today's temperature is 30 degrees.","","🌡️","nặng+nặng"],
+["độ","do","degree","Trời nóng 35 độ.","It's 35 degrees hot.","","🌡️","nặng"],
+["dự báo thời tiết","du bao thoi tiet","weather forecast","Tôi xem dự báo thời tiết mỗi sáng.","I check the weather forecast every morning.","","📺","nặng+sắc+huyền+sắc"],
+["ô","o","umbrella","Mang ô đi vì trời sắp mưa.","Bring an umbrella because it's about to rain.","Southern variant: 'dù.'","☂️","ngang"],
+["bầu trời","bau troi","sky","Bầu trời hôm nay rất trong xanh.","The sky is very clear today.","","🌌","huyền+huyền"],
+["mặt trời","mat troi","sun","Mặt trời mọc ở hướng đông.","The sun rises in the east.","","☀️","nặng+huyền"],
+["mặt trăng","mat trang","moon","Mặt trăng đêm nay rất tròn.","The moon is very round tonight.","","🌙","nặng+ngang"],
+["sao","sao","star","Bầu trời đêm có rất nhiều sao.","The night sky has many stars.","","⭐","ngang"],
+["tuyết","tuyet","snow","Miền Bắc Việt Nam hiếm khi có tuyết.","Northern Vietnam rarely has snow.","","❄️","sắc"],
+["mưa đá","mua da","hail","Trận mưa đá làm hỏng mùa màng.","The hailstorm damaged the crops.","","🧊","ngang+sắc"],
+["lũ lụt","lu lut","flood","Miền Trung thường bị lũ lụt vào mùa mưa.","Central Vietnam often floods in the rainy season.","","🌊","ngã+nặng"],
+["hạn hán","han han","drought","Hạn hán khiến đất đai khô cằn.","Drought makes the land dry and barren.","","🏜️","nặng+sắc"],
+["gió mùa","gio mua","monsoon","Gió mùa đông bắc mang không khí lạnh.","The northeast monsoon brings cold air.","","🌬️","sắc+huyền"],
+["se lạnh","se lanh","chilly","Sáng sớm trời se lạnh.","It's chilly in the early morning.","","🧣","ngang+nặng"],
+["oi bức","oi buc","sultry / muggy","Buổi trưa mùa hè rất oi bức.","Summer afternoons are very muggy.","","🥵","ngang+sắc"],
+["trong xanh","trong xanh","clear (sky)","Bầu trời hôm nay trong xanh.","The sky is clear today.","","🌤️","ngang+ngang"],
+["âm u","am u","overcast / gloomy","Trời âm u cả ngày.","The sky is overcast all day.","","☁️","ngang+ngang"],
+["gió mạnh","gio manh","strong wind","Hôm nay gió mạnh, cẩn thận khi ra ngoài.","The wind is strong today, be careful going outside.","","💨","sắc+nặng"],
+["nhẹ","nhe","light / gentle (breeze)","Gió nhẹ thổi qua.","A gentle breeze blows through.","","🍃","nặng"],
+["dự báo","du bao","forecast","Dự báo nói trời sẽ mưa.","The forecast says it will rain.","","📋","nặng+sắc"],
+["khí hậu","khi hau","climate","Khí hậu Việt Nam rất đa dạng.","Vietnam's climate is very diverse.","","🌍","sắc+nặng"],
+["ấm áp","am ap","warm and cozy","Ngôi nhà này rất ấm áp.","This house is very warm and cozy.","","🏡","sắc+sắc"],
+["lạnh giá","lanh gia","freezing cold","Mùa đông ở Sapa lạnh giá.","Winter in Sapa is freezing cold.","","🥶","nặng+sắc"],
+["thay đổi","thay doi","to change","Thời tiết thay đổi rất nhanh.","The weather changes very quickly.","","🔄","ngang+hỏi"]
+]);
+
+defineLesson(11, "Daily Activities", "Daily Life", "⏰", [
+["thức dậy","thuc day","to wake up","Tôi thức dậy lúc sáu giờ.","I wake up at six o'clock.","","⏰","sắc+nặng"],
+["ngủ dậy","ngu day","to get up","Bé ngủ dậy và đánh răng.","The child gets up and brushes their teeth.","","🛏️","hỏi+nặng"],
+["đánh răng","danh rang","to brush teeth","Tôi đánh răng hai lần một ngày.","I brush my teeth twice a day.","","🪥","sắc+ngang"],
+["rửa mặt","rua mat","to wash one's face","Tôi rửa mặt vào buổi sáng.","I wash my face in the morning.","","🧼","hỏi+nặng"],
+["tắm","tam","to shower / bathe","Tôi tắm trước khi đi ngủ.","I shower before going to bed.","","🚿","sắc"],
+["mặc quần áo","mac quan ao","to get dressed","Bé tự mặc quần áo.","The child gets dressed by themselves.","","👕","nặng+huyền+sắc"],
+["ăn sáng","an sang","to have breakfast","Tôi ăn sáng lúc bảy giờ.","I have breakfast at seven o'clock.","","🍳","ngang+sắc"],
+["đi làm","di lam","to go to work","Bố tôi đi làm bằng xe máy.","My dad goes to work by motorbike.","","💼","ngang+huyền"],
+["đi học","di hoc","to go to school","Trẻ em đi học vào buổi sáng.","Children go to school in the morning.","","🎒","ngang+nặng"],
+["làm việc","lam viec","to work","Tôi làm việc từ tám giờ đến năm giờ.","I work from eight to five.","","💻","huyền+nặng"],
+["học bài","hoc bai","to study","Tôi học bài vào buổi tối.","I study in the evening.","","📚","nặng+huyền"],
+["nghỉ trưa","nghi trua","to take a lunch break","Tôi nghỉ trưa lúc mười hai giờ.","I take a lunch break at noon.","","😴","hỏi+ngang"],
+["ăn trưa","an trua","to have lunch","Chúng tôi ăn trưa cùng nhau.","We have lunch together.","","🍱","ngang+ngang"],
+["tan làm","tan lam","to finish work","Tôi tan làm lúc năm giờ chiều.","I finish work at 5 pm.","","🕔","ngang+huyền"],
+["tan học","tan hoc","to finish school","Học sinh tan học lúc bốn giờ.","Students finish school at four o'clock.","","🏫","ngang+nặng"],
+["về nhà","ve nha","to go home","Tôi về nhà sau khi tan làm.","I go home after finishing work.","","🏠","huyền+huyền"],
+["nấu ăn","nau an","to cook","Mẹ tôi nấu ăn mỗi tối.","My mom cooks every evening.","","🍳","sắc+ngang"],
+["ăn tối","an toi","to have dinner","Cả nhà ăn tối lúc bảy giờ.","The whole family has dinner at seven.","","🍽️","ngang+sắc"],
+["dọn dẹp","don dep","to tidy up","Tôi dọn dẹp phòng vào cuối tuần.","I tidy up my room on weekends.","","🧹","nặng+nặng"],
+["giặt quần áo","giat quan ao","to do laundry","Tôi giặt quần áo vào Chủ nhật.","I do laundry on Sunday.","","🧺","nặng+huyền+sắc"],
+["rửa bát","rua bat","to wash dishes","Ai sẽ rửa bát tối nay?","Who will wash the dishes tonight?","Southern variant: 'rửa chén.'","🍽️","hỏi+sắc"],
+["xem tivi","xem tivi","to watch TV","Tối nay tôi xem tivi.","Tonight I'm watching TV.","","📺","ngang+ngang"],
+["đọc sách","doc sach","to read books","Tôi thích đọc sách trước khi ngủ.","I like reading books before sleeping.","","📖","nặng+sắc"],
+["nghe nhạc","nghe nhac","to listen to music","Tôi nghe nhạc khi làm việc.","I listen to music while working.","","🎧","ngang+nặng"],
+["tập thể dục","tap the duc","to exercise","Tôi tập thể dục mỗi sáng.","I exercise every morning.","","🏋️","nặng+hỏi+nặng"],
+["chạy bộ","chay bo","to jog / run","Anh ấy chạy bộ trong công viên.","He jogs in the park.","","🏃","nặng+nặng"],
+["đi dạo","di dao","to take a walk","Chúng tôi đi dạo sau bữa tối.","We take a walk after dinner.","","🚶","ngang+nặng"],
+["gặp bạn bè","gap ban be","to meet friends","Cuối tuần tôi gặp bạn bè.","I meet my friends on weekends.","","👫","nặng+nặng+huyền"],
+["đi chợ","di cho","to go to the market","Mẹ tôi đi chợ mỗi sáng.","My mom goes to the market every morning.","","🛒","ngang+nặng"],
+["mua sắm","mua sam","to shop","Chúng tôi đi mua sắm cuối tuần.","We go shopping on weekends.","","🛍️","ngang+sắc"],
+["kiểm tra email","kiem tra email","to check email","Tôi kiểm tra email khi đến công ty.","I check my email when I get to the office.","","📧","hỏi+ngang+ngang"],
+["họp","hop","to have a meeting","Chúng tôi họp lúc chín giờ.","We have a meeting at nine o'clock.","","🧑‍💼","nặng"],
+["nghỉ ngơi","nghi ngoi","to rest","Tôi nghỉ ngơi sau giờ làm.","I rest after work.","","🛋️","hỏi+ngang"],
+["đi ngủ","di ngu","to go to sleep","Tôi đi ngủ lúc mười một giờ.","I go to sleep at eleven o'clock.","","🌙","ngang+hỏi"],
+["thư giãn","thu gian","to relax","Cuối tuần tôi thư giãn ở nhà.","I relax at home on weekends.","","🧘","ngang+ngã"],
+["chăm sóc con cái","cham soc con cai","to take care of children","Mẹ chăm sóc con cái cả ngày.","Mom takes care of the children all day.","","👶","ngang+sắc+ngang+sắc"],
+["cho con ăn","cho con an","to feed a child","Cô ấy cho con ăn lúc bảy giờ.","She feeds her child at seven o'clock.","","🍼","ngang+ngang+ngang"],
+["dắt chó đi dạo","dat cho di dao","to walk the dog","Tôi dắt chó đi dạo mỗi tối.","I walk the dog every evening.","","🐕","sắc+sắc+ngang+nặng"],
+["tưới cây","tuoi cay","to water plants","Tôi tưới cây vào buổi sáng.","I water the plants in the morning.","","🪴","sắc+ngang"],
+["kiểm tra điện thoại","kiem tra dien thoai","to check one's phone","Tôi kiểm tra điện thoại trước khi ngủ.","I check my phone before sleeping.","","📱","hỏi+ngang+nặng+nặng"],
+["lên kế hoạch","len ke hoach","to plan","Tôi lên kế hoạch cho ngày mai.","I plan for tomorrow.","","📝","ngang+sắc+nặng"],
+["hằng ngày","hang ngay","daily / every day","Đây là công việc tôi làm hằng ngày.","This is what I do every day.","","📅","huyền+huyền"],
+["thói quen","thoi quen","habit / routine","Đọc sách là thói quen tốt.","Reading is a good habit.","","🔁","sắc+ngang"],
+["bận rộn","ban ron","busy","Hôm nay tôi rất bận rộn.","Today I'm very busy.","","⏳","nặng+nặng"],
+["rảnh rỗi","ranh roi","free / not busy","Cuối tuần tôi rảnh rỗi.","I'm free on the weekend.","","🌴","hỏi+ngã"]
+]);
+
+defineLesson(12, "Places Around Town", "Places", "🏙️", [
+["thành phố","thanh pho","city","Tôi sống ở thành phố Hà Nội.","I live in Hanoi city.","","🏙️","huyền+sắc"],
+["thị trấn","thi tran","town","Đây là một thị trấn nhỏ.","This is a small town.","","🏘️","nặng+sắc"],
+["làng","lang","village","Ông tôi sống ở một ngôi làng.","My grandfather lives in a village.","","🏡","huyền"],
+["nhà","nha","house / home","Nhà tôi ở gần trường.","My house is near the school.","","🏠","huyền"],
+["trường học","truong hoc","school","Trường học của tôi rất đẹp.","My school is very beautiful.","","🏫","huyền+nặng"],
+["bệnh viện","benh vien","hospital","Bệnh viện gần đây rất hiện đại.","The hospital nearby is very modern.","","🏥","nặng+nặng"],
+["chợ","cho","market","Mẹ tôi mua rau ở chợ.","My mom buys vegetables at the market.","","🛒","nặng"],
+["siêu thị","sieu thi","supermarket","Tôi mua đồ ở siêu thị.","I buy things at the supermarket.","","🏬","ngang+nặng"],
+["ngân hàng","ngan hang","bank","Tôi cần đến ngân hàng rút tiền.","I need to go to the bank to withdraw money.","","🏦","ngang+huyền"],
+["bưu điện","buu dien","post office","Tôi gửi thư ở bưu điện.","I send letters at the post office.","","📮","ngang+nặng"],
+["công viên","cong vien","park","Chúng tôi đi dạo trong công viên.","We take a walk in the park.","","🌳","ngang+ngang"],
+["sân bay","san bay","airport","Sân bay rất đông người.","The airport is very crowded.","","✈️","ngang+ngang"],
+["nhà ga","nha ga","train station","Nhà ga gần trung tâm thành phố.","The train station is near the city center.","","🚉","huyền+ngang"],
+["bến xe buýt","ben xe buyt","bus stop","Tôi đợi xe buýt ở bến xe buýt.","I wait for the bus at the bus stop.","","🚏","sắc+ngang+sắc"],
+["nhà hàng","nha hang","restaurant","Chúng ta ăn tối ở nhà hàng.","We eat dinner at the restaurant.","","🍽️","huyền+huyền"],
+["quán cà phê","quan ca phe","cafe","Tôi thích ngồi ở quán cà phê.","I like sitting at a cafe.","","☕","sắc+huyền+ngang"],
+["khách sạn","khach san","hotel","Chúng tôi ở khách sạn ba ngày.","We stayed at the hotel for three days.","","🏨","sắc+nặng"],
+["rạp chiếu phim","rap chieu phim","cinema / movie theater","Cuối tuần tôi đi rạp chiếu phim.","I go to the cinema on weekends.","","🎬","nặng+sắc+ngang"],
+["thư viện","thu vien","library","Tôi mượn sách ở thư viện.","I borrow books from the library.","","📚","ngang+nặng"],
+["bảo tàng","bao tang","museum","Bảo tàng này có nhiều hiện vật cổ.","This museum has many ancient artifacts.","","🏛️","hỏi+huyền"],
+["chùa","chua","Buddhist temple","Người dân đi lễ chùa vào đầu năm.","People visit the temple at the start of the year.","","⛩️","huyền"],
+["nhà thờ","nha tho","church","Nhà thờ này rất cổ kính.","This church is very ancient.","","⛪","huyền+huyền"],
+["hiệu thuốc","hieu thuoc","pharmacy","Tôi mua thuốc ở hiệu thuốc.","I buy medicine at the pharmacy.","","💊","nặng+sắc"],
+["đồn công an","don cong an","police station","Hãy báo cho đồn công an gần nhất.","Please report to the nearest police station.","","🚓","huyền+ngang+ngang"],
+["sở thú","so thu","zoo","Cuối tuần gia đình tôi đi sở thú.","My family visits the zoo on weekends.","","🦁","hỏi+sắc"],
+["sân vận động","san van dong","stadium","Trận đấu diễn ra ở sân vận động.","The match takes place at the stadium.","","🏟️","ngang+nặng+nặng"],
+["tiệm bánh","tiem banh","bakery","Tôi mua bánh mì ở tiệm bánh.","I buy bread at the bakery.","","🥖","nặng+sắc"],
+["hiệu sách","hieu sach","bookstore","Tôi tìm sách ở hiệu sách.","I look for books at the bookstore.","","📖","nặng+sắc"],
+["cây xăng","cay xang","gas station","Xe hết xăng rồi, ghé cây xăng nhé.","The car is out of gas, let's stop at a gas station.","","⛽","ngang+ngang"],
+["bãi đỗ xe","bai do xe","parking lot","Bãi đỗ xe ở phía sau tòa nhà.","The parking lot is behind the building.","","🅿️","ngã+ngã+ngang"],
+["cầu","cau","bridge","Chiếc cầu này rất dài.","This bridge is very long.","","🌉","huyền"],
+["đường phố","duong pho","street","Đường phố hôm nay rất đông.","The street is very crowded today.","","🛣️","huyền+sắc"],
+["ngã tư","nga tu","intersection","Rẽ trái ở ngã tư tiếp theo.","Turn left at the next intersection.","","🚦","ngã+ngang"],
+["quảng trường","quang truong","square (plaza)","Người dân tụ tập ở quảng trường.","People gather at the square.","","🏛️","hỏi+huyền"],
+["tòa nhà","toa nha","building","Tòa nhà này rất cao.","This building is very tall.","","🏢","huyền+huyền"],
+["văn phòng","van phong","office","Tôi làm việc ở văn phòng.","I work at the office.","","🏢","ngang+huyền"],
+["trung tâm thương mại","trung tam thuong mai","shopping mall","Cuối tuần chúng tôi đi trung tâm thương mại.","We go to the shopping mall on weekends.","","🏬","ngang+ngang+ngang+nặng"],
+["công ty","cong ty","company","Anh ấy làm ở một công ty lớn.","He works at a big company.","","🏢","ngang+ngang"],
+["đại học","dai hoc","university","Chị tôi học ở một trường đại học.","My sister studies at a university.","","🎓","nặng+nặng"],
+["sông","song","river","Con sông này chảy qua thành phố.","This river flows through the city.","","🏞️","ngang"],
+["hồ","ho","lake","Chúng tôi đi dạo quanh hồ.","We walk around the lake.","","🏞️","huyền"],
+["biển","bien","beach / sea","Mùa hè tôi hay đi biển.","I often go to the beach in summer.","","🏖️","hỏi"],
+["núi","nui","mountain","Chúng tôi leo núi vào cuối tuần.","We go mountain climbing on weekends.","","⛰️","sắc"],
+["gần","gan","near","Nhà tôi gần trường học.","My house is near the school.","","📍","huyền"],
+["xa","xa","far","Công ty tôi khá xa nhà.","My company is quite far from home.","","🗺️","ngang"]
+]);
+
+defineLesson(13, "Transportation", "Transportation", "🚌", [
+["xe máy","xe may","motorbike","Tôi đi làm bằng xe máy.","I go to work by motorbike.","","🏍️","ngang+sắc"],
+["xe đạp","xe dap","bicycle","Tôi đạp xe đạp đến trường.","I ride a bicycle to school.","","🚲","ngang+nặng"],
+["ô tô","o to","car","Bố tôi mới mua một chiếc ô tô.","My dad just bought a car.","Southern variant: 'xe hơi.'","🚗","ngang+ngang"],
+["xe buýt","xe buyt","bus","Tôi đi học bằng xe buýt.","I go to school by bus.","","🚌","ngang+sắc"],
+["tàu hỏa","tau hoa","train","Chúng tôi đi Huế bằng tàu hỏa.","We go to Huế by train.","","🚆","huyền+hỏi"],
+["tàu điện ngầm","tau dien ngam","subway / metro","Hà Nội đang xây tàu điện ngầm.","Hanoi is building a subway system.","","🚇","huyền+nặng+huyền"],
+["máy bay","may bay","airplane","Tôi bay từ Hà Nội vào Sài Gòn.","I fly from Hanoi to Saigon.","","✈️","sắc+ngang"],
+["tàu thủy","tau thuy","ship / boat","Chúng tôi đi du lịch bằng tàu thủy.","We travel by ship.","","🚢","huyền+hỏi"],
+["thuyền","thuyen","boat","Ngư dân đi biển bằng thuyền.","Fishermen go to sea by boat.","","⛵","huyền"],
+["taxi","taxi","taxi","Tôi gọi taxi để đến sân bay.","I called a taxi to go to the airport.","","🚕","ngang"],
+["xe ôm","xe om","motorbike taxi","Ở Việt Nam có dịch vụ xe ôm.","In Vietnam there's a motorbike taxi service.","","🛵","ngang+ngang"],
+["xe tải","xe tai","truck","Xe tải chở hàng đến kho.","The truck delivers goods to the warehouse.","","🚚","ngang+hỏi"],
+["xe cứu thương","xe cuu thuong","ambulance","Xe cứu thương đến rất nhanh.","The ambulance arrived very quickly.","","🚑","ngang+sắc+ngang"],
+["xe cứu hỏa","xe cuu hoa","fire truck","Xe cứu hỏa dập tắt đám cháy.","The fire truck put out the fire.","","🚒","ngang+sắc+hỏi"],
+["xích lô","xich lo","cyclo (pedicab)","Khách du lịch thích đi xích lô.","Tourists like riding cyclos.","","🛺","sắc+ngang"],
+["vé","ve","ticket","Tôi mua vé tàu hỏa.","I bought a train ticket.","","🎫","sắc"],
+["lái xe","lai xe","to drive","Anh ấy lái xe rất cẩn thận.","He drives very carefully.","","🚗","sắc+ngang"],
+["đi bộ","di bo","to walk","Tôi thích đi bộ vào buổi sáng.","I like walking in the morning.","","🚶","ngang+nặng"],
+["bến xe","ben xe","bus station","Tôi đợi ở bến xe.","I'm waiting at the bus station.","","🚏","sắc+ngang"],
+["sân bay","san bay","airport","Chúng tôi đến sân bay sớm.","We arrived at the airport early.","","✈️","ngang+ngang"],
+["đường cao tốc","duong cao toc","highway","Xe chạy nhanh trên đường cao tốc.","The car drives fast on the highway.","","🛣️","huyền+ngang+sắc"],
+["giao thông","giao thong","traffic","Giao thông giờ cao điểm rất đông.","Traffic during rush hour is very heavy.","","🚦","ngang+ngang"],
+["tắc đường","tac duong","traffic jam","Hôm nay tắc đường quá.","There's a huge traffic jam today.","","🚗","sắc+huyền"],
+["đèn giao thông","den giao thong","traffic light","Dừng lại khi đèn giao thông màu đỏ.","Stop when the traffic light is red.","","🚦","huyền+ngang+ngang"],
+["mũ bảo hiểm","mu bao hiem","helmet","Đội mũ bảo hiểm khi đi xe máy.","Wear a helmet when riding a motorbike.","","⛑️","ngã+hỏi+hỏi"],
+["bằng lái xe","bang lai xe","driver's license","Tôi vừa thi bằng lái xe.","I just took my driver's license test.","","🪪","huyền+sắc+ngang"],
+["đổ xăng","do xang","to refuel","Tôi cần đổ xăng trước khi đi xa.","I need to refuel before going far.","","⛽","hỏi+ngang"],
+["vé máy bay","ve may bay","plane ticket","Tôi đặt vé máy bay đi Đà Nẵng.","I booked a plane ticket to Da Nang.","","🎫","sắc+sắc+ngang"],
+["hành lý","hanh ly","luggage","Hành lý của tôi khá nặng.","My luggage is quite heavy.","","🧳","huyền+sắc"],
+["hộ chiếu","ho chieu","passport","Đừng quên mang hộ chiếu.","Don't forget to bring your passport.","","🛂","nặng+sắc"],
+["lên xe","len xe","to get on (a vehicle)","Chúng ta lên xe buýt ở đây.","We get on the bus here.","","🚌","ngang+ngang"],
+["xuống xe","xuong xe","to get off (a vehicle)","Tôi xuống xe ở trạm tiếp theo.","I get off at the next stop.","","🚏","sắc+ngang"],
+["đón","don","to pick up (someone)","Bố tôi đón tôi ở trường.","My dad picks me up from school.","","🚗","sắc"],
+["đưa","dua","to drop off / take someone","Mẹ đưa tôi đi học mỗi sáng.","Mom takes me to school every morning.","","🚗","ngang"],
+["chuyến đi","chuyen di","trip / journey","Chuyến đi này rất thú vị.","This trip is very interesting.","","🧭","sắc+ngang"],
+["khoảng cách","khoang cach","distance","Khoảng cách từ nhà đến trường khá xa.","The distance from home to school is quite far.","","📏","hỏi+sắc"],
+["tốc độ","toc do","speed","Đừng lái xe với tốc độ quá nhanh.","Don't drive at too high a speed.","","🏎️","sắc+nặng"],
+["an toàn","an toan","safe / safety","Lái xe an toàn là rất quan trọng.","Driving safely is very important.","","✅","ngang+huyền"],
+["tai nạn","tai nan","accident","Có một vụ tai nạn giao thông.","There was a traffic accident.","","⚠️","ngang+nặng"],
+["sửa xe","sua xe","to repair a vehicle","Tôi mang xe đi sửa.","I took my vehicle to be repaired.","","🔧","hỏi+ngang"],
+["thuê xe","thue xe","to rent a car","Chúng tôi thuê xe khi đi du lịch.","We rent a car when traveling.","","🚗","ngang+ngang"],
+["đặt vé","dat ve","to book a ticket","Tôi đặt vé tàu trực tuyến.","I booked a train ticket online.","","💻","nặng+sắc"],
+["ga tàu","ga tau","train station platform","Chúng tôi gặp nhau ở ga tàu.","We meet at the train station.","","🚉","ngang+huyền"],
+["hướng","huong","direction","Đi theo hướng này.","Go in this direction.","","🧭","sắc"],
+["bản đồ","ban do","map","Tôi xem bản đồ để tìm đường.","I look at the map to find the way.","","🗺️","hỏi+huyền"]
+]);
+
+defineLesson(14, "Jobs & Occupations", "Occupations", "💼", [
+["nghề nghiệp","nghe nghiep","occupation / profession","Nghề nghiệp của bạn là gì?","What is your occupation?","","💼","huyền+nặng"],
+["bác sĩ","bac si","doctor","Bác sĩ khám bệnh cho tôi.","The doctor examined me.","","🧑‍⚕️","sắc+ngã"],
+["y tá","y ta","nurse","Y tá chăm sóc bệnh nhân rất tận tình.","The nurse takes very good care of patients.","","👩‍⚕️","ngang+sắc"],
+["giáo viên","giao vien","teacher","Giáo viên của tôi rất tốt bụng.","My teacher is very kind.","","👩‍🏫","sắc+ngang"],
+["học sinh","hoc sinh","student (school)","Học sinh đang làm bài tập.","Students are doing homework.","","🎒","nặng+ngang"],
+["sinh viên","sinh vien","student (university)","Sinh viên đang học ở thư viện.","University students are studying at the library.","","🎓","ngang+ngang"],
+["kỹ sư","ky su","engineer","Anh ấy là kỹ sư xây dựng.","He is a construction engineer.","","👷","ngã+ngang"],
+["luật sư","luat su","lawyer","Luật sư bảo vệ quyền lợi khách hàng.","The lawyer protects the client's rights.","","⚖️","nặng+ngang"],
+["công an","cong an","police officer","Công an giúp đỡ người dân.","Police officers help the people.","","👮","ngang+ngang"],
+["lính","linh","soldier","Lính bảo vệ đất nước.","Soldiers protect the country.","","🪖","sắc"],
+["nông dân","nong dan","farmer","Nông dân trồng lúa trên cánh đồng.","Farmers grow rice in the fields.","","🧑‍🌾","ngang+ngang"],
+["công nhân","cong nhan","worker (factory)","Công nhân làm việc trong nhà máy.","Workers work in the factory.","","👷","ngang+ngang"],
+["đầu bếp","dau bep","chef / cook","Đầu bếp nấu ăn rất ngon.","The chef cooks very delicious food.","","👨‍🍳","huyền+sắc"],
+["phục vụ","phuc vu","waiter / waitress","Phục vụ mang đồ ăn ra bàn.","The waiter brought the food to the table.","","🍽️","nặng+nặng"],
+["tài xế","tai xe","driver","Tài xế lái xe rất cẩn thận.","The driver drives very carefully.","","🚕","huyền+sắc"],
+["phi công","phi cong","pilot","Phi công lái máy bay.","The pilot flies the airplane.","","✈️","ngang+ngang"],
+["tiếp viên hàng không","tiep vien hang khong","flight attendant","Tiếp viên hàng không rất thân thiện.","The flight attendant is very friendly.","","👩‍✈️","sắc+ngang+huyền+ngang"],
+["ca sĩ","ca si","singer","Ca sĩ đó hát rất hay.","That singer sings very well.","","🎤","ngang+ngã"],
+["diễn viên","dien vien","actor / actress","Diễn viên đóng vai chính trong phim.","The actor plays the lead role in the film.","","🎬","ngã+ngang"],
+["nhà văn","nha van","writer","Nhà văn này viết nhiều cuốn sách nổi tiếng.","This writer has written many famous books.","","✍️","huyền+ngang"],
+["nhà báo","nha bao","journalist","Nhà báo đưa tin về sự kiện.","The journalist reports on the event.","","📰","huyền+sắc"],
+["họa sĩ","hoa si","painter / artist","Họa sĩ vẽ một bức tranh đẹp.","The painter paints a beautiful picture.","","🎨","nặng+ngã"],
+["nhạc sĩ","nhac si","musician / composer","Nhạc sĩ sáng tác bài hát này.","The musician composed this song.","","🎼","nặng+ngã"],
+["thợ may","tho may","tailor","Thợ may may một chiếc áo mới cho tôi.","The tailor made a new shirt for me.","","🧵","nặng+ngang"],
+["thợ điện","tho dien","electrician","Thợ điện sửa hệ thống điện trong nhà.","The electrician fixed the electrical system in the house.","","💡","nặng+nặng"],
+["thợ mộc","tho moc","carpenter","Thợ mộc làm một chiếc bàn gỗ.","The carpenter made a wooden table.","","🪚","nặng+nặng"],
+["thợ sửa ống nước","tho sua ong nuoc","plumber","Thợ sửa ống nước đến sửa vòi nước.","The plumber came to fix the faucet.","","🔧","nặng+hỏi+sắc+sắc"],
+["thợ cắt tóc","tho cat toc","hairdresser / barber","Thợ cắt tóc cắt tóc rất đẹp.","The hairdresser cuts hair very nicely.","","💇","nặng+sắc+sắc"],
+["thợ làm bánh","tho lam banh","baker","Thợ làm bánh làm bánh mì mỗi sáng.","The baker makes bread every morning.","","🍞","nặng+huyền+sắc"],
+["người bán hàng","nguoi ban hang","salesperson / vendor","Người bán hàng rất nhiệt tình.","The salesperson is very enthusiastic.","","🛍️","huyền+sắc+huyền"],
+["thư ký","thu ky","secretary","Thư ký sắp xếp lịch họp.","The secretary arranges the meeting schedule.","","🗂️","ngang+sắc"],
+["kế toán","ke toan","accountant","Kế toán tính toán chi phí công ty.","The accountant calculates company expenses.","","🧮","sắc+sắc"],
+["giám đốc","giam doc","director / manager","Giám đốc họp với nhân viên.","The director has a meeting with staff.","","🧑‍💼","sắc+sắc"],
+["nhân viên","nhan vien","employee / staff","Nhân viên làm việc chăm chỉ.","The employee works hard.","","👨‍💻","ngang+ngang"],
+["chủ doanh nghiệp","chu doanh nghiep","business owner","Chủ doanh nghiệp mở một cửa hàng mới.","The business owner opened a new shop.","","🏢","hỏi+ngang+nặng"],
+["lập trình viên","lap trinh vien","programmer","Lập trình viên viết phần mềm mới.","The programmer writes new software.","","💻","nặng+huyền+ngang"],
+["kiến trúc sư","kien truc su","architect","Kiến trúc sư thiết kế tòa nhà này.","The architect designed this building.","","📐","sắc+sắc+ngang"],
+["nha sĩ","nha si","dentist","Nha sĩ khám răng cho tôi.","The dentist examined my teeth.","","🦷","ngang+ngã"],
+["dược sĩ","duoc si","pharmacist","Dược sĩ tư vấn thuốc cho tôi.","The pharmacist advised me on medicine.","","💊","nặng+ngã"],
+["hướng dẫn viên du lịch","huong dan vien du lich","tour guide","Hướng dẫn viên du lịch giới thiệu về thành phố.","The tour guide introduces the city.","","🗺️","sắc+ngã+ngang+ngang+nặng"],
+["vận động viên","van dong vien","athlete","Vận động viên đó chạy rất nhanh.","That athlete runs very fast.","","🏃","nặng+nặng+ngang"],
+["nội trợ","noi tro","homemaker / housewife","Mẹ tôi là nội trợ.","My mom is a homemaker.","","🏠","nặng+nặng"],
+["thất nghiệp","that nghiep","unemployed","Anh ấy đang thất nghiệp.","He is currently unemployed.","","📉","sắc+nặng"],
+["về hưu","ve huu","retired","Ông tôi đã về hưu.","My grandfather has retired.","","🌇","huyền+ngang"],
+["lương","luong","salary","Lương của tôi tăng năm nay.","My salary increased this year.","","💰","ngang"]
+]);
+
+defineLesson(15, "Emotions & Feelings", "Emotions", "😊", [
+["vui","vui","happy","Tôi cảm thấy rất vui hôm nay.","I feel very happy today.","","😄","ngang"],
+["buồn","buon","sad","Cô ấy buồn vì thi trượt.","She's sad because she failed the exam.","","😢","huyền"],
+["tức giận","tuc gian","angry","Anh ấy tức giận vì bị trễ xe.","He's angry because he missed the bus.","","😠","sắc+nặng"],
+["sợ hãi","so hai","scared / afraid","Đứa bé sợ hãi khi nghe tiếng sấm.","The child is scared when hearing thunder.","","😨","nặng+ngã"],
+["ngạc nhiên","ngac nhien","surprised","Tôi rất ngạc nhiên khi gặp lại bạn cũ.","I was very surprised to meet an old friend again.","","😲","nặng+ngang"],
+["lo lắng","lo lang","worried / anxious","Mẹ lo lắng vì tôi về muộn.","Mom is worried because I'm home late.","","😟","ngang+sắc"],
+["mệt mỏi","met moi","tired","Tôi mệt mỏi sau một ngày dài.","I'm tired after a long day.","","😩","nặng+hỏi"],
+["hạnh phúc","hanh phuc","happy / joyful","Gia đình tôi rất hạnh phúc.","My family is very happy.","","🥰","nặng+sắc"],
+["thất vọng","that vong","disappointed","Tôi thất vọng vì đội thua.","I'm disappointed the team lost.","","😞","sắc+nặng"],
+["xấu hổ","xau ho","embarrassed / ashamed","Tôi xấu hổ vì nói sai.","I'm embarrassed because I said it wrong.","","😳","sắc+hỏi"],
+["tự hào","tu hao","proud","Bố mẹ rất tự hào về tôi.","My parents are very proud of me.","","😌","nặng+huyền"],
+["yêu","yeu","to love","Tôi yêu gia đình mình.","I love my family.","","❤️","ngang"],
+["ghét","ghet","to hate / dislike","Tôi ghét khi trời mưa.","I hate it when it rains.","","😖","sắc"],
+["thích","thich","to like","Tôi thích ăn phở.","I like eating phở.","","😊","sắc"],
+["nhớ","nho","to miss (someone/something)","Tôi nhớ nhà rất nhiều.","I miss home a lot.","","🥺","sắc"],
+["cô đơn","co don","lonely","Anh ấy cảm thấy cô đơn khi ở xa nhà.","He feels lonely when far from home.","","😔","ngang+ngang"],
+["phấn khích","phan khich","excited","Tôi rất phấn khích về chuyến đi này.","I'm very excited about this trip.","","🤩","sắc+sắc"],
+["bình tĩnh","binh tinh","calm","Hãy giữ bình tĩnh.","Please stay calm.","","😌","huyền+ngã"],
+["căng thẳng","cang thang","stressed","Tôi căng thẳng trước kỳ thi.","I'm stressed before the exam.","","😫","ngang+hỏi"],
+["thoải mái","thoai mai","comfortable / relaxed","Tôi cảm thấy thoải mái ở nhà.","I feel comfortable at home.","","😊","hỏi+sắc"],
+["hồi hộp","hoi hop","nervous (anticipation)","Tôi hồi hộp trước buổi phỏng vấn.","I'm nervous before the interview.","","😬","huyền+nặng"],
+["ghen tị","ghen ti","jealous","Đừng ghen tị với bạn bè.","Don't be jealous of your friends.","","😒","ngang+nặng"],
+["hối hận","hoi han","to regret","Tôi hối hận vì đã nói dối.","I regret lying.","","😔","sắc+nặng"],
+["hy vọng","hy vong","to hope","Tôi hy vọng mọi việc sẽ tốt đẹp.","I hope everything will be fine.","","🤞","ngang+nặng"],
+["tin tưởng","tin tuong","to trust","Tôi tin tưởng bạn.","I trust you.","","🤝","ngang+hỏi"],
+["an toàn","an toan","safe / secure (feeling)","Tôi cảm thấy an toàn khi ở nhà.","I feel safe at home.","","🛡️","ngang+huyền"],
+["hoảng sợ","hoang so","panicked / terrified","Cô ấy hoảng sợ khi thấy con rắn.","She was terrified when she saw the snake.","","😱","hỏi+nặng"],
+["dễ chịu","de chiu","pleasant / at ease","Thời tiết hôm nay rất dễ chịu.","The weather today is very pleasant.","","😊","ngã+nặng"],
+["khó chịu","kho chiu","uncomfortable / annoyed","Tôi cảm thấy khó chịu trong người.","I feel unwell and uncomfortable.","","😣","sắc+nặng"],
+["chán","chan","bored","Tôi chán vì ở nhà cả ngày.","I'm bored from staying home all day.","","😑","sắc"],
+["hào hứng","hao hung","enthusiastic / excited","Cả lớp rất hào hứng với chuyến dã ngoại.","The whole class is excited about the field trip.","","🤗","huyền+sắc"],
+["buồn ngủ","buon ngu","sleepy","Tôi buồn ngủ vì thức khuya.","I'm sleepy because I stayed up late.","","😴","huyền+hỏi"],
+["tự tin","tu tin","confident","Cô ấy rất tự tin khi thuyết trình.","She is very confident when presenting.","","💪","nặng+ngang"],
+["nhút nhát","nhut nhat","shy / timid","Cậu bé đó rất nhút nhát.","That boy is very shy.","","🙈","sắc+sắc"],
+["an ủi","an ui","to comfort / console","Bạn tôi an ủi tôi khi tôi buồn.","My friend comforted me when I was sad.","","🤗","ngang+hỏi"],
+["khóc","khoc","to cry","Đứa bé khóc vì đói.","The baby cries because it's hungry.","","😭","sắc"],
+["cười","cuoi","to laugh","Cả lớp cười vì câu chuyện hài.","The whole class laughed at the funny story.","","😂","huyền"],
+["mỉm cười","mim cuoi","to smile","Cô ấy mỉm cười chào tôi.","She smiled and greeted me.","","🙂","hỏi+huyền"],
+["thư giãn","thu gian","relaxed / to relax","Tôi thư giãn bằng cách nghe nhạc.","I relax by listening to music.","","🧘","ngang+ngã"],
+["bực bội","buc boi","irritated / annoyed","Tôi bực bội vì kẹt xe.","I'm annoyed because of the traffic jam.","","😤","nặng+nặng"],
+["hài lòng","hai long","satisfied","Tôi hài lòng với kết quả này.","I'm satisfied with this result.","","😊","huyền+huyền"],
+["cảm động","cam dong","moved / touched","Tôi rất cảm động trước câu chuyện đó.","I was very moved by that story.","","🥹","hỏi+nặng"],
+["biết ơn","biet on","grateful","Tôi biết ơn sự giúp đỡ của bạn.","I'm grateful for your help.","","🙏","sắc+ngang"],
+["an tâm","an tam","reassured / at ease","Nghe tin đó tôi mới an tâm.","Hearing that news, I finally felt reassured.","","😌","ngang+ngang"],
+["cảm xúc","cam xuc","emotion / feeling","Cảm xúc của tôi rất lẫn lộn.","My feelings are very mixed.","","💭","hỏi+sắc"]
+]);
+
+/* Lessons 16-100 will be added progressively in the next steps */
 
 /* ================= STATE ================= */
 const state = {
@@ -850,12 +1252,62 @@ function tabVocab(){
   const words = lessonWords[state.currentLesson]||[];
   if(!words.length) return '<div class="card empty">No vocabulary for this lesson yet.</div>';
   return `<div class="card">
-    <div class="row" style="justify-content:space-between;margin-bottom:10px">
+    <div class="row" style="justify-content:space-between;margin-bottom:10px;flex-wrap:wrap">
       <h3 style="margin:0">All ${words.length} words</h3>
-      <button class="btn sm ghost" onclick="words_playAll()">🔊 Play all</button>
+      <div class="row" style="gap:8px">
+        <button class="btn sm ghost" onclick="words_playAll()">🔊 Play all</button>
+        <button class="btn sm ghost" onclick="toggleAllVocabCards()">↕️ Expand/collapse all</button>
+      </div>
     </div>
-    ${words.map(w=>vocabRow(w)).join("")}
+    <input type="text" class="vocabToolbar" id="vocabFilter" placeholder="🔍 Filter words in this lesson..." oninput="filterVocabCards(this.value)">
+    <div class="vocabGrid" id="vocabGrid">
+      ${words.map(w=>vocabCard(w)).join("")}
+    </div>
+    <div class="empty" id="vocabNoMatch" style="display:none">No words match your search.</div>
   </div>`;
+}
+
+function vocabCard(w){
+  const search = (w.vi+" "+w.en).toLowerCase().replace(/"/g,"&quot;");
+  return `<div class="vocabCard" data-search="${search}" onclick="this.classList.toggle('expanded')">
+    <div class="vcTop">
+      <div class="vcEmo">${w.emoji}</div>
+      <div class="vcMain">
+        <div class="vcVi">${w.vi}</div>
+        <div class="vcEn">${w.en}</div>
+      </div>
+      <button class="playBtn" style="width:26px;height:26px;font-size:11px" onclick="event.stopPropagation();speak('${w.vi.replace(/'/g,"\\'")}')">🔊</button>
+    </div>
+    <div class="vcChevron">▾</div>
+    <div class="vcDetail">
+      ${w.tone?`<div class="vcToneTag">🎵 tone: ${toneLabel(w.tone)}</div>`:""}
+      <div class="ex">${w.ex}</div>
+      <div class="exen">${w.exEn}</div>
+      ${w.note?`<div class="exen" style="margin-top:4px;font-style:italic">💡 ${w.note}</div>`:""}
+    </div>
+  </div>`;
+}
+
+function filterVocabCards(q){
+  q = q.trim().toLowerCase();
+  const grid = document.getElementById("vocabGrid");
+  if(!grid) return;
+  let anyVisible = false;
+  grid.querySelectorAll(".vocabCard").forEach(card=>{
+    const match = !q || card.dataset.search.includes(q);
+    card.style.display = match ? "" : "none";
+    if(match) anyVisible = true;
+  });
+  const noMatch = document.getElementById("vocabNoMatch");
+  if(noMatch) noMatch.style.display = anyVisible ? "none" : "block";
+}
+
+function toggleAllVocabCards(){
+  const grid = document.getElementById("vocabGrid");
+  if(!grid) return;
+  const cards = [...grid.querySelectorAll(".vocabCard")];
+  const anyCollapsed = cards.some(c=>!c.classList.contains("expanded"));
+  cards.forEach(c=>c.classList.toggle("expanded", anyCollapsed));
 }
 function words_playAll(){
   const words = lessonWords[state.currentLesson]||[];
