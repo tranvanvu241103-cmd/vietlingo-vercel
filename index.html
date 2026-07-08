@@ -1975,8 +1975,9 @@ function renderSentenceArea(){
     </div>
     <button class="btn sm" onclick="newSentence()">Next sentence →</button>
     ` : `
+    ${bank.length ? `<p style="color:var(--warn);font-size:12.5px;margin:0 0 8px">👆 Place all the tiles first — ${bank.length} left.</p>` : ""}
     <div class="row">
-      <button class="btn" onclick="sentenceCheck()" ${bank.length? "disabled":""}>Check</button>
+      <button class="btn" onclick="sentenceCheck()" ${bank.length? 'disabled style="background:var(--panel2);color:var(--sub);border:1px solid var(--line)"' : ""}>Check</button>
       <button class="btn ghost sm" onclick="sentenceReset()">↺ Reset</button>
       <button class="btn ghost sm" onclick="speak('${word.vi.replace(/'/g,"\\'")}')">🔊 Hear the word</button>
     </div>
