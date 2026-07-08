@@ -1950,12 +1950,16 @@ let sentenceState = null;
 function tabSentence(){
   return `<div class="card">
     <h3>Sentence Builder</h3>
-    <p style="color:var(--sub);font-size:13px">Tap the tiles in order to rebuild the Vietnamese sentence, then check your answer.</p>
+    <p style="color:var(--sub);font-size:13px">Listen to the short example sentence first, then tap the tiles in order to rebuild it — this reinforces the lesson's vocabulary by ear before you check yourself.</p>
     <div id="sentenceArea"></div>
     <div class="row" style="margin-top:12px">
       <button class="btn sm ghost" onclick="newSentence()">🔄 New sentence</button>
     </div>
   </div>`;
+}
+function speakSentence(rate){
+  if(!sentenceState) return;
+  speak(sentenceState.tokens.join(" "), rate);
 }
 function renderSentenceArea(){
   const area = document.getElementById("sentenceArea");
@@ -1967,6 +1971,10 @@ function renderSentenceArea(){
     : '<span style="color:var(--sub);font-size:13px">Tap tiles below to build the sentence...</span>';
   const bankRow = bank.map(idx=>`<button class="matchCell" style="display:inline-block;width:auto;padding:8px 12px;margin:4px" onclick="sentencePick(${idx})">${tokens[idx]}</button>`).join("");
   area.innerHTML = `
+    <div class="row" style="justify-content:center;gap:10px;padding:16px 10px;background:var(--panel2);border-radius:14px;margin-bottom:10px">
+      <button class="btn" onclick="speakSentence(0.9)">🔊 Nghe câu</button>
+      <button class="btn ghost" onclick="speakSentence(0.65)">🐢 Nghe chậm</button>
+    </div>
     <div class="pill" style="display:inline-block;margin-bottom:10px">💡 Means: "${word.en}"</div>
     <div style="min-height:56px;padding:10px;border:1px dashed var(--line);border-radius:10px;margin-bottom:10px">${answerRow}</div>
     <div style="margin-bottom:12px">${bankRow}</div>
@@ -1980,7 +1988,6 @@ function renderSentenceArea(){
     <div class="row">
       <button class="btn" onclick="sentenceCheck()" ${bank.length? 'disabled style="background:var(--panel2);color:var(--sub);border:1px solid var(--line)"' : ""}>Check</button>
       <button class="btn ghost sm" onclick="sentenceReset()">↺ Reset</button>
-      <button class="btn ghost sm" onclick="speak('${word.vi.replace(/'/g,"\\'")}')">🔊 Hear the word</button>
     </div>
     `}
   `;
@@ -2006,6 +2013,7 @@ function newSentence(){
   }
   sentenceState = {lessonId: state.currentLesson, word:w, tokens, bank:shuffled, answer:[], checked:false, correct:false};
   renderSentenceArea();
+  speakSentence(0.9);
 }
 function sentencePick(tokenIdx){
   if(!sentenceState || sentenceState.checked) return;
