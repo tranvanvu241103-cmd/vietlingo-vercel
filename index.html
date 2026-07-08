@@ -152,6 +152,7 @@ button{font-family:inherit}
 
 /* Badges */
 .badgeGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px}
+.heatCell{width:11px;height:11px;border-radius:2px}
 .badge{text-align:center;padding:12px 6px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);opacity:.35}
 .badge.earned{opacity:1;border-color:var(--gold)}
 .badge .ic{font-size:26px}
@@ -201,7 +202,10 @@ input[type=text]{padding:10px 12px;border-radius:10px;border:1px solid var(--lin
       <div class="statCard"><b id="statXp">0</b><span>XP</span></div>
       <div class="statCard"><b id="statStreak">0</b><span id="streakLabel">Streak</span></div>
       <div class="statCard"><b id="statDone">0/100</b><span>Lessons</span></div>
+      <div class="statCard" id="statReviewCard" style="cursor:pointer" onclick="jumpToReview()"><b id="statReview">0</b><span>Due</span></div>
     </div>
+    <div class="barOuter" id="dailyGoalBar" style="margin-bottom:6px;cursor:default" title="Daily XP goal"><div class="barInner" id="dailyGoalBarInner" style="width:0%"></div></div>
+    <div class="row" id="dailyGoalLabel" style="justify-content:space-between;margin-bottom:14px;font-size:10.5px;color:var(--sub)"><span id="dailyGoalText">0 / 20 XP today</span><span id="freezeLabel"></span></div>
     <input class="searchBox" id="search" placeholder="🔍 Search words, lessons...">
     <div class="levelTabs" id="levelTabs"></div>
     <div class="lessonList" id="lessonList"></div>
@@ -972,7 +976,171 @@ defineLesson(15, "Emotions & Feelings", "Emotions", "😊", [
 ["cảm xúc","cam xuc","emotion / feeling","Cảm xúc của tôi rất lẫn lộn.","My feelings are very mixed.","","💭","hỏi+sắc"]
 ]);
 
-/* Lessons 16-100 will be added progressively in the next steps */
+defineLesson(16, "Hobbies & Free Time", "Hobbies", "🎨", [
+["sở thích","so thich","hobby","Sở thích của tôi là chụp ảnh.","My hobby is taking photos.","","🎨","hỏi+sắc"],
+["xem phim","xem phim","to watch movies","Tôi thích xem phim vào cuối tuần.","I like watching movies on weekends.","","🎬","ngang+ngang"],
+["chơi thể thao","choi the thao","to play sports","Anh trai tôi chơi thể thao mỗi ngày.","My older brother plays sports every day.","","⚽","ngang+hỏi+ngang"],
+["đá bóng","da bong","to play soccer","Bọn trẻ đá bóng ở sân trường.","The kids play soccer at the school yard.","","⚽","sắc+sắc"],
+["bơi lội","boi loi","to swim","Tôi học bơi lội vào mùa hè.","I learn swimming in the summer.","","🏊","ngang+nặng"],
+["chơi cầu lông","choi cau long","to play badminton","Chúng tôi chơi cầu lông mỗi tối.","We play badminton every evening.","","🏸","ngang+huyền+ngang"],
+["leo núi","leo nui","to hike / climb mountains","Cuối tuần chúng tôi đi leo núi.","We go hiking on weekends.","","⛰️","ngang+sắc"],
+["câu cá","cau ca","to fish","Ông tôi thích câu cá vào buổi sáng.","My grandfather likes fishing in the morning.","","🎣","ngang+sắc"],
+["làm bánh","lam banh","to bake","Mẹ tôi làm bánh vào cuối tuần.","My mother bakes on weekends.","","🧁","huyền+sắc"],
+["chụp ảnh","chup anh","to take photos","Tôi thích chụp ảnh phong cảnh.","I like taking photos of scenery.","","📷","nặng+hỏi"],
+["vẽ tranh","ve tranh","to paint / draw","Cô ấy vẽ tranh rất đẹp.","She paints very beautifully.","","🎨","ngã+ngang"],
+["chơi nhạc cụ","choi nhac cu","to play an instrument","Tôi biết chơi nhạc cụ từ nhỏ.","I've known how to play an instrument since I was young.","","🎸","ngang+nặng+nặng"],
+["đàn ghi ta","dan ghi ta","guitar","Anh ấy chơi đàn ghi ta rất giỏi.","He plays the guitar very well.","","🎸","huyền+ngang+ngang"],
+["hát","hat","to sing","Tôi thích hát khi ở nhà.","I like singing when I'm at home.","","🎤","sắc"],
+["nhảy múa","nhay mua","to dance","Cô bé thích nhảy múa theo nhạc.","The little girl likes dancing to music.","","💃","hỏi+sắc"],
+["đan len","dan len","to knit","Bà tôi đan len vào buổi tối.","My grandmother knits in the evening.","","🧶","ngang+ngang"],
+["làm vườn","lam vuon","gardening","Bố tôi thích làm vườn cuối tuần.","My dad likes gardening on weekends.","","🌱","huyền+huyền"],
+["sưu tầm","suu tam","to collect (a hobby)","Tôi sưu tầm tem từ nhỏ.","I've collected stamps since I was young.","","🗂️","ngang+huyền"],
+["chơi game","choi game","to play video games","Em trai tôi hay chơi game vào cuối tuần.","My younger brother often plays video games on weekends.","","🎮","ngang+ngang"],
+["cắm trại","cam trai","to camp","Gia đình tôi đi cắm trại vào mùa hè.","My family goes camping in summer.","","⛺","sắc+nặng"],
+["du lịch","du lich","to travel","Tôi thích du lịch đến những nơi mới.","I like traveling to new places.","","🧳","ngang+nặng"],
+["đọc truyện","doc truyen","to read stories / comics","Tôi đọc truyện tranh mỗi tối.","I read comics every night.","","📖","nặng+huyền"],
+["viết nhật ký","viet nhat ky","to write a diary / journal","Tôi viết nhật ký mỗi ngày.","I write in my diary every day.","","📔","sắc+nặng+sắc"],
+["xem hòa nhạc","xem hoa nhac","to watch a concert","Chúng tôi đi xem hòa nhạc tối qua.","We went to watch a concert last night.","","🎵","ngang+huyền+nặng"],
+["giải trí","giai tri","entertainment","Đọc sách là một hình thức giải trí.","Reading is a form of entertainment.","","🎉","hỏi+sắc"],
+["thú vị","thu vi","interesting / fun","Bộ phim này rất thú vị.","This movie is very interesting.","","😄","sắc+nặng"],
+["nhàm chán","nham chan","boring / dull","Công việc này khá nhàm chán.","This job is quite boring.","","😑","huyền+sắc"],
+["nghỉ dưỡng","nghi duong","to relax / recuperate (leisure)","Tôi muốn đi nghỉ dưỡng ở biển.","I want to go relax at the beach.","","🏖️","hỏi+ngã"],
+["câu lạc bộ","cau lac bo","club","Tôi tham gia câu lạc bộ nhiếp ảnh.","I joined a photography club.","","🏛️","ngang+nặng+nặng"],
+["đam mê","dam me","passion","Âm nhạc là niềm đam mê của tôi.","Music is my passion.","","🔥","ngang+ngang"]
+]);
+
+defineLesson(17, "Technology & Communication", "Technology", "📱", [
+["điện thoại","dien thoai","phone","Điện thoại của tôi hết pin rồi.","My phone's battery has died.","","📱","nặng+nặng"],
+["điện thoại di động","dien thoai di dong","mobile phone","Tôi mới mua một chiếc điện thoại di động mới.","I just bought a new mobile phone.","","📱","nặng+nặng+ngang+nặng"],
+["máy tính","may tinh","computer","Tôi làm việc trên máy tính cả ngày.","I work on the computer all day.","","💻","sắc+sắc"],
+["máy tính bảng","may tinh bang","tablet","Con tôi thích xem hoạt hình trên máy tính bảng.","My child likes watching cartoons on a tablet.","","📱","sắc+sắc+hỏi"],
+["mạng","mang","internet / network","Mạng ở đây rất chậm.","The internet here is very slow.","","🌐","nặng"],
+["wifi","wifi","wifi","Quán cà phê này có wifi miễn phí.","This cafe has free wifi.","","📶","ngang+ngang"],
+["thư điện tử","thu dien tu","email","Tôi vừa gửi một thư điện tử cho sếp.","I just sent an email to my boss.","","📧","ngang+nặng+hỏi"],
+["tin nhắn","tin nhan","message / text","Tôi vừa nhận được một tin nhắn.","I just received a message.","","💬","ngang+sắc"],
+["cuộc gọi","cuoc goi","phone call","Tôi có một cuộc gọi nhỡ.","I have a missed call.","","📞","nặng+nặng"],
+["gọi điện","goi dien","to make a phone call","Tôi sẽ gọi điện cho bạn sau.","I'll call you later.","","📞","nặng+nặng"],
+["nhắn tin","nhan tin","to text / message","Nhắn tin cho tôi khi bạn đến nơi.","Text me when you arrive.","","💬","sắc+ngang"],
+["mạng xã hội","mang xa hoi","social media","Giới trẻ dùng mạng xã hội rất nhiều.","Young people use social media a lot.","","📱","nặng+ngã+nặng"],
+["ứng dụng","ung dung","application / app","Tôi vừa tải một ứng dụng mới.","I just downloaded a new app.","","📲","sắc+nặng"],
+["tải xuống","tai xuong","to download","Bạn có thể tải xuống tệp này.","You can download this file.","","⬇️","hỏi+sắc"],
+["tải lên","tai len","to upload","Tôi đang tải lên video mới.","I'm uploading a new video.","","⬆️","hỏi+ngang"],
+["mật khẩu","mat khau","password","Tôi quên mật khẩu email rồi.","I forgot my email password.","","🔒","nặng+hỏi"],
+["tài khoản","tai khoan","account","Tôi mới tạo tài khoản mạng xã hội.","I just created a social media account.","","👤","huyền+hỏi"],
+["đăng nhập","dang nhap","to log in","Tôi không đăng nhập được vào tài khoản.","I can't log in to my account.","","🔑","ngang+nặng"],
+["đăng xuất","dang xuat","to log out","Nhớ đăng xuất sau khi dùng máy chung.","Remember to log out after using a shared computer.","","🔓","ngang+sắc"],
+["màn hình","man hinh","screen","Màn hình điện thoại tôi bị vỡ.","My phone screen is cracked.","","🖥️","huyền+huyền"],
+["bàn phím","ban phim","keyboard","Bàn phím này gõ rất êm.","This keyboard types very smoothly.","","⌨️","huyền+sắc"],
+["chuột máy tính","chuot may tinh","(computer) mouse","Chuột máy tính của tôi bị hỏng.","My computer mouse is broken.","","🖱️","nặng+sắc+sắc"],
+["sạc pin","sac pin","to charge (a battery)","Tôi cần sạc pin điện thoại.","I need to charge my phone battery.","","🔌","nặng+ngang"],
+["hết pin","het pin","battery dead / out of battery","Điện thoại của tôi hết pin rồi.","My phone is out of battery.","","🪫","sắc+ngang"],
+["kết nối","ket noi","to connect","Điện thoại không kết nối được wifi.","The phone can't connect to wifi.","","🔗","sắc+sắc"],
+["gọi video","goi video","video call","Chúng tôi gọi video mỗi cuối tuần.","We video call every weekend.","","📹","nặng+ngang+ngang"],
+["chụp màn hình","chup man hinh","to take a screenshot","Tôi chụp màn hình cuộc trò chuyện.","I took a screenshot of the conversation.","","📸","nặng+huyền+huyền"],
+["lướt web","luot web","to browse the web","Tôi hay lướt web trước khi ngủ.","I often browse the web before sleeping.","","🌐","sắc+ngang"],
+["công nghệ","cong nghe","technology","Công nghệ thay đổi cuộc sống rất nhiều.","Technology changes life a lot.","","🔬","ngang+nặng"]
+]);
+
+defineLesson(18, "Money & Shopping", "Money", "💰", [
+["tiền","tien","money","Tôi không mang đủ tiền.","I don't have enough money with me.","","💵","huyền"],
+["giá","gia","price","Giá của cái này bao nhiêu?","What is the price of this?","","🏷️","sắc"],
+["đắt","dat","expensive","Cái áo này đắt quá.","This shirt is too expensive.","Southern variant: 'mắc'.","💰","sắc"],
+["rẻ","re","cheap","Rau ở chợ này rất rẻ.","The vegetables at this market are very cheap.","","💲","hỏi"],
+["mặc cả","mac ca","to bargain / haggle","Người Việt thường mặc cả khi đi chợ.","Vietnamese people often haggle at the market.","","🤝","nặng+hỏi"],
+["giảm giá","giam gia","discount / to reduce price","Cửa hàng đang giảm giá 20%.","The store is having a 20% discount.","","🏷️","hỏi+sắc"],
+["trả tiền","tra tien","to pay","Ai sẽ trả tiền hôm nay?","Who's paying today?","","💳","hỏi+huyền"],
+["tiền mặt","tien mat","cash","Tôi chỉ có tiền mặt thôi.","I only have cash.","","💵","huyền+sắc"],
+["thẻ tín dụng","the tin dung","credit card","Tôi trả bằng thẻ tín dụng.","I'll pay by credit card.","","💳","hỏi+sắc+nặng"],
+["thẻ ghi nợ","the ghi no","debit card","Tôi rút tiền bằng thẻ ghi nợ.","I withdraw money with a debit card.","","💳","hỏi+ngang+nặng"],
+["hóa đơn","hoa don","receipt / bill","Bạn giữ hóa đơn để đổi trả nhé.","Keep the receipt in case you need to return it.","","🧾","sắc+ngang"],
+["đổi trả","doi tra","to exchange / return","Cửa hàng này có cho đổi trả không?","Does this store allow exchanges/returns?","","🔄","sắc+hỏi"],
+["đổi tiền","doi tien","to exchange currency","Tôi cần đổi tiền ở ngân hàng.","I need to exchange money at the bank.","","💱","sắc+huyền"],
+["thanh toán","thanh toan","to pay / check out","Bạn có thể thanh toán online.","You can pay online.","","💳","ngang+sắc"],
+["miễn phí","mien phi","free (no cost)","Giao hàng miễn phí cho đơn trên 500 nghìn.","Free shipping for orders over 500 thousand.","","🆓","ngã+sắc"],
+["đắt tiền","dat tien","costly / expensive","Chiếc xe đó rất đắt tiền.","That car is very expensive.","","💎","sắc+huyền"],
+["hàng hóa","hang hoa","goods / merchandise","Cửa hàng nhập hàng hóa mới mỗi tuần.","The store imports new goods every week.","","📦","huyền+sắc"],
+["khuyến mãi","khuyen mai","promotion / sale","Siêu thị đang có chương trình khuyến mãi.","The supermarket is running a promotion.","","🎉","sắc+ngã"],
+["cửa hàng","cua hang","store / shop","Cửa hàng này bán đủ loại đồ dùng.","This store sells all kinds of goods.","","🏪","hỏi+huyền"],
+["tiền lẻ","tien le","change / small money","Tôi cần tiền lẻ để đi xe buýt.","I need small change to take the bus.","","🪙","huyền+hỏi"],
+["hóa đơn điện tử","hoa don dien tu","e-receipt","Shop gửi hóa đơn điện tử qua email.","The shop sends an e-receipt via email.","","📧","sắc+ngang+nặng+hỏi"],
+["mua","mua","to buy","Tôi muốn mua một chiếc áo mới.","I want to buy a new shirt.","","🛒","ngang"],
+["bán","ban","to sell","Cửa hàng này bán đồ điện tử.","This store sells electronics.","","🏷️","sắc"],
+["thu ngân","thu ngan","cashier / checkout","Tôi trả tiền cho thu ngân ở quầy.","I paid the cashier at the counter.","","🧾","ngang+ngang"],
+["khách hàng","khach hang","customer","Cửa hàng luôn coi trọng khách hàng.","The store always values its customers.","","🙋","sắc+huyền"],
+["đặt hàng","dat hang","to order / place an order","Tôi đã đặt hàng online.","I already placed an order online.","","🛍️","nặng+huyền"],
+["giao hàng","giao hang","delivery","Cửa hàng này giao hàng miễn phí.","This store delivers for free.","","🚚","ngang+huyền"],
+["trả góp","tra gop","installment payment","Tôi mua xe máy trả góp.","I bought a motorbike on installment.","","💳","hỏi+sắc"],
+["ngân sách","ngan sach","budget","Tôi cần lập ngân sách chi tiêu.","I need to set a spending budget.","","📊","ngang+sắc"],
+["tiết kiệm","tiet kiem","to save money","Tôi cố gắng tiết kiệm mỗi tháng.","I try to save money every month.","","🐖","sắc+nặng"]
+]);
+
+defineLesson(19, "Directions & Getting Around", "Directions", "🧭", [
+["rẽ trái","re trai","to turn left","Bạn rẽ trái ở ngã ba tiếp theo.","Turn left at the next junction.","Southern variant: 'quẹo trái.'","⬅️","ngã+sắc"],
+["rẽ phải","re phai","to turn right","Rẽ phải rồi đi thẳng 100 mét.","Turn right then go straight for 100 meters.","","➡️","ngã+hỏi"],
+["đi thẳng","di thang","to go straight","Bạn cứ đi thẳng là tới.","Just go straight and you'll arrive.","","⬆️","ngang+hỏi"],
+["quay lại","quay lai","to turn around / go back","Chúng ta đi nhầm đường rồi, quay lại thôi.","We took the wrong way, let's turn back.","","🔄","ngang+nặng"],
+["dừng lại","dung lai","to stop","Xe dừng lại trước đèn đỏ.","The car stops before the red light.","","🛑","huyền+nặng"],
+["phía trước","phia truoc","in front / ahead","Bưu điện ở ngay phía trước.","The post office is right ahead.","","⬆️","sắc+sắc"],
+["phía sau","phia sau","behind","Bãi đỗ xe nằm ở phía sau.","The parking lot is behind.","","⬇️","sắc+ngang"],
+["bên trái","ben trai","on the left","Nhà tôi ở bên trái con đường này.","My house is on the left of this road.","","⬅️","ngang+sắc"],
+["bên phải","ben phai","on the right","Trường học ở bên phải siêu thị.","The school is on the right of the supermarket.","","➡️","ngang+hỏi"],
+["đối diện","doi dien","opposite / across from","Quán cà phê đối diện nhà tôi.","The cafe is across from my house.","","↔️","sắc+nặng"],
+["bên cạnh","ben canh","next to","Hiệu sách ở bên cạnh ngân hàng.","The bookstore is next to the bank.","","↔️","ngang+nặng"],
+["góc phố","goc pho","street corner","Có một quán nhỏ ở góc phố.","There's a small shop at the street corner.","","📍","sắc+sắc"],
+["số nhà","so nha","house number","Số nhà của tôi là 25.","My house number is 25.","","🏠","sắc+huyền"],
+["tầng","tang","floor / storey","Phòng tôi ở tầng ba.","My room is on the third floor.","","🏢","huyền"],
+["lối vào","loi vao","entrance","Lối vào tòa nhà ở phía bên phải.","The building entrance is on the right side.","","🚪","sắc+huyền"],
+["lối ra","loi ra","exit","Lối ra ở cuối hành lang.","The exit is at the end of the hallway.","","🚪","sắc+ngang"],
+["đường một chiều","duong mot chieu","one-way street","Đây là đường một chiều, không được quay đầu.","This is a one-way street, no U-turns allowed.","","🚧","huyền+nặng+huyền"],
+["vạch qua đường","vach qua duong","crosswalk","Hãy đi bộ qua đường ở vạch qua đường.","Please cross the street at the crosswalk.","","🚶","nặng+ngang+huyền"],
+["la bàn","la ban","compass","Anh ấy dùng la bàn để tìm hướng.","He uses a compass to find direction.","","🧭","ngang+huyền"],
+["lạc đường","lac duong","to get lost","Tôi bị lạc đường ở khu phố cổ.","I got lost in the old quarter.","","🗺️","nặng+huyền"],
+["chỉ đường","chi duong","to give directions","Bạn có thể chỉ đường cho tôi không?","Can you give me directions?","","🗺️","hỏi+huyền"],
+["hỏi đường","hoi duong","to ask for directions","Tôi phải hỏi đường vì bị lạc.","I had to ask for directions because I was lost.","","❓","hỏi+huyền"],
+["cây số","cay so","kilometer","Nhà tôi cách đây khoảng năm cây số.","My house is about five kilometers from here.","","📏","ngang+sắc"],
+["định vị","dinh vi","GPS / navigation","Tôi dùng định vị trên điện thoại để tìm đường.","I use GPS on my phone to find the way.","","📍","nặng+nặng"],
+["tìm đường","tim duong","to find the way","Ứng dụng này giúp tôi tìm đường dễ dàng.","This app helps me find the way easily.","","🗺️","huyền+huyền"],
+["băng qua","bang qua","to cross / go across","Hãy cẩn thận khi băng qua đường.","Be careful when crossing the street.","","🚸","ngang+ngang"],
+["vòng qua","vong qua","to go around","Xe phải vòng qua công trường đang sửa.","Cars have to go around the construction site.","","↩️","huyền+ngang"],
+["đường tắt","duong tat","shortcut","Đi đường tắt này sẽ nhanh hơn.","Taking this shortcut will be faster.","","🛤️","huyền+sắc"],
+["biển chỉ dẫn","bien chi dan","signpost","Hãy nhìn biển chỉ dẫn để tìm lối ra.","Look at the signpost to find the exit.","","🪧","hỏi+hỏi+ngã"],
+["địa chỉ","dia chi","address","Bạn cho tôi xin địa chỉ nhà bạn.","Please give me your home address.","","📮","nặng+hỏi"]
+]);
+
+defineLesson(20, "Health Symptoms & Doctor Visit", "Health", "🏥", [
+["ốm / bệnh","om benh","sick / ill","Tôi bị ốm nên nghỉ học hôm nay.","I'm sick so I'm skipping school today.","'Ốm' also means 'thin' in the South.","🤒","sắc/nặng"],
+["triệu chứng","trieu chung","symptom","Triệu chứng của tôi là ho và sốt.","My symptoms are coughing and fever.","","📋","nặng+sắc"],
+["sốt","sot","fever","Con tôi bị sốt cao.","My child has a high fever.","","🌡️","sắc"],
+["ho","ho","to cough","Tôi ho suốt cả đêm.","I coughed all night.","","😷","ngang"],
+["hắt hơi","hat hoi","to sneeze","Tôi hắt hơi liên tục vì dị ứng phấn hoa.","I keep sneezing because of pollen allergy.","","🤧","sắc+ngang"],
+["sổ mũi","so mui","runny nose","Tôi bị sổ mũi mấy ngày nay.","I've had a runny nose for a few days.","","🤧","hỏi+ngã"],
+["đau đầu","dau dau","headache","Tôi bị đau đầu từ sáng đến giờ.","I've had a headache since this morning.","","🤕","ngang+huyền"],
+["đau bụng","dau bung","stomachache","Con tôi kêu đau bụng sau khi ăn.","My child complained of a stomachache after eating.","","🤢","ngang+nặng"],
+["chóng mặt","chong mat","dizzy","Tôi cảm thấy chóng mặt khi đứng dậy.","I feel dizzy when I stand up.","","😵","sắc+nặng"],
+["buồn nôn","buon non","nauseous","Tôi thấy buồn nôn sau khi uống thuốc.","I feel nauseous after taking the medicine.","","🤢","huyền+ngang"],
+["dị ứng","di ung","allergy","Tôi bị dị ứng với hải sản.","I'm allergic to seafood.","","🤧","nặng+sắc"],
+["gãy xương","gay xuong","broken bone / fracture","Anh ấy bị gãy xương tay khi chơi thể thao.","He broke his arm playing sports.","","🦴","ngã+ngang"],
+["chảy máu","chay mau","bleeding","Vết thương của tôi vẫn còn chảy máu.","My wound is still bleeding.","","🩸","hỏi+sắc"],
+["vết thương","vet thuong","wound","Vết thương đang lành lại.","The wound is healing.","","🩹","sắc+ngang"],
+["băng gạc","bang gac","bandage / gauze","Tôi cần băng gạc để băng vết thương.","I need a bandage to dress the wound.","","🩹","ngang+nặng"],
+["đơn thuốc","don thuoc","prescription","Bác sĩ đưa cho tôi một đơn thuốc.","The doctor gave me a prescription.","","📄","ngang+sắc"],
+["viên thuốc","vien thuoc","pill / tablet","Uống hai viên thuốc sau bữa ăn.","Take two pills after meals.","","💊","ngang+sắc"],
+["thuốc kháng sinh","thuoc khang sinh","antibiotics","Bác sĩ kê thuốc kháng sinh cho tôi.","The doctor prescribed antibiotics for me.","","💊","sắc+sắc+ngang"],
+["tiêm phòng","tiem phong","to vaccinate / get a shot","Trẻ em cần tiêm phòng đầy đủ.","Children need to be fully vaccinated.","","💉","ngang+huyền"],
+["khám bệnh","kham benh","to see a doctor","Tôi đi khám bệnh vào sáng mai.","I'm going to see a doctor tomorrow morning.","","🩺","sắc+nặng"],
+["khám sức khỏe","kham suc khoe","health check-up","Tôi đi khám sức khỏe định kỳ mỗi năm.","I go for a health check-up every year.","","🩺","sắc+sắc+hỏi"],
+["phòng khám","phong kham","clinic","Tôi đến phòng khám gần nhà để kiểm tra sức khỏe.","I went to the clinic near my house for a check-up.","","🏥","huyền+sắc"],
+["cấp cứu","cap cuu","emergency","Gọi xe cấp cứu ngay lập tức!","Call an ambulance immediately!","","🚨","sắc+sắc"],
+["gọi cấp cứu","goi cap cuu","to call for emergency help","Chúng tôi đã gọi cấp cứu ngay khi tai nạn xảy ra.","We called for emergency help as soon as the accident happened.","","📞","nặng+sắc+sắc"],
+["bảo hiểm y tế","bao hiem y te","health insurance","Tôi có bảo hiểm y tế nên chi phí thấp hơn.","I have health insurance so the cost is lower.","","🪪","hỏi+hỏi+ngang+sắc"],
+["nhập viện","nhap vien","to be admitted to hospital","Ông tôi phải nhập viện vì bệnh nặng.","My grandfather had to be admitted to the hospital due to a serious illness.","","🏥","nặng+nặng"],
+["xuất viện","xuat vien","to be discharged","Bà tôi vừa xuất viện hôm qua.","My grandmother was just discharged yesterday.","","🏥","sắc+nặng"],
+["hồi phục","hoi phuc","to recover","Anh ấy đang hồi phục rất tốt sau phẫu thuật.","He's recovering very well after the surgery.","","💪","huyền+nặng"],
+["đo huyết áp","do huyet ap","to measure blood pressure","Y tá đo huyết áp cho tôi trước khi khám.","The nurse measured my blood pressure before the check-up.","","🩺","ngang+sắc+sắc"],
+["mất ngủ","mat ngu","insomnia","Tôi bị mất ngủ vì căng thẳng công việc.","I have insomnia because of work stress.","","😴","sắc+hỏi"]
+]);
+
+/* Lessons 21-100 will be added progressively in the next steps */
 
 /* ================= STATE ================= */
 const state = {
@@ -982,6 +1150,11 @@ const state = {
   completedLessons: {},
   wordStats: {},
   mistakes: {},
+  srs: {},
+  dailyXp: {},
+  dailyGoal: 20,
+  streakFreezes: 1,
+  lastFreezeGain: null,
   notes: "",
   theme: "dark"
 };
@@ -991,6 +1164,19 @@ function loadState(){
     const raw = localStorage.getItem("vietfluent_state");
     if(raw) Object.assign(state, JSON.parse(raw));
   }catch(e){}
+  if(!state.srs) state.srs = {};
+  if(!state.dailyXp) state.dailyXp = {};
+  if(!state.dailyGoal) state.dailyGoal = 20;
+  if(state.streakFreezes==null) state.streakFreezes = 1;
+  // Migrate any legacy mistake entries (pre-SRS) into review cards so past progress isn't lost.
+  if(state.mistakes){
+    Object.keys(state.mistakes).forEach(key=>{
+      if(!state.srs[key]){
+        const m = state.mistakes[key];
+        state.srs[key] = {lesson:m.lesson, vi:m.vi, en:m.en, ex:m.ex, exEn:m.exEn||"", ease:2.5, interval:0, reps:0, due:Date.now(), lapses:m.count||1};
+      }
+    });
+  }
 }
 function saveState(){
   localStorage.setItem("vietfluent_state", JSON.stringify(state));
@@ -1002,6 +1188,7 @@ const BADGES = [
   {id:"twentyfive", ic:"🏅", name:"A1 Complete", cond:s=>Object.keys(s.completedLessons).length>=25},
   {id:"fifty", ic:"🥈", name:"A2 Complete", cond:s=>Object.keys(s.completedLessons).length>=50},
   {id:"seventyfive", ic:"🥇", name:"B1 Complete", cond:s=>Object.keys(s.completedLessons).length>=75},
+  {id:"srsmaster", ic:"🧠", name:"Memory Master", cond:s=>Object.values(s.srs||{}).filter(c=>c.interval>=21).length>=20},
   {id:"hundred", ic:"👑", name:"C1 Complete — Finished!", cond:s=>Object.keys(s.completedLessons).length>=100},
   {id:"streak7", ic:"⚡", name:"7-Day Streak", cond:s=>s.streak>=7},
   {id:"streak30", ic:"🌟", name:"30-Day Streak", cond:s=>s.streak>=30}
@@ -1096,17 +1283,85 @@ function speak(text, rate){
   }catch(e){}
 }
 function addXp(n){
-  state.xp += n; saveState(); render();
+  // Only refresh the sidebar (XP/streak/review counters), not the whole tab —
+  // a full render() here used to immediately regenerate a fresh quiz/dictation/
+  // tone question, wiping out the "correct!" feedback before it could be seen.
+  state.xp += n;
+  const today = new Date().toDateString();
+  state.dailyXp[today] = (state.dailyXp[today]||0) + n;
+  saveState(); renderSidebar();
 }
 function touchStreak(){
   const today = new Date().toDateString();
   if(state.lastStudyDate !== today){
-    const y = new Date(Date.now()-86400000).toDateString();
-    state.streak = (state.lastStudyDate === y) ? state.streak+1 : 1;
+    const oneDay = 86400000;
+    const y1 = new Date(Date.now()-oneDay).toDateString();
+    const y2 = new Date(Date.now()-2*oneDay).toDateString();
+    if(state.lastStudyDate === y1){
+      state.streak += 1;
+    } else if(state.lastStudyDate === y2 && state.streakFreezes>0){
+      state.streakFreezes -= 1;
+      state.streak += 1;
+      toast("🧊 Streak freeze used — your streak is safe!");
+    } else {
+      state.streak = 1;
+    }
     state.lastStudyDate = today;
+    if(state.streak>0 && state.streak%7===0 && state.lastFreezeGain!==state.streak){
+      state.streakFreezes = Math.min(2, state.streakFreezes+1);
+      state.lastFreezeGain = state.streak;
+      toast("🧊 +1 Streak Freeze earned for a "+state.streak+"-day streak!");
+    }
     saveState();
   }
 }
+
+/* ================= SRS (spaced repetition, SM-2 lite) ================= */
+function srsKey(lessonId, vi){ return lessonId+"::"+vi; }
+function applySm2(card, rating){
+  card.reps = card.reps||0; card.ease = card.ease||2.5; card.interval = card.interval||0; card.lapses = card.lapses||0;
+  if(rating==="again"){
+    card.lapses += 1; card.reps = 0; card.interval = 0; card.ease = Math.max(1.3, card.ease-0.2);
+  } else {
+    if(card.reps===0) card.interval = 1;
+    else if(card.reps===1) card.interval = 6;
+    else card.interval = Math.round(card.interval*card.ease);
+    if(rating==="hard"){ card.interval = Math.max(1, Math.round(card.interval*0.8)); card.ease = Math.max(1.3, card.ease-0.15); }
+    else if(rating==="easy"){ card.interval = Math.max(1, Math.round(card.interval*1.3)); card.ease = card.ease+0.15; }
+    card.reps += 1;
+  }
+  card.due = Date.now() + card.interval*86400000;
+  card.lastReview = Date.now();
+}
+function srsRate(lessonId, word, rating){
+  const key = srsKey(lessonId, word.vi);
+  let card = state.srs[key];
+  if(!card){
+    card = {lesson:lessonId, vi:word.vi, en:word.en, ex:word.ex, exEn:word.exEn||"", ease:2.5, interval:0, reps:0, due:Date.now(), lapses:0};
+    state.srs[key] = card;
+  }
+  applySm2(card, rating);
+  saveState();
+}
+function srsEnrollLesson(lessonId){
+  const words = lessonWords[lessonId]||[];
+  words.forEach(w=>{
+    const key = srsKey(lessonId, w.vi);
+    if(!state.srs[key]){
+      state.srs[key] = {lesson:lessonId, vi:w.vi, en:w.en, ex:w.ex, exEn:w.exEn||"", ease:2.5, interval:0, reps:0, due:Date.now(), lapses:0};
+    }
+  });
+}
+function srsDueCount(){
+  const now = Date.now();
+  return Object.values(state.srs).filter(c=>c.due<=now).length;
+}
+function jumpToReview(){
+  state.currentTab = "mistakes";
+  document.getElementById("sidebar").classList.remove("open");
+  render();
+}
+
 function checkBadges(prevEarned){
   const nowEarned = BADGES.filter(b=>b.cond(state)).map(b=>b.id);
   const newOnes = nowEarned.filter(id=>!prevEarned.includes(id));
@@ -1133,6 +1388,19 @@ function renderSidebar(){
   document.getElementById("streakLabel").innerHTML = state.streak>0 ? '<span class="flame">🔥</span> Streak' : "Streak";
 
   document.getElementById("statDone").textContent = Object.keys(state.completedLessons).length + "/100";
+
+  const dueCount = srsDueCount();
+  const reviewEl = document.getElementById("statReview");
+  reviewEl.textContent = dueCount;
+  document.getElementById("statReviewCard").style.borderColor = dueCount>0 ? "var(--warn)" : "var(--line)";
+  reviewEl.style.color = dueCount>0 ? "var(--warn)" : "var(--ink)";
+
+  const today = new Date().toDateString();
+  const todayXp = state.dailyXp[today]||0;
+  const goalPct = Math.min(100, Math.round(todayXp/state.dailyGoal*100));
+  document.getElementById("dailyGoalBarInner").style.width = goalPct+"%";
+  document.getElementById("dailyGoalText").textContent = `${todayXp} / ${state.dailyGoal} XP today`;
+  document.getElementById("freezeLabel").textContent = state.streakFreezes>0 ? "🧊×"+state.streakFreezes : "";
 
   const lt = document.getElementById("levelTabs");
   lt.innerHTML = "";
@@ -1183,8 +1451,9 @@ const TABS = [
   {id:"dictation", label:"✍️ Dictation"},
   {id:"quiz", label:"✅ Quiz"},
   {id:"match", label:"🔗 Matching"},
+  {id:"sentence", label:"🧩 Sentence Builder"},
   {id:"flash", label:"🎴 Flashcards"},
-  {id:"mistakes", label:"🔁 Review Mistakes"},
+  {id:"mistakes", label:"🔁 Review"},
   {id:"progress", label:"📊 Progress"}
 ];
 
@@ -1223,7 +1492,7 @@ function tabToday(){
       <li>Study <b>Vocabulary</b> (${words.length} words) and listen to each word's pronunciation.</li>
       <li>Practice <b>Tones</b> to get all 6 Vietnamese tones right.</li>
       <li>Do the <b>Listening</b> and <b>Dictation</b> exercises.</li>
-      <li>Test yourself with <b>Quiz</b> and <b>Matching</b>.</li>
+      <li>Test yourself with <b>Quiz</b>, <b>Matching</b>, and <b>Sentence Builder</b>.</li>
       <li>Do a quick review with <b>Flashcards</b> before finishing the lesson.</li>
     </ol>
     <div class="row" style="margin-top:14px">
@@ -1424,6 +1693,7 @@ function markListenUnderstood(ok){
   const w = words[listenState.order[listenState.idx]];
   listenState.understood.add(listenState.order[listenState.idx]);
   if(!ok) markMistake(w);
+  else srsRate(state.currentLesson, w, "good");
   if(listenState.idx < words.length-1){
     navListen(1);
   } else {
@@ -1522,6 +1792,7 @@ function checkDictation(){
   if(v === normalizeVi(currentDict.vi)){
     res.innerHTML = '<div class="row" style="padding:10px 12px;border-radius:10px;border:1px solid var(--brand);background:rgba(34,197,94,.15);color:var(--brand);font-weight:700;font-size:14px">✅ Correct! +3 XP</div>';
     addXp(3);
+    srsRate(state.currentLesson, currentDict, "good");
   } else {
     res.innerHTML = `<div class="row" style="padding:10px 12px;border-radius:10px;border:1px solid var(--bad);background:rgba(244,63,94,.15);color:var(--bad);font-weight:700;font-size:14px">❌ Not quite. You typed "${inputEl.value||"(empty)"}" — correct answer: <span style="color:var(--ink)">${currentDict.vi}</span></div>`;
     markMistake(currentDict);
@@ -1573,7 +1844,7 @@ function newQuiz(){
 function checkQuiz(btn, en){
   const opts = btn.parentElement.querySelectorAll(".qOption");
   opts.forEach(o=>o.disabled=true);
-  if(en===currentQuiz.en){ btn.classList.add("correct"); addXp(2); }
+  if(en===currentQuiz.en){ btn.classList.add("correct"); addXp(2); srsRate(state.currentLesson, currentQuiz, "good"); }
   else{
     btn.classList.add("wrong");
     opts.forEach(o=>{if(o.textContent===currentQuiz.en)o.classList.add("correct")});
@@ -1656,6 +1927,7 @@ function selectMatch(kind, idx){
     if(matchState.selVi===matchState.selEn){
       matchState.matched.add(matchState.selVi);
       addXp(2);
+      srsRate(state.currentLesson, matchState.pick[matchState.selVi], "good");
       matchState.selVi=null; matchState.selEn=null;
       renderMatch();
     } else {
@@ -1671,6 +1943,93 @@ function selectMatch(kind, idx){
   } else {
     renderMatch();
   }
+}
+
+/* ================= SENTENCE BUILDER ================= */
+let sentenceState = null;
+function tabSentence(){
+  return `<div class="card">
+    <h3>Sentence Builder</h3>
+    <p style="color:var(--sub);font-size:13px">Tap the tiles in order to rebuild the Vietnamese sentence, then check your answer.</p>
+    <div id="sentenceArea"></div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn sm ghost" onclick="newSentence()">🔄 New sentence</button>
+    </div>
+  </div>`;
+}
+function renderSentenceArea(){
+  const area = document.getElementById("sentenceArea");
+  if(!area) return;
+  if(!sentenceState){ area.innerHTML = '<div class="empty">No sentences long enough for this exercise in this lesson yet.</div>'; return; }
+  const {tokens, bank, answer, checked, correct, word} = sentenceState;
+  const answerRow = answer.length
+    ? answer.map((idx,pos)=>`<button class="matchCell" style="display:inline-block;width:auto;padding:8px 12px;margin:4px" onclick="sentenceUndo(${pos})">${tokens[idx]}</button>`).join("")
+    : '<span style="color:var(--sub);font-size:13px">Tap tiles below to build the sentence...</span>';
+  const bankRow = bank.map(idx=>`<button class="matchCell" style="display:inline-block;width:auto;padding:8px 12px;margin:4px" onclick="sentencePick(${idx})">${tokens[idx]}</button>`).join("");
+  area.innerHTML = `
+    <div style="min-height:56px;padding:10px;border:1px dashed var(--line);border-radius:10px;margin-bottom:10px">${answerRow}</div>
+    <div style="margin-bottom:12px">${bankRow}</div>
+    ${checked ? `
+    <div class="row" style="padding:10px 12px;border-radius:10px;border:1px solid ${correct?"var(--brand)":"var(--bad)"};background:${correct?"rgba(34,197,94,.15)":"rgba(244,63,94,.15)"};font-weight:700;font-size:14px;margin-bottom:10px">
+      ${correct ? "✅ Correct! +3 XP" : "❌ Not quite. Correct order: "+tokens.join(" ")}
+    </div>
+    <button class="btn sm" onclick="newSentence()">Next sentence →</button>
+    ` : `
+    <div class="row">
+      <button class="btn" onclick="sentenceCheck()" ${bank.length? "disabled":""}>Check</button>
+      <button class="btn ghost sm" onclick="sentenceReset()">↺ Reset</button>
+      <button class="btn ghost sm" onclick="speak('${word.vi.replace(/'/g,"\\'")}')">🔊 Hear the word</button>
+    </div>
+    `}
+  `;
+}
+function newSentence(){
+  const words = lessonWords[state.currentLesson]||[];
+  const candidates = words.filter(w=>w.ex && w.ex.trim().split(/\s+/).length>=3);
+  if(!candidates.length){ sentenceState=null; renderSentenceArea(); return; }
+  let w = candidates[Math.floor(Math.random()*candidates.length)];
+  if(candidates.length>1 && sentenceState && sentenceState.word && w.vi===sentenceState.word.vi){
+    w = candidates[(candidates.indexOf(w)+1)%candidates.length];
+  }
+  const tokens = w.ex.trim().split(/\s+/);
+  const order = tokens.map((t,i)=>i);
+  let shuffled = [...order].sort(()=>Math.random()-0.5);
+  if(tokens.length>1 && shuffled.every((v,i)=>v===order[i])){
+    [shuffled[0],shuffled[1]] = [shuffled[1],shuffled[0]];
+  }
+  sentenceState = {lessonId: state.currentLesson, word:w, tokens, bank:shuffled, answer:[], checked:false, correct:false};
+  renderSentenceArea();
+}
+function sentencePick(tokenIdx){
+  if(!sentenceState || sentenceState.checked) return;
+  const pos = sentenceState.bank.indexOf(tokenIdx);
+  if(pos===-1) return;
+  sentenceState.bank.splice(pos,1);
+  sentenceState.answer.push(tokenIdx);
+  renderSentenceArea();
+}
+function sentenceUndo(pos){
+  if(!sentenceState || sentenceState.checked) return;
+  const tokenIdx = sentenceState.answer[pos];
+  sentenceState.answer.splice(pos,1);
+  sentenceState.bank.push(tokenIdx);
+  renderSentenceArea();
+}
+function sentenceCheck(){
+  if(!sentenceState || sentenceState.bank.length>0) return;
+  const isCorrect = sentenceState.answer.every((idx,i)=>idx===i);
+  sentenceState.checked = true;
+  sentenceState.correct = isCorrect;
+  if(isCorrect){ addXp(3); srsRate(sentenceState.lessonId, sentenceState.word, "good"); }
+  else { markMistake(sentenceState.word); }
+  renderSentenceArea();
+}
+function sentenceReset(){
+  if(!sentenceState) return;
+  sentenceState.bank = sentenceState.bank.concat(sentenceState.answer).sort(()=>Math.random()-0.5);
+  sentenceState.answer = [];
+  sentenceState.checked = false;
+  renderSentenceArea();
 }
 
 function tabFlash(){
@@ -1709,25 +2068,105 @@ function fillFlash(){
 }
 
 function markMistake(word){
-  const key = state.currentLesson+"-"+word.vi;
-  state.mistakes[key] = {lesson:state.currentLesson, vi:word.vi, en:word.en, ex:word.ex, count:(state.mistakes[key]?.count||0)+1};
+  srsRate(state.currentLesson, word, "again");
+}
+let _reviewRevealedKey = null;
+function revealReviewCard(){
+  const now = Date.now();
+  const due = Object.entries(state.srs).filter(([k,c])=>c.due<=now).sort((a,b)=>a[1].due-b[1].due);
+  if(due.length) _reviewRevealedKey = due[0][0];
+  const el = document.getElementById("tabContent");
+  if(el) el.innerHTML = tabMistakes();
+}
+function rateReviewCard(rating){
+  const now = Date.now();
+  const due = Object.entries(state.srs).filter(([k,c])=>c.due<=now).sort((a,b)=>a[1].due-b[1].due);
+  if(!due.length) return;
+  const [,card] = due[0];
+  applySm2(card, rating);
+  _reviewRevealedKey = null;
+  const xpMap = {again:0, hard:1, good:2, easy:3};
+  const gained = xpMap[rating];
+  if(gained>0){
+    state.xp += gained;
+    const today = new Date().toDateString();
+    state.dailyXp[today] = (state.dailyXp[today]||0) + gained;
+  }
   saveState();
+  render();
 }
 function tabMistakes(){
-  const list = Object.values(state.mistakes);
-  if(!list.length) return '<div class="card empty">🎉 No mistakes yet — keep practicing!</div>';
-  return `<div class="card">
-    <h3>Review ${list.length} tricky words</h3>
-    ${list.map(m=>`<div class="vocabItem"><div class="emo">🔁</div><div class="body">
-      <div class="vi">${m.vi} <button class="playBtn" style="width:24px;height:24px;font-size:11px" onclick="speak('${m.vi.replace(/'/g,"\\'")}')">🔊</button></div>
-      <div class="en">${m.en} · Lesson ${m.lesson} · missed ${m.count}×</div>
-      <div class="ex">${m.ex}</div>
-    </div></div>`).join("")}
-    <button class="btn sm ghost" onclick="clearMistakes()">🗑️ Clear review list</button>
-  </div>`;
+  const now = Date.now();
+  const entries = Object.entries(state.srs);
+  if(!entries.length) return '<div class="card empty">📭 No words tracked yet — practice Quiz, Dictation, or Listening (or complete a lesson) to start building your spaced-repetition review queue.</div>';
+  const due = entries.filter(([k,c])=>c.due<=now).sort((a,b)=>a[1].due-b[1].due);
+  const upcoming = entries.filter(([k,c])=>c.due>now).sort((a,b)=>a[1].due-b[1].due).slice(0,6).map(([k,c])=>c);
+  let html = `<div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:8px">
+      <h3 style="margin:0">🔁 Spaced Review</h3>
+      <span class="pill">${due.length} due · ${entries.length} tracked</span>
+    </div>`;
+  if(!due.length){
+    html += `<div class="empty" style="padding:24px 10px">🎉 All caught up!${upcoming.length? " Next review: "+new Date(upcoming[0].due).toLocaleDateString():" Practice more to add words to your queue."}</div>`;
+  } else {
+    const [key, card] = due[0];
+    const revealed = _reviewRevealedKey === key;
+    html += `<p style="color:var(--sub);font-size:13px">Recall the meaning in your head, then reveal to check yourself.</p>
+    <div style="text-align:center;padding:24px 10px;background:var(--panel2);border-radius:14px;margin:10px 0">
+      <div style="font-size:26px;font-weight:800">${card.vi} <button class="playBtn" onclick="speak('${card.vi.replace(/'/g,"\\'")}')">🔊</button></div>
+      ${revealed ? `<div style="margin-top:12px">
+        <div style="font-size:16px;color:var(--brand);font-weight:700">${card.en}</div>
+        ${card.ex?`<div class="ex" style="margin-top:8px;text-align:left;display:inline-block">${card.ex}</div>`:""}
+      </div>` : ""}
+    </div>
+    ${!revealed ? `<button class="btn" style="width:100%" onclick="revealReviewCard()">👁️ Reveal answer</button>` : `
+    <div class="row" style="gap:8px;flex-wrap:nowrap">
+      <button class="btn ghost sm" style="flex:1" onclick="rateReviewCard('again')">❌ Again</button>
+      <button class="btn ghost sm" style="flex:1" onclick="rateReviewCard('hard')">😐 Hard</button>
+      <button class="btn sm" style="flex:1" onclick="rateReviewCard('good')">✅ Good</button>
+      <button class="btn sm" style="flex:1;background:var(--accent)" onclick="rateReviewCard('easy')">🚀 Easy</button>
+    </div>`}`;
+  }
+  if(upcoming.length){
+    html += `<div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--line)">
+      <p style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Upcoming reviews</p>
+      ${upcoming.map(c=>`<div style="display:flex;justify-content:space-between;font-size:12.5px;color:var(--sub);padding:4px 0"><span>${c.vi} — ${c.en}</span><span>${new Date(c.due).toLocaleDateString()}</span></div>`).join("")}
+    </div>`;
+  }
+  html += `<div style="margin-top:14px"><button class="btn sm ghost" onclick="clearMistakes()">🗑️ Reset review queue</button></div></div>`;
+  return html;
 }
-function clearMistakes(){ state.mistakes={}; saveState(); render(); }
+function clearMistakes(){ state.srs={}; state.mistakes={}; _reviewRevealedKey=null; saveState(); render(); }
 
+function buildHeatmapHtml(){
+  const days = 91;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const start = new Date(today.getTime()-(days-1)*86400000);
+  const startDow = start.getDay();
+  const cells = [];
+  for(let i=0;i<startDow;i++) cells.push(null);
+  for(let i=0;i<days;i++) cells.push(new Date(start.getTime()+i*86400000));
+  const goal = state.dailyGoal||20;
+  return cells.map(d=>{
+    if(!d) return '<div class="heatCell" style="visibility:hidden"></div>';
+    const key = d.toDateString();
+    const xp = state.dailyXp[key]||0;
+    let level = 0;
+    if(xp>0){
+      if(xp<goal*0.5) level=1;
+      else if(xp<goal) level=2;
+      else if(xp<goal*2) level=3;
+      else level=4;
+    }
+    const bg = level===0 ? "var(--panel2)" : "var(--brand)";
+    const op = [1,0.35,0.55,0.78,1][level];
+    return `<div class="heatCell" title="${d.toLocaleDateString()}: ${xp} XP" style="background:${bg};opacity:${op}"></div>`;
+  }).join("");
+}
+function setDailyGoal(v){
+  state.dailyGoal = parseInt(v,10)||20;
+  saveState(); render();
+}
 function tabProgress(){
   const doneCount = Object.keys(state.completedLessons).length;
   return `<div class="grid2">
@@ -1747,6 +2186,20 @@ function tabProgress(){
       <div class="badgeGrid">
         ${BADGES.map(b=>`<div class="badge ${b.cond(state)?'earned':''}"><div class="ic">${b.ic}</div><b>${b.name}</b></div>`).join("")}
       </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;margin-bottom:10px">
+      <h3 style="margin:0">Study streak</h3>
+      <span class="pill">${state.streak} day${state.streak===1?"":"s"} ${state.streak>0?"🔥":""} · 🧊×${state.streakFreezes}</span>
+    </div>
+    <div style="overflow-x:auto">${buildHeatmapHtml()}</div>
+    <p style="color:var(--sub);font-size:11px;margin:8px 0 0">Last ~13 weeks · darker green = more XP that day. Streak freezes protect your streak if you miss a day, and you earn one every 7-day streak (max 2).</p>
+    <div class="row" style="margin-top:12px;font-size:12.5px;color:var(--sub)">
+      <span>Daily goal:</span>
+      <select id="dailyGoalSelect" onchange="setDailyGoal(this.value)" style="padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--ink)">
+        ${[10,20,30,50].map(v=>`<option value="${v}" ${state.dailyGoal===v?"selected":""}>${v} XP/day</option>`).join("")}
+      </select>
     </div>
   </div>
   <div class="card">
@@ -1773,7 +2226,7 @@ function importData(file){
 /* ================= MAIN RENDER ================= */
 function renderTabContent(){
   const c = document.getElementById("tabContent");
-  const fns = {today:tabToday, vocab:tabVocab, tones:tabTones, listen:tabListen, dictation:tabDictation, quiz:tabQuiz, match:tabMatch, flash:tabFlash, mistakes:tabMistakes, progress:tabProgress};
+  const fns = {today:tabToday, vocab:tabVocab, tones:tabTones, listen:tabListen, dictation:tabDictation, quiz:tabQuiz, match:tabMatch, sentence:tabSentence, flash:tabFlash, mistakes:tabMistakes, progress:tabProgress};
   const fn = fns[state.currentTab] || tabToday;
   c.innerHTML = fn();
   if(state.currentTab==="today"){
@@ -1785,6 +2238,10 @@ function renderTabContent(){
     if(!matchState || matchState.lessonId!==state.currentLesson) newMatch(0);
     else renderMatch();
   }
+  if(state.currentTab==="sentence") {
+    if(!sentenceState || sentenceState.lessonId!==state.currentLesson) newSentence();
+    else renderSentenceArea();
+  }
   if(state.currentTab==="flash") fillFlash();
   if(state.currentTab==="dictation") newDictation();
   if(state.currentTab==="tones") newMinimalPair();
@@ -1792,6 +2249,7 @@ function renderTabContent(){
 function completeLesson(){
   const prevBadges = BADGES.filter(b=>b.cond(state)).map(b=>b.id);
   state.completedLessons[state.currentLesson] = true;
+  srsEnrollLesson(state.currentLesson);
   touchStreak();
   addXp(50);
   checkBadges(prevBadges);
