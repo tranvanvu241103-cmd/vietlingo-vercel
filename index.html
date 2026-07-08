@@ -129,7 +129,7 @@ button{font-family:inherit}
 .matchGrid{display:flex;gap:16px;align-items:flex-start}
 .matchCol{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
 .matchColLabel{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
-.matchCell{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);cursor:pointer;text-align:center;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:border-color .15s,background .15s}
+.matchCell{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);cursor:pointer;text-align:center;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:border-color .15s,background .15s}
 .matchCell.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 .matchCell.ok{border-color:var(--brand);background:rgba(34,197,94,.18);color:var(--brand);font-weight:700;cursor:default}
 .matchCell.wrong{border-color:var(--bad);background:rgba(244,63,94,.18);animation:shakeCell .35s}
@@ -1967,6 +1967,7 @@ function renderSentenceArea(){
     : '<span style="color:var(--sub);font-size:13px">Tap tiles below to build the sentence...</span>';
   const bankRow = bank.map(idx=>`<button class="matchCell" style="display:inline-block;width:auto;padding:8px 12px;margin:4px" onclick="sentencePick(${idx})">${tokens[idx]}</button>`).join("");
   area.innerHTML = `
+    <div class="pill" style="display:inline-block;margin-bottom:10px">💡 Means: "${word.en}"</div>
     <div style="min-height:56px;padding:10px;border:1px dashed var(--line);border-radius:10px;margin-bottom:10px">${answerRow}</div>
     <div style="margin-bottom:12px">${bankRow}</div>
     ${checked ? `
@@ -1986,7 +1987,12 @@ function renderSentenceArea(){
 }
 function newSentence(){
   const words = lessonWords[state.currentLesson]||[];
-  const candidates = words.filter(w=>w.ex && w.ex.trim().split(/\s+/).length>=3);
+  // Prefer shorter, simpler sentences (3-6 words) — only fall back to longer
+  // ones if a lesson has nothing short, so the exercise doesn't suddenly jump
+  // from single vocab words to long, hard-to-parse sentences.
+  const withLen = words.filter(w=>w.ex).map(w=>({w, len:w.ex.trim().split(/\s+/).length})).filter(x=>x.len>=3);
+  const easy = withLen.filter(x=>x.len<=6).map(x=>x.w);
+  const candidates = easy.length ? easy : withLen.map(x=>x.w);
   if(!candidates.length){ sentenceState=null; renderSentenceArea(); return; }
   let w = candidates[Math.floor(Math.random()*candidates.length)];
   if(candidates.length>1 && sentenceState && sentenceState.word && w.vi===sentenceState.word.vi){
